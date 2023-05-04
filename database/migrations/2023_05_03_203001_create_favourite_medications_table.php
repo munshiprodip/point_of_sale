@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('favourite_medications', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('medicine')->nullable();
+            $table->string('dose')->nullable();
+            $table->string('instruction')->nullable();
+            $table->string('duration')->nullable();
+            $table->string('note')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();  
         });
     }
 

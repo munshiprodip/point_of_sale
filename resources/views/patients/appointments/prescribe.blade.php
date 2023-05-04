@@ -711,6 +711,38 @@
     </div>
     <!-- End Favourite medicine Modal -->
 
+    <!-- Previous medication Modal -->
+    <div class="modal fade" id="previous_medication_modal" data-bs-backdrop="static" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h5 class="modal-title" id="previous_medication_modal_title">Previous</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-0">
+            <table class="dt-responsive table" id="previous_medication_table" >
+              <thead>
+                <tr>
+                  <th>MEDICINE</th>
+                  <th>DOSE</th>
+                  <th>INSTRUCTION</th>
+                  <th>DURATION</th>
+                  <th>NOTE</th>
+                  <th>OPTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Previous medication Modal -->
+
     <!--End All Modals -->
 
 
@@ -718,7 +750,7 @@
     <div class="tab-content py-0 rounded">
       <!-- Page 1 tab -->
       <div class="tab-pane fade active show" id="chief_complaints_and_others_tab" role="tabpanel">
-        <div class="bs-stepper vertical wizard-vertical-icons-example">
+        <div class="bs-stepper vertical vertical-stepper-of-clinical-components">
           <!-- Page 1 steppers -->
           <div class="bs-stepper-header">
             <div class="step active" data-target="#chief_complaint_step">
@@ -1330,7 +1362,7 @@
       <!-- Page 2 tab -->
       <div class="tab-pane fade" id="medication_and_others_tab" role="tabpanel">
         <div class="row py-3">
-          <div class="col-md-8 border rounded p-3">
+          <div class="col-md-9 border rounded p-3">
             <div class="content-header mb-4 d-flex justify-content-between">
               <h6 class="mb-0">Medications</h6>
               <div>
@@ -1346,9 +1378,8 @@
               </div>
             </div>
 
-            <div class="row g-3">
+            <div class="row">
               
-              <div class="row">
                 <form class="row" method="POST" id="medication_form">
                   <div class="col-md-3 mb-1 p-0">
                       <select class="select3 form-select" id="medicine" name="medicine">
@@ -1390,8 +1421,9 @@
                           placeholder="Note" />
                   </div>
 
-                  <div class="col-md-1 mb-1 p-0">
-                      <button type="submit" class="btn btn-primary w-100">+</button>
+                  <div class="col-md-1 p-0">
+                      <button  class="btn btn-sm btn-primary px-2" onclick="saveMedication(false); return false;"><i class="ti ti-plus"></i></button>
+                      <button  class="btn btn-sm btn-primary px-2" onclick="saveMedication(true); return false;"><i class="ti ti-heart"></i></button>
                   </div>
                 </form>
 
@@ -1419,12 +1451,11 @@
                 <div class="col-md-12 d-flex justify-content-end">
                     <button class="btn btn-info" onclick="saveAsTemplate()">Save as template</button>
                 </div>
-              </div>
 
             </div>
 
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="row">
               <form class="col-md-12" onsubmit="saveAppointmentData(); return false;">
                 <div class="content-header mb-3 d-flex justify-content-between">
@@ -1479,50 +1510,55 @@
 
 
 @section('script')
-    <script>
-      /*
-      * Bootstrap steper button initialization 
-      * Clinical components select2 option initialization 
-      * Add selected component to components textarea field
-      * Save Patients update values - Patient's Info form submit
-      * Save appointments update values - from onsubmit action of  all appointments releted forms
-      * 
-      * 
-      * 
-      * 
-      * 
-      * 
-      * 
-      
-      */
-        $(function(){
-            e = document.querySelector(".wizard-vertical-icons-example");
-            if (null !== e) {
-              (t = [].slice.call(e.querySelectorAll(".btn-next"))),
-                  (l = [].slice.call(e.querySelectorAll(".btn-prev"))),
-                  (r = e.querySelector(".btn-submit"));
-              const n = new Stepper(e, { linear: !1 });
-              t &&
-                  t.forEach((e) => {
-                      e.addEventListener("click", (e) => {
-                          n.next();
-                      });
-                  }),
-                  l &&
-                      l.forEach((e) => {
-                          e.addEventListener("click", (e) => {
-                              n.previous();
-                          });
-                      }),
-                  r &&
-                      r.addEventListener("click", (e) => {
-                          alert("Submitted..!!");
-                      });
-            }
-
-        });
+  <script>
+    /*
+    * Bootstrap steper button initialization 
+    * Clinical components select2 option initialization 
+    * Add selected component to components textarea field
+    * Save Patients update values - Patient's Info form submit
+    * Save appointments update values - from onsubmit action of  all appointments releted forms
+    * Open favourite components modal and load data in DataTable
+    * Open previous clinical components modal and load data in DataTable
+    * Open Media gallery modal and load media images
+    * Upload new image to media library
+    * Add media library content to appointment 
+    * Show patient's Medication in datatable
+    * Add patient's Medication 
+    * Delete patient's Medication 
+    * Save patient's Medications as a new template (Form modal open and submit)
+    * Open templated medicine modal and load data in DataTable
+    * Add templated medicine to appointmented patient
+    * Open favourite medicine modal and load data in DataTable
+    * Open previous medicine modal and load data in DataTable
+    * 
+    * 
     
-    // Clinical components select2 option initialization and handle selected value 
+    */
+   
+    // Bootstrap steper button initialization 
+    $(function(){
+      let e = document.querySelector(".vertical-stepper-of-clinical-components");
+      if (null !== e) {
+        ( t = [].slice.call(e.querySelectorAll(".btn-next"))),
+        ( l = [].slice.call(e.querySelectorAll(".btn-prev")));
+        const n = new Stepper(e, { linear: !1 });
+        t &&
+            t.forEach((e) => {
+              e.addEventListener("click", (e) => {
+                n.next();
+              });
+            }),
+            l &&
+                l.forEach((e) => {
+                  e.addEventListener("click", (e) => {
+                    n.previous();
+                  });
+                });
+      }
+
+    });
+    
+    // Clinical components select2 option initialization
     $(".component_select2").each(function () {
       let e = $(this);
       let component_type = e.attr('name').split('-')[0];
@@ -1557,7 +1593,7 @@
         e.val("").trigger('change');
       });
     }); 
-      
+    // Add selected component to components textarea field
     function addSelectedComponentToTextArea(textarea_name, textarea_value) {
       let text_area = $(`textarea[name="${textarea_name}"]`);
       let current_value = text_area.val();
@@ -1613,8 +1649,6 @@
     }
     // End function
 
-    
-    
     // Open favourite components modal and load data in DataTable
     let favourite_components_table;
     function openFavouriteComponentsModal(component_type) {
@@ -1693,7 +1727,7 @@
     };
 
     
-    // Media gallery
+    // Open Media gallery modal and load media images
     function openMediaGalleryModal() {
       let media_url = `{{ route('media_libraries.all_media') }}`;
       $.ajax({
@@ -1729,7 +1763,7 @@
         }
       });
     };
-    //upload new image to media library
+    // Upload new image to media library
     $('#new_media').on('change', function(e) {
         $('#new_media_form').submit();
     });
@@ -1770,6 +1804,7 @@
             }
         });
     });
+    // Add media library content to appointment 
     function addMediaToPrescription(path){
       $.ajax({
         url: "{{ route('appointments.update', $appointment->id) }}",
@@ -1789,28 +1824,7 @@
       });
     }
 
-
-    // Medication
-    $('#medication_form').on('submit', function(e){
-      e.preventDefault();
-      let form_data = $(e.target).serialize();
-      $.ajax({
-        type: 'POST',
-        url: "{{ route('medications.store', $appointment->id) }}",
-        data: form_data,
-        dataType: "json",
-        success: (data) => {
-            if (data.success) {
-              medication_table.ajax.reload();
-            }
-            toastr[data.type](data.message, data.title);
-            $('#medication_form')[0].reset();
-        },
-        error: function(response) {
-          toastr['warning']('Oops, something went wrong. Please try again.', 'Warning!');
-        }
-      });
-    })
+    // Show patient's Medication in datatable
     let medication_table = $('#medication_table').DataTable({
       ajax: `{{ route('medications.get_medications', $appointment->id ) }}`,
       processing:true,
@@ -1832,6 +1846,32 @@
       pageLength: 100,
       responsive: false,
     });
+    // Add patient's Medication & Favourite Medication
+    function saveMedication(favourite) {
+      let formData = $('#medication_form').serialize();
+      let uri = "{{ route('medications.store', $appointment->id) }}";
+      if(favourite){
+        uri = "{{ route('medications.add_to_favourite') }}";
+      }
+      $.ajax({
+        type: 'POST',
+        url: uri,
+        data: formData,
+        dataType: "json",
+        success: (data) => {
+            if (data.success) {
+              medication_table.ajax.reload();
+              $('#medication_form')[0].reset();
+              $( ".select3" ).val('').trigger('change');
+            }
+            toastr[data.type](data.message, data.title);
+        },
+        error: function(response) {
+          toastr['warning']('Oops, something went wrong. Please try again.', 'Warning!');
+        }
+      });
+    }
+    // Delete patient's Medication 
     function deleteMedication(id) {
       $.ajax({
         url: `{{route('medications.destroy', ':id')}}`.replace(':id', id),
@@ -1849,7 +1889,7 @@
       });
     }
 
-    // Save as Medicine template
+    // Save patient's Medications as a new template (Form modal open and submit)
     function saveAsTemplate(appointment_id)
     {
       $('#medicine_template_form')[0].reset();
@@ -1910,6 +1950,7 @@
         $('#templated_medicine_modal').modal('show');
       }
     };
+    // Add templated medicine to appointmented patient
     function addTemplatedMedicineToAppointment(medicine_template_id){
       let form_data = {medicine_template_id: medicine_template_id, appointment_id: {{ $appointment->id }} };
       $.ajax({
@@ -1928,11 +1969,29 @@
       });
     }
 
+    // Add templated medicine to appointmented patient
+    function addFavouriteMedicineToAppointment(favourite_medication_id){
+      let form_data = {favourite_medication_id: favourite_medication_id, appointment_id: {{ $appointment->id }} };
+      $.ajax({
+        type: 'POST',
+        url: "{{ route('favourite_medications.add_to_appointment') }}",
+        data: form_data,
+        dataType: "json",
+        success: (data) => {
+          toastr[data.type](data.message, data.title);
+          $('#medicine_template_form_modal').modal('hide');
+          medication_table.ajax.reload();
+        },
+        error: function(response) {
+          toastr['warning']('Oops, something went wrong. Please try again.', 'Warning!');
+        }
+      });
+    }
+    
     // Open favourite medicine modal and load data in DataTable
     let favourite_medicine_table;
     function openFavouriteMedicineModal() {
-      let request_url = `{{ route('medicine_template.index') }}`;
-      //$('#equictntbl').DataTable().clear().destroy();
+      let request_url = `{{ route('medications.get_favourite') }}`;
       if(favourite_medicine_table){
         favourite_medicine_table.ajax.url(request_url).load();
       }else{
@@ -1962,15 +2021,71 @@
                   'targets'       : [5] 
               },
           ],
-          pageLength: 5,
+          pageLength: 10,
           responsive: true,
         });
-        $('#favourite_medicine_modal').modal('show');
       }
+      $('#favourite_medicine_modal').modal('show');
     };
 
-    function openPreviousMedicineModal(){}
+    // Open previous medicine modal and load data in DataTable
+    let previous_medication_table;
+    function openPreviousMedicineModal() {
+      let request_url = `{{ route('medications.get_previous_medications', $appointment->id ) }}`;
+      if(previous_medication_table){
+        previous_medication_table.ajax.url(request_url).load();
+      }else{
+        previous_medication_table = $('#previous_medication_table').DataTable({
+          ajax: request_url,
+          processing:true,
+          serverSide:true,
+          columns: [
+            { data: 'medicine' },
+            { data: 'dose' },
+            { data: 'instruction' },
+            { data: 'duration' },
+            { data: 'note' },
+            { data: (row) => {
+                return (`
+                  <div class="dropdown">
+                    <a class="btn btn-primary btn-sm" href="javascript:void(0);" onclick='addPreviousMedicineToAppointment("${row.id}")'><i class="ti ti-plus me-1"></i> Add </a>
+                  </div>
+                `);
+              } 
+            },
+          ],
 
-
+          columnDefs: [
+              { 
+                  'searchable'    : false, 
+                  'targets'       : [5] 
+              },
+          ],
+          pageLength: 10,
+          responsive: true,
+        });
+      }
+      $('#previous_medication_modal').modal('show');
+    };
+  
+    
+    // Add templated medicine to appointmented patient
+    function addPreviousMedicineToAppointment(favourite_medication_id){
+      let form_data = {favourite_medication_id: favourite_medication_id, appointment_id: {{ $appointment->id }} };
+      $.ajax({
+        type: 'POST',
+        url: "{{ route('favourite_medications.add_to_appointment') }}",
+        data: form_data,
+        dataType: "json",
+        success: (data) => {
+          toastr[data.type](data.message, data.title);
+          $('#medicine_template_form_modal').modal('hide');
+          medication_table.ajax.reload();
+        },
+        error: function(response) {
+          toastr['warning']('Oops, something went wrong. Please try again.', 'Warning!');
+        }
+      });
+    }
   </script>
 @endsection
