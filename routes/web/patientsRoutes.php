@@ -26,6 +26,7 @@ Route::post('/medications/favourite/add_to_appointment', 'MedicationController@a
 Route::get('/medications/favourite/get', 'MedicationController@getFavouriteMedication')->name('medications.get_favourite');
 Route::get('/medications/{appointment_id}/get_medications', 'MedicationController@getMedication')->name('medications.get_medications');
 Route::get('/medications/{appointment_id}/get_previous_medications', 'MedicationController@getPreviousMedication')->name('medications.get_previous_medications');
+Route::post('/medications/previous_medication/add_to_appointment', 'MedicationController@addPreviousMedicationToAppointment')->name('previous_medications.add_to_appointment');
 
 Route::delete('/medications/delete/{id}', 'MedicationController@destroy')->name('medications.destroy'); // Delete 
 // patients/appointments   - List only doctor wise

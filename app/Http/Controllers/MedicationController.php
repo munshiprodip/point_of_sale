@@ -172,8 +172,50 @@ class MedicationController extends Controller
             ]);
         }
     }
-    
-    
+
+    public function addPreviousMedicationToAppointment(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'medication_id'  => 'required',
+            'appointment_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success'   => false,
+                'type'      => 'info',
+                'title'     => 'Info!',
+                'message'   => $validator->messages()->all()[0],
+            ]);
+        }
+
+        $medication = Medication::findOrFail($request->medication_id);
+        
+        $create = Medication::create([
+            'appointment_id'    => $request->appointment_id,
+            'medicine'          => $medication->medicine,
+            'dose'              => $medication->dose,
+            'instruction'       => $medication->instruction,
+            'duration'          => $medication->duration,
+            'note'              => $medication->note,
+        ]);
+
+        if($create){
+            return response()->json([
+                'success'   => true,
+                'type'      => 'success',
+                'title'     => 'Success!',
+                'message'   => 'Stored successfully',
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'type'    => 'error',
+                'title'   => 'Error!',
+                'message' => "Store failed",
+            ]);
+        }
+    }
 
     public function destroy($id)
     {

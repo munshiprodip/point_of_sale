@@ -2070,11 +2070,11 @@
   
     
     // Add templated medicine to appointmented patient
-    function addPreviousMedicineToAppointment(favourite_medication_id){
-      let form_data = {favourite_medication_id: favourite_medication_id, appointment_id: {{ $appointment->id }} };
+    function addPreviousMedicineToAppointment(medication_id){
+      let form_data = {medication_id: medication_id, appointment_id: {{ $appointment->id }} };
       $.ajax({
         type: 'POST',
-        url: "{{ route('favourite_medications.add_to_appointment') }}",
+        url: "{{ route('previous_medications.add_to_appointment') }}",
         data: form_data,
         dataType: "json",
         success: (data) => {
