@@ -7,6 +7,13 @@ Route::post('/appointments/store', 'AppointmentController@store')->name('appoint
 Route::get('/appointments/{appointment_no}/prescribe', 'AppointmentController@prescribe')->name('appointments.prescribe'); // create patient & create appointment 
 Route::patch('/appointments/{id}/update', 'AppointmentController@update')->name('appointments.update'); // create patient & create appointment 
 
+
+
+
+Route::get('/appointments/{appointment_id}/prescription', 'AppointmentController@generatePrescription')->name('appointments.prescription'); 
+
+
+
 Route::patch('/appointments/patient_info/{id}/update', 'PatientController@update')->name('patients.update'); // create patient & create appointment 
 
 
@@ -28,9 +35,5 @@ Route::get('/medications/{appointment_id}/get_medications', 'MedicationControlle
 Route::get('/medications/{appointment_id}/get_previous_medications', 'MedicationController@getPreviousMedication')->name('medications.get_previous_medications');
 Route::post('/medications/previous_medication/add_to_appointment', 'MedicationController@addPreviousMedicationToAppointment')->name('previous_medications.add_to_appointment');
 
-Route::delete('/medications/delete/{id}', 'MedicationController@destroy')->name('medications.destroy'); // Delete 
-// patients/appointments   - List only doctor wise
-    // patients/appointments/todays   - List only todays patients doctor wise
-    // patients/appointments/create
-    // patients/appointments/A2023045255/view
-    // patients/appointments/registration
+Route::delete('/medications/delete/{id}', 'MedicationController@destroy')->name('medications.destroy');
+

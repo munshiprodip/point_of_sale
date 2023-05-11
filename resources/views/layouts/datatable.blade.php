@@ -3,7 +3,7 @@
 
 <html lang="en" class="dark-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-default" data-assets-path="{{ asset('/assets') }}/" data-template="vertical-menu-template-dark">
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
@@ -89,34 +89,40 @@
             <!-- Dashboards -->
             <li class="menu-item">
                 <a href="#" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-mail"></i>
+                    <i class="menu-icon tf-icons ti ti-dashboard"></i>
                     <div>Dashboard</div>
                 </a>
             </li>
-
-            <!-- Admins Area -->
-            <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">ADMINS AREA</span>
-            </li>
-
-            <li class="menu-item {{ Route::currentRouteNamed('users') ?  'active' : '' }}">
-                <a href="{{ route('users') }}" class="menu-link ">
-                    <i class="menu-icon tf-icons ti ti-mail"></i>
-                    <div>Users</div>
-                </a>
-            </li>
-            <li class="menu-item {{ Route::currentRouteNamed('roles') ?  'active' : '' }}">
-                <a href="{{ route('roles') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-mail"></i>
-                    <div>Roles</div>
-                </a>
-            </li>
-            <li class="menu-item {{ Route::currentRouteNamed('permissions') ?  'active' : '' }}">
-                <a href="{{ route('permissions') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-mail"></i>
-                    <div>Permissions</div>
-                </a>
-            </li>
+            @canany(['Read User','Read Role','Read Permission'])
+                <!-- Admins Area -->
+                <li class="menu-header small text-uppercase">
+                    <span class="menu-header-text">ADMINS AREA</span>
+                </li>
+                @can('Read User')
+                <li class="menu-item {{ Route::currentRouteNamed('users') ?  'active' : '' }}">
+                    <a href="{{ route('users') }}" class="menu-link ">
+                        <i class="menu-icon tf-icons ti ti-users"></i>
+                        <div>Users</div>
+                    </a>
+                </li>
+                @endcan
+                @can('Read Role')
+                <li class="menu-item {{ Route::currentRouteNamed('roles') ?  'active' : '' }}">
+                    <a href="{{ route('roles') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-forms"></i>
+                        <div>Roles</div>
+                    </a>
+                </li>
+                @endcan
+                @can('Read Permission')
+                <li class="menu-item {{ Route::currentRouteNamed('permissions') ?  'active' : '' }}">
+                    <a href="{{ route('permissions') }}" class="menu-link">
+                        <i class="menu-icon tf-icons ti ti-lock"></i>
+                        <div>Permissions</div>
+                    </a>
+                </li>
+                @endcan
+            @endcanany
 
 
 
@@ -125,30 +131,36 @@
                 <span class="menu-header-text">DOCTOR ADMIN</span>
             </li>
 
-
-            <li class="menu-item">
-                <a href="#" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-mail"></i>
-                    <div>View Patient</div>
-                </a>
-            </li>
-
             <li class="menu-item">
                 <a href="{{ route('appointments.create') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-mail"></i>
+                    <i class="menu-icon tf-icons ti ti-user-plus"></i>
                     <div>Create Appointment</div>
                 </a>
             </li>
 
-            <li class="menu-item">
-                <a href="#" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-mail"></i>
+
+
+            <li class="menu-item {{ Route::currentRouteNamed('appointments.prescribe') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-stethoscope'></i>
                     <div>Today's Appointments</div>
                 </a>
+                <ul class="menu-sub">
+                    @foreach($todays_appointments->where('created_by', auth()->id())->get() as $row)
+                    <li class="menu-item {{ Route::currentRouteNamed('appointments.prescribe') && Request::route('appointment_no') == $row->appointment_no ?  'active' : '' }}">
+                        <a href="{{ route('appointments.prescribe', $row->appointment_no ) }}" class="menu-link">
+                            <div>{{ $row->appointment_no }}</div>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
             </li>
-            <li class="menu-item">
-                <a href="#" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-mail"></i>
+
+
+
+            <li class="menu-item {{ Route::currentRouteNamed('appointments') ?  'active' : '' }}">
+                <a href="{{ route('appointments') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
                     <div>Appointments List</div>
                 </a>
             </li>
@@ -158,88 +170,89 @@
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">SETTINGS & OTHERS</span>
             </li>
-
-            <li class="menu-item {{ request()->is('settings/medications/*') ?  'active open' : '' }} ">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class='menu-icon tf-icons ti ti-settings'></i>
-                    <div>Medication Setup</div>
-                </a>
-                <ul class="menu-sub">
-                    <li class="menu-item {{ Route::currentRouteNamed('generics') ?  'active' : '' }}">
-                        <a href="{{ route('generics') }}" class="menu-link">
-                            <div>Generic</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ Route::currentRouteNamed('companies') ?  'active' : '' }}">
-                        <a href="{{ route('companies') }}" class="menu-link">
-                            <div>Company</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ Route::currentRouteNamed('brands') ?  'active' : '' }}">
-                        <a href="{{ route('brands') }}" class="menu-link">
-                            <div>Brands</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ Route::currentRouteNamed('doses') ?  'active' : '' }}">
-                        <a href="{{ route('doses') }}" class="menu-link">
-                            <div>Doses</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ Route::currentRouteNamed('instructions') ?  'active' : '' }}">
-                        <a href="{{ route('instructions') }}" class="menu-link">
-                            <div>Instructions</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ Route::currentRouteNamed('durations') ?  'active' : '' }}">
-                        <a href="{{ route('durations') }}" class="menu-link">
-                            <div>Durations</div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu-item {{ request()->is('settings/clinical/*') ?  'active open' : '' }} ">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class='menu-icon tf-icons ti ti-settings'></i>
-                    <div>Clinical Setup</div>
-                </a>
-                <ul class="menu-sub">
-                    <li class="menu-item {{ request()->is('*/case_summary') ?  'active' : '' }}">
-                        <a href="{{ route('clinical_components', 'case_summary') }}" class="menu-link">
-                            <div>Case Summary</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ request()->is('*/chief_complaints') ?  'active' : '' }}">
-                        <a href="{{ route('clinical_components', 'chief_complaints') }}" class="menu-link">
-                            <div>Chief Complaints</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ request()->is('*/on_examination') ?  'active' : '' }}">
-                        <a href="{{ route('clinical_components', 'on_examination') }}" class="menu-link">
-                            <div>On Examinations</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ request()->is('*/diagnosis') ?  'active' : '' }}">
-                        <a href="{{ route('clinical_components', 'diagnosis') }}" class="menu-link">
-                            <div>Diagnosis</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ request()->is('*/investigations') ?  'active' : '' }}">
-                        <a href="{{ route('clinical_components', 'investigations') }}" class="menu-link">
-                            <div>Investigations</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ request()->is('*/procedure') ?  'active' : '' }}">
-                        <a href="{{ route('clinical_components', 'procedure') }}" class="menu-link">
-                            <div>Procedures</div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
+            @can('Medication Settings')
+                <li class="menu-item {{ request()->is('settings/medications/*') ?  'active open' : '' }} ">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class='menu-icon tf-icons ti ti-vaccine'></i>
+                        <div>Medication Setup</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item {{ Route::currentRouteNamed('generics') ?  'active' : '' }}">
+                            <a href="{{ route('generics') }}" class="menu-link">
+                                <div>Generic</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ Route::currentRouteNamed('companies') ?  'active' : '' }}">
+                            <a href="{{ route('companies') }}" class="menu-link">
+                                <div>Company</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ Route::currentRouteNamed('brands') ?  'active' : '' }}">
+                            <a href="{{ route('brands') }}" class="menu-link">
+                                <div>Brands</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ Route::currentRouteNamed('doses') ?  'active' : '' }}">
+                            <a href="{{ route('doses') }}" class="menu-link">
+                                <div>Doses</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ Route::currentRouteNamed('instructions') ?  'active' : '' }}">
+                            <a href="{{ route('instructions') }}" class="menu-link">
+                                <div>Instructions</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ Route::currentRouteNamed('durations') ?  'active' : '' }}">
+                            <a href="{{ route('durations') }}" class="menu-link">
+                                <div>Durations</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
+            @can('Clinical Settings')
+                <li class="menu-item {{ request()->is('settings/clinical/*') ?  'active open' : '' }} ">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class='menu-icon tf-icons ti ti-stethoscope'></i>
+                        <div>Clinical Setup</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item {{ request()->is('*/case_summary') ?  'active' : '' }}">
+                            <a href="{{ route('clinical_components', 'case_summary') }}" class="menu-link">
+                                <div>Case Summary</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ request()->is('*/chief_complaints') ?  'active' : '' }}">
+                            <a href="{{ route('clinical_components', 'chief_complaints') }}" class="menu-link">
+                                <div>Chief Complaints</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ request()->is('*/on_examination') ?  'active' : '' }}">
+                            <a href="{{ route('clinical_components', 'on_examination') }}" class="menu-link">
+                                <div>On Examinations</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ request()->is('*/diagnosis') ?  'active' : '' }}">
+                            <a href="{{ route('clinical_components', 'diagnosis') }}" class="menu-link">
+                                <div>Diagnosis</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ request()->is('*/investigations') ?  'active' : '' }}">
+                            <a href="{{ route('clinical_components', 'investigations') }}" class="menu-link">
+                                <div>Investigations</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ request()->is('*/procedure') ?  'active' : '' }}">
+                            <a href="{{ route('clinical_components', 'procedure') }}" class="menu-link">
+                                <div>Procedures</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
             <li class="menu-item {{ request()->is('settings/profiles/*') ?  'active open' : '' }} ">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class='menu-icon tf-icons ti ti-settings'></i>
+                    <i class='menu-icon tf-icons ti ti-adjustments'></i>
                     <div>Profile Settings</div>
                 </a>
                 <ul class="menu-sub">
@@ -253,16 +266,24 @@
                             <div>Security</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ Route::currentRouteNamed('brands') ?  'active' : '' }}">
-                        <a href="{{ route('brands') }}" class="menu-link">
-                            <div>App UI</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ Route::currentRouteNamed('doses') ?  'active' : '' }}">
-                        <a href="{{ route('doses') }}" class="menu-link">
-                            <div>Shortcuts</div>
-                        </a>
-                    </li>
+
+                    @can('RX Setup')
+                        <li class="menu-item {{ Route::currentRouteNamed('settings.organization') ?  'active' : '' }}">
+                            <a href="{{ route('settings.organization') }}" class="menu-link">
+                                <div>Organization</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ Route::currentRouteNamed('settings.emr') ?  'active' : '' }}">
+                            <a href="{{ route('settings.emr') }}" class="menu-link">
+                                <div>EMR</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ Route::currentRouteNamed('settings.print') ?  'active' : '' }}">
+                            <a href="{{ route('settings.print') }}" class="menu-link">
+                                <div>Print</div>
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         </ul>

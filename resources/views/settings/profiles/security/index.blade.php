@@ -4,13 +4,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <ul class="nav nav-pills flex-column flex-md-row mb-4">
-                <li class="nav-item"><a class="nav-link " href="{{ route('profiles.account') }}"><i class="ti-xs ti ti-users me-1"></i> Account</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{{ route('profiles.security') }}"><i class="ti-xs ti ti-lock me-1"></i> Security</a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><i class="ti-xs ti ti-file-description me-1"></i> App UI</a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><i class="ti-xs ti ti-bell me-1"></i> Shortcuts</a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><i class="ti-xs ti ti-link me-1"></i> Assistants</a></li>
-            </ul>
+            @include('settings.profiles.menu')
             <div class="card mb-4">
                 <h5 class="card-header">Profile Details</h5>
                 <!-- Change Password -->

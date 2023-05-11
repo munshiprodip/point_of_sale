@@ -13,7 +13,9 @@ use App\Models\Dose;
 use App\Models\Instruction;
 use App\Models\Duration;
 use App\Models\ClinicalComponent;
+use App\Models\PersonalSetting;
 use DB;
+use PDF;
 
 use Carbon\Carbon;
 
@@ -21,7 +23,25 @@ class AppointmentController extends Controller
 {
     public function index(Request $request)
     {
-        return view('patients.appointments.index');
+        $appointments = Appointment::where('created_by', auth()->id());
+        if($request->ajax()){
+            return DataTables::of($appointments)
+            ->addColumn('registration_no', function($row){
+                return $row->patient->registration_no;
+            })
+            ->addColumn('name', function($row){
+                return $row->patient->name;
+            })
+            ->addColumn('phone', function($row){
+                return $row->patient->phone;
+            })
+            ->addColumn('date', function($row){
+                return Carbon::parse($row->created_at);
+            })
+            ->addIndexColumn()
+            ->make(true);
+        }
+        return view('patients.appointments.index', compact('appointments'));
     }
 
     public function todaysAppointment(Request $request)
@@ -121,20 +141,6 @@ class AppointmentController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'name'     => 'required',
-        //     'phone'    => 'required',
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return response()->json([
-        //         'success'   => false,
-        //         'type'      => 'info',
-        //         'title'     => 'Info!',
-        //         'message'   => $validator->messages()->all()[0],
-        //     ]);
-        // }
-
         $appointment = Appointment::findOrFail($id);
         
         $appointment->anaemia               =   request('anaemia', $appointment->anaemia);
@@ -202,8 +208,6 @@ class AppointmentController extends Controller
         ]);
     }
 
-
-
     public function prescribe($appointment_no)
     {
         $appointment = Appointment::with('patient')->where('appointment_no', $appointment_no)->first();
@@ -256,8 +260,6 @@ class AppointmentController extends Controller
         
     }
 
-
-
     public function previousAppointments(Request $request, $patient_id, $appointment_no)
     {
         $appointments = Appointment::where('patient_id', $patient_id)->where('appointment_no', '!=', $appointment_no)->get();
@@ -266,10 +268,19 @@ class AppointmentController extends Controller
         }
     }
 
-
     public function registration()
     {
         return view('patients.appointments.registration');
+    }
+
+    //Print prescription
+    public function generatePrescription($appointment_id)
+    {
+        $settings = PersonalSetting::where('created_by', auth()->id())->first();
+        $appointment = Appointment::find($appointment_id);
+        //$pdf = PDF::loadView('patients.prescriptions.index', compact('appointment'));
+        //return $pdf->stream($appointment->id.'.pdf');
+        return view('patients.prescriptions.index', compact('appointment', 'settings'));
     }
 
 

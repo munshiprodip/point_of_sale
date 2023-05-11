@@ -114,16 +114,20 @@
                     {data: 'DT_RowIndex', searchable: false, orderable: false},
                     { data: "name_en" },
                     { data: (row) => {
-                            return (`
+                            return row.created_by == {{ auth()->id() }} ? `
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="javascript:void(0);" onclick="addToFavourite(${row.id})"><i class="ti ti-heart me-1"></i> Add to Favourite</a>
                                         <a class="dropdown-item" href="javascript:void(0);" onclick="editData(${row.id})"><i class="ti ti-pencil me-1"></i> Edit</a>
-                                        <a class="dropdown-item" href="javascript:void(0);" onclick="deleteData(${row.id})"><i class="ti ti-trash me-1"></i> Delete</a>
+                                        <a class="dropdown-item" href="javascript:void(0);" onclick="deleteData(${row.id})"><i class="ti ti-trash me-1"></i> Delete</a>        
                                     </div>
                                 </div>
-                            `);
+                            `
+                            :
+                            `
+                            <a class="dropdown-item" href="javascript:void(0);" onclick="addToFavourite(${row.id})"><i class="ti ti-heart me-1"></i></a>
+                            `;
                         } 
                     },
                 ],

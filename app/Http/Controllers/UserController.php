@@ -14,6 +14,13 @@ use Hash;
 
 class UserController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:Read User', ['only' => ['index']]);
+        $this->middleware('permission:Write User', ['only' => ['store']]);
+        $this->middleware('permission:Modify User', ['only' => ['findById', 'update', 'changeStatus']]);
+        $this->middleware('permission:Delete User', ['only' => ['destroy']]);
+    }
     public function index(Request $request)
     {
         $users = User::with('roles')->where('id', '!=', auth()->id());
@@ -23,7 +30,6 @@ class UserController extends Controller
         $roles = Role::all();
         return view('admin.users.index', compact('roles'));
     }
-
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -66,8 +72,6 @@ class UserController extends Controller
         }
         
     }
-
-
     //Get user by id
     public function findById($id)
     {
@@ -88,8 +92,6 @@ class UserController extends Controller
             ]);
         }
     }
-
-
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
@@ -122,7 +124,6 @@ class UserController extends Controller
         ]);
         
     }
-
     public function changeStatus($id)
     {
         $user = User::findOrFail($id);
@@ -135,7 +136,6 @@ class UserController extends Controller
             'message' => 'Status changed successfully'
         ]);
     }
-
     public function destroy($id)
     {
         User::destroy($id);

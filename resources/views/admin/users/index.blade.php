@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="mb-3 select2-primary">
                                     <label class="form-label">Role</label>
-                                    <select name="roles[]" class="select2 form-select" multiple>
+                                    <select name="roles[]" class="select3 form-select" multiple>
                                         @foreach($roles as $row)
                                             <option value="{{ $row->name }}" {{ $row->name=='User'? 'selected' : '' }} >{{ $row->name }}</option>
                                         @endforeach
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="mb-3 select2-primary">
                                     <label class="form-label">Role</label>
-                                    <select name="roles[]" class="select2 form-select" multiple>
+                                    <select name="roles[]" class="select3 form-select" multiple>
                                         @foreach($roles as $row)
                                             <option value="{{ $row->name }}"  >{{ $row->name }}</option>
                                         @endforeach

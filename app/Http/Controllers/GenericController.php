@@ -11,6 +11,10 @@ use App\Models\Generic;
 
 class GenericController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:Medication Settings');
+    }
     // Display a listing of the resource & return response for ajax request.
     public function index(Request $request)
     {
@@ -20,7 +24,6 @@ class GenericController extends Controller
         }
         return view('settings.medications.generics.index');
     }
-
     // Store a newly created resource in storage & return json response
     public function store(Request $request)
     {
@@ -59,7 +62,6 @@ class GenericController extends Controller
         }
         
     }
-
     //Find the specified resource in storage & return json response
     public function findById($id)
     {
@@ -78,7 +80,6 @@ class GenericController extends Controller
             ]);
         }
     }
-
     //Update the specified resource in storage & return json response
     public function update(Request $request, $id)
     {
@@ -107,7 +108,6 @@ class GenericController extends Controller
         ]);
         
     }
-
     //Change the current status of specified resource from storage & return json response.
     public function changeStatus($id)
     {
@@ -121,7 +121,6 @@ class GenericController extends Controller
             'message' => 'Status changed successfully'
         ]);
     }
-
     //Remove the specified resource from storage & return json response.
     public function destroy($id)
     {

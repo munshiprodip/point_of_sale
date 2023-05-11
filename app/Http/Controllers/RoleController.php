@@ -12,6 +12,14 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:Read Role', ['only' => ['index']]);
+        $this->middleware('permission:Write Role', ['only' => ['store']]);
+        $this->middleware('permission:Modify Role', ['only' => ['findById', 'update', 'changeStatus']]);
+        $this->middleware('permission:Delete Role', ['only' => ['destroy']]);
+    }
+
     public function index(Request $request)
     {
         $roles = Role::with('users');
@@ -22,7 +30,6 @@ class RoleController extends Controller
         $permissions = Permission::all()->groupBy('type');
         return view('admin.roles.index', compact('permissions'));
     }
-
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -62,8 +69,6 @@ class RoleController extends Controller
         }
         
     }
-
-
     //Get ermission by id
     public function findById($id)
     {
@@ -85,8 +90,6 @@ class RoleController extends Controller
             ]);
         }
     }
-
-
     public function update(Request $request, $id)
     {
         $role = Role::findOrFail($id);
@@ -117,7 +120,6 @@ class RoleController extends Controller
         ]);
         
     }
-
     public function changeStatus($id)
     {
         $role = Role::findOrFail($id);
@@ -130,7 +132,6 @@ class RoleController extends Controller
             'message' => 'Status changed successfully'
         ]);
     }
-
     public function destroy($id)
     {
         Role::destroy($id);

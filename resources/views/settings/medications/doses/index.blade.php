@@ -88,11 +88,13 @@
                     { data: "name_en" },
                     { data: "name_bn" },
                     { data: (row) => {
-                            return `<span style="cursor:pointer;" class="badge me-1 bg-label-${row.status===1? 'primary':'success'}" onclick="changeStatus(${row.id})" > ${row.status===1? 'Activated':'Deactivated'}</span>`;
+                            return row.created_by == {{ auth()->id() }} ? `<span style="cursor:pointer;" class="badge me-1 bg-label-${row.status===1? 'danger':'info'}" onclick="changeStatus(${row.id})" > ${row.status===1? 'Activated':'Deactivated'}</span>`
+                            : `<span class="badge me-1 bg-label-${row.status===1? 'primary':'success'}" > ${row.status===1? 'Activated':'Deactivated'}</span>`;
                         }
                     },
                     { data: (row) => {
-                            return (`
+                        
+                            return row.created_by == {{ auth()->id() }} ? `
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                     <div class="dropdown-menu">
@@ -100,7 +102,9 @@
                                     <a class="dropdown-item" href="javascript:void(0);" onclick="deleteData(${row.id})"><i class="ti ti-trash me-1"></i> Delete</a>
                                     </div>
                                 </div>
-                            `);
+                            `
+                            :
+                            `#`;
                         } 
                     },
                 ],

@@ -13,6 +13,10 @@ use App\Models\Company;
 
 class BrandController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:Medication Settings');
+    }
     // Display a listing of the resource & return response for ajax request.
     public function index(Request $request)
     {

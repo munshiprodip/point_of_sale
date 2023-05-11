@@ -64,9 +64,9 @@
         <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#past_history_modal">Past History</button>
         <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#patients_info_modal">Gynae & Obs</button>
         <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#patients_info_modal">Child History</button>
-        <button type="button" class="btn btn-outline-secondary waves-effect ms-1">
+        <a target="_blank" href="{{ route('appointments.prescription', $appointment->id ) }}" type="button" class="btn btn-outline-secondary waves-effect ms-1">
           <span class="ti-xs ti ti-printer me-1"></span>Print
-        </button>
+        </a>
       </li>
       <!-- End Modal's buttons -->
     </ul>

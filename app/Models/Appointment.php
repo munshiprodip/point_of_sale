@@ -66,7 +66,12 @@ class Appointment extends Model
         return $this->belongsTo(Patient::class, "patient_id");
     }
 
-    public function createdBy()
+    public function medications()
+    {
+        return $this->hasMany(Medication::class, "appointment_id");
+    }
+
+    public function doctor()
     {
         return $this->belongsTo(User::class, "created_by");
     }

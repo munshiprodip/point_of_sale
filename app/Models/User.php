@@ -56,6 +56,16 @@ class User extends Authenticatable
     ];
 
 
+    public function settings()
+    {
+        return $this->hasMany(PersonalSetting::class, 'created_by');
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'created_by');
+    }
+
     public function clinicalComponents()
     {
         return $this->belongsToMany(ClinicalComponent::class, 'user_clinical_component', 'user_id', 'clinical_component_id');

@@ -11,6 +11,10 @@ use App\Models\Dose;
 
 class DoseController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:Medication Settings');
+    }
     // Display a listing of the resource & return response for ajax request.
     public function index(Request $request)
     {

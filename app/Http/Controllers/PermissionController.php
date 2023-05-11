@@ -12,6 +12,13 @@ use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:Read Permission', ['only' => ['index']]);
+        $this->middleware('permission:Write Permission', ['only' => ['store']]);
+        $this->middleware('permission:Modify Permission', ['only' => ['findById', 'update', 'changeStatus']]);
+        $this->middleware('permission:Delete Permission', ['only' => ['destroy']]);
+    }
     // Display a listing of the resource & return response for ajax request.
     public function index(Request $request)
     {
@@ -21,7 +28,6 @@ class PermissionController extends Controller
         }
         return view('admin.permissions.index');
     }
-
     // Store a newly created resource in storage & return json response
     public function store(Request $request)
     {
@@ -61,7 +67,6 @@ class PermissionController extends Controller
         }
         
     }
-
     //Find the specified resource in storage & return json response
     public function findById($id)
     {
@@ -80,7 +85,6 @@ class PermissionController extends Controller
             ]);
         }
     }
-    
     //Update the specified resource in storage & return json response
     public function update(Request $request, $id)
     {
@@ -111,7 +115,6 @@ class PermissionController extends Controller
         ]);
         
     }
-
     //Change the current status of specified resource from storage & return json response.
     public function changeStatus($id)
     {
@@ -125,7 +128,6 @@ class PermissionController extends Controller
             'message' => 'Status changed successfully'
         ]);
     }
-
     //Remove the specified resource from storage & return json response.
     public function destroy($id)
     {
