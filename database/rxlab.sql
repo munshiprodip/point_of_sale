@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 04, 2023 at 02:29 PM
--- Server version: 5.7.36
--- PHP Version: 8.1.0
+-- Host: localhost
+-- Generation Time: May 12, 2023 at 01:08 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel_admin`
+-- Database: `rxlab`
 --
 
 -- --------------------------------------------------------
@@ -27,66 +27,61 @@ SET time_zone = "+00:00";
 -- Table structure for table `appointments`
 --
 
-DROP TABLE IF EXISTS `appointments`;
-CREATE TABLE IF NOT EXISTS `appointments` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `appointment_no` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+CREATE TABLE `appointments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `appointment_no` varchar(191) DEFAULT NULL,
   `patient_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `anaemia` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `jaundice` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cyanosis` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `oedema` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dehydration` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pulse_rate` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sao2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `respiratory_rate` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bp_systolic` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bp_diastolic` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `temperature` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `height` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `weight` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bmi` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rr` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ofc` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bsa` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `us_ratio` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ls_ratio` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `other_oe` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `chief_complaints` longtext COLLATE utf8mb4_unicode_ci,
-  `case_summary` longtext COLLATE utf8mb4_unicode_ci,
-  `on_examination` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `past_medical_history` longtext COLLATE utf8mb4_unicode_ci,
-  `past_surgical_history` longtext COLLATE utf8mb4_unicode_ci,
-  `past_personal_history` longtext COLLATE utf8mb4_unicode_ci,
-  `past_family_history` longtext COLLATE utf8mb4_unicode_ci,
-  `past_drug_history` longtext COLLATE utf8mb4_unicode_ci,
-  `allergy_history` longtext COLLATE utf8mb4_unicode_ci,
-  `food_allergy` longtext COLLATE utf8mb4_unicode_ci,
-  `drug_allergy` longtext COLLATE utf8mb4_unicode_ci,
-  `other_allergy` longtext COLLATE utf8mb4_unicode_ci,
-  `cardiovascular_system` longtext COLLATE utf8mb4_unicode_ci,
-  `respiratory_system` longtext COLLATE utf8mb4_unicode_ci,
-  `abdominal_system` longtext COLLATE utf8mb4_unicode_ci,
-  `genito_urinary_system` longtext COLLATE utf8mb4_unicode_ci,
-  `locomotor_system` longtext COLLATE utf8mb4_unicode_ci,
-  `nervous_system` longtext COLLATE utf8mb4_unicode_ci,
-  `others_system` longtext COLLATE utf8mb4_unicode_ci,
-  `investigations` longtext COLLATE utf8mb4_unicode_ci,
-  `diagnosis` longtext COLLATE utf8mb4_unicode_ci,
-  `procedure` longtext COLLATE utf8mb4_unicode_ci,
-  `advice` longtext COLLATE utf8mb4_unicode_ci,
-  `follow_up` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `next_visit` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `anaemia` varchar(191) DEFAULT NULL,
+  `jaundice` varchar(191) DEFAULT NULL,
+  `cyanosis` varchar(191) DEFAULT NULL,
+  `oedema` varchar(191) DEFAULT NULL,
+  `dehydration` varchar(191) DEFAULT NULL,
+  `pulse_rate` varchar(191) DEFAULT NULL,
+  `sao2` varchar(191) DEFAULT NULL,
+  `respiratory_rate` varchar(191) DEFAULT NULL,
+  `bp_systolic` varchar(191) DEFAULT NULL,
+  `bp_diastolic` varchar(191) DEFAULT NULL,
+  `temperature` varchar(191) DEFAULT NULL,
+  `height` varchar(191) DEFAULT NULL,
+  `weight` varchar(191) DEFAULT NULL,
+  `bmi` varchar(191) DEFAULT NULL,
+  `rr` varchar(191) DEFAULT NULL,
+  `ofc` varchar(191) DEFAULT NULL,
+  `bsa` varchar(191) DEFAULT NULL,
+  `us_ratio` varchar(191) DEFAULT NULL,
+  `ls_ratio` varchar(191) DEFAULT NULL,
+  `other_oe` varchar(191) DEFAULT NULL,
+  `chief_complaints` longtext DEFAULT NULL,
+  `case_summary` longtext DEFAULT NULL,
+  `on_examination` varchar(191) DEFAULT NULL,
+  `past_medical_history` longtext DEFAULT NULL,
+  `past_surgical_history` longtext DEFAULT NULL,
+  `past_personal_history` longtext DEFAULT NULL,
+  `past_family_history` longtext DEFAULT NULL,
+  `past_drug_history` longtext DEFAULT NULL,
+  `allergy_history` longtext DEFAULT NULL,
+  `food_allergy` longtext DEFAULT NULL,
+  `drug_allergy` longtext DEFAULT NULL,
+  `other_allergy` longtext DEFAULT NULL,
+  `cardiovascular_system` longtext DEFAULT NULL,
+  `respiratory_system` longtext DEFAULT NULL,
+  `abdominal_system` longtext DEFAULT NULL,
+  `genito_urinary_system` longtext DEFAULT NULL,
+  `locomotor_system` longtext DEFAULT NULL,
+  `nervous_system` longtext DEFAULT NULL,
+  `others_system` longtext DEFAULT NULL,
+  `investigations` longtext DEFAULT NULL,
+  `diagnosis` longtext DEFAULT NULL,
+  `procedure` longtext DEFAULT NULL,
+  `advice` longtext DEFAULT NULL,
+  `follow_up` varchar(191) DEFAULT NULL,
+  `next_visit` varchar(191) DEFAULT NULL,
+  `image` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `appointments_appointment_no_unique` (`appointment_no`),
-  KEY `appointments_patient_id_foreign` (`patient_id`),
-  KEY `appointments_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `appointments`
@@ -94,9 +89,12 @@ CREATE TABLE IF NOT EXISTS `appointments` (
 
 INSERT INTO `appointments` (`id`, `appointment_no`, `patient_id`, `anaemia`, `jaundice`, `cyanosis`, `oedema`, `dehydration`, `pulse_rate`, `sao2`, `respiratory_rate`, `bp_systolic`, `bp_diastolic`, `temperature`, `height`, `weight`, `bmi`, `rr`, `ofc`, `bsa`, `us_ratio`, `ls_ratio`, `other_oe`, `chief_complaints`, `case_summary`, `on_examination`, `past_medical_history`, `past_surgical_history`, `past_personal_history`, `past_family_history`, `past_drug_history`, `allergy_history`, `food_allergy`, `drug_allergy`, `other_allergy`, `cardiovascular_system`, `respiratory_system`, `abdominal_system`, `genito_urinary_system`, `locomotor_system`, `nervous_system`, `others_system`, `investigations`, `diagnosis`, `procedure`, `advice`, `follow_up`, `next_visit`, `image`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 'C202304000001', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Nasal obstruction\r\nH/O Br. Asthma\r\nNasal obstruction\r\nhelloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI\r\nPoor appetitecc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voiceH/O UTI\r\nPoor appetite\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nNasal obstruction\r\ncc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voice\r\ntest', 'Test 2\r\nTest\r\nTest 2\r\ntest cs 3\r\nTest', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'VITA Sure Package (Vit. D + Calcium + Phosphate + Intact PTH)', 'DA42.40 Allergic gastritis due to IgE-mediated hypersensitivity', 'Vulvar-Vaginal Reconstruction', NULL, NULL, NULL, NULL, 1, 1, '2023-04-24 10:08:10', '2023-04-29 07:33:17'),
-(2, 'C202304000002', 1, '(-)', '(-)', '(-)', '(-)', '(-)', '95', '98', '85', '120', '80', '98', '150', '60', '24', '75', '20', '22', '22', '22', 'test', 'Nasal obstruction\r\nH/O Br. Asthma\r\nNasal obstruction\r\nhelloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI', 'test cs 2', 'Male Genitalia: Appears Normal, Both Testes Descended To Corresponding  Scrotum\r\nTriceps Jerk', 'Test m', 'Test  s', 'Test  f', 'Test  h', 'hello', NULL, 'Test Food', 'Test Drug', 'Others', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Advices', '20-04-2023', NULL, 'images/media_library/1682877678.png', 1, 1, '2023-04-24 10:45:35', '2023-05-01 11:36:34'),
+(2, 'C202304000002', 1, '(-)', '(-)', '(-)', '(-)', '(-)', '95', '98', '85', '120', '80', '98', '150', '60', '24', '75', '20', '22', '22', '22', 'test', 'Nasal obstruction\r\nH/O Br. Asthma\r\nNasal obstruction\r\nhelloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI', 'test cs 2', 'Male Genitalia: Appears Normal, Both Testes Descended To Corresponding  Scrotum\r\nTriceps Jerk', 'Test m', 'Test  s', 'Test  f', 'Test  h', 'hello', NULL, 'Test Food', 'Test Drug', 'Others', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Advices', '20-04-2023', NULL, NULL, 1, 1, '2023-04-24 10:45:35', '2023-05-01 11:36:34'),
 (3, 'C202304000003', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'helloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI\r\nPoor appetitecc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voiceH/O UTI\r\nPoor appetite\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nNasal obstruction\r\ncc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voice\r\ntest', 'test cs 3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-24 10:53:57', '2023-04-29 05:29:22'),
-(4, 'C202304000004', 2, NULL, NULL, NULL, NULL, NULL, '95', '98', '85', '120', '80', NULL, '150', '60', NULL, NULL, '20', NULL, NULL, NULL, NULL, 'মাথা ব্যাথাFever for 4-5 days\r\nBoth parents are tested positive for COVID-19\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti', 'ফঘধগফহ দফগ দফগ দ্গফহ দফগ হদফঘ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Liver Function Test:: * SGPT * Serum Total Protein * Serum Albumin & A:G ratio\r\nCBC with ESR\r\nBarium Swallow Xray of Esophagus', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-29 08:41:12', '2023-04-29 08:50:16');
+(4, 'C202304000004', 2, NULL, NULL, NULL, NULL, NULL, '95', '98', '85', '120', '80', NULL, '150', '60', NULL, NULL, '20', NULL, NULL, NULL, NULL, 'মাথা ব্যাথাFever for 4-5 days\r\nBoth parents are tested positive for COVID-19\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti', 'ফঘধগফহ দফগ দফগ দ্গফহ দফগ হদফঘ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Liver Function Test:: * SGPT * Serum Total Protein * Serum Albumin & A:G ratio\r\nCBC with ESR\r\nBarium Swallow Xray of Esophagus', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-29 08:41:12', '2023-04-29 08:50:16'),
+(5, 'C202305000001', 1, '(-)', '(-)', '(-)', '(-)', '(-)', '75', '95', '70', '124', '85', '105', '152', '60', '24', '50', '20', '20', '20', '10', NULL, 'Pain on left side of ear and cheek\r\nNodular swelling behind left ear\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti', 'Case summery text...\r\nCase summery text...\r\nCase summery text...', NULL, NULL, NULL, NULL, NULL, 'Drug History', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'X-ray Chest PA and Left Lateral view\r\nCBC with ESR\r\nUrine CS\r\nUSG of both scrotum with duplex scan', 'LB22.0 Congenital asplenia\r\nP36.0 Sepsis of newborn due to streptococcus, group B', 'Glasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography\r\nGlasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography\r\nGlasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography', 'Advices', '03-07-2023', NULL, NULL, 1, 1, '2023-05-06 09:37:34', '2023-05-07 01:12:02'),
+(6, 'C202305000006', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-11 12:29:12', '2023-05-11 12:29:12'),
+(7, 'C202305000007', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, '2023-05-11 12:30:40', '2023-05-11 12:30:40');
 
 -- --------------------------------------------------------
 
@@ -104,23 +102,18 @@ INSERT INTO `appointments` (`id`, `appointment_no`, `patient_id`, `anaemia`, `ja
 -- Table structure for table `brands`
 --
 
-DROP TABLE IF EXISTS `brands`;
-CREATE TABLE IF NOT EXISTS `brands` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `strength` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+CREATE TABLE `brands` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `type` varchar(191) DEFAULT NULL,
+  `strength` varchar(191) DEFAULT NULL,
   `generic_id` bigint(20) UNSIGNED DEFAULT NULL,
   `company_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `brands_generic_id_foreign` (`generic_id`),
-  KEY `brands_company_id_foreign` (`company_id`),
-  KEY `brands_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=602 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `brands`
@@ -734,19 +727,16 @@ INSERT INTO `brands` (`id`, `name`, `type`, `strength`, `generic_id`, `company_i
 -- Table structure for table `clinical_components`
 --
 
-DROP TABLE IF EXISTS `clinical_components`;
-CREATE TABLE IF NOT EXISTS `clinical_components` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `component_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `clinical_components` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name_en` varchar(191) DEFAULT NULL,
+  `name_bn` varchar(191) DEFAULT NULL,
+  `component_type` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `clinical_components_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=7557 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `clinical_components`
@@ -8323,17 +8313,14 @@ INSERT INTO `clinical_components` (`id`, `name_en`, `name_bn`, `component_type`,
 -- Table structure for table `companies`
 --
 
-DROP TABLE IF EXISTS `companies`;
-CREATE TABLE IF NOT EXISTS `companies` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `companies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `companies_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=654 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `companies`
@@ -9001,13 +8988,11 @@ INSERT INTO `companies` (`id`, `name`, `status`, `created_by`, `created_at`, `up
 -- Table structure for table `component_types`
 --
 
-DROP TABLE IF EXISTS `component_types`;
-CREATE TABLE IF NOT EXISTS `component_types` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `component_types` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -9016,18 +9001,15 @@ CREATE TABLE IF NOT EXISTS `component_types` (
 -- Table structure for table `doses`
 --
 
-DROP TABLE IF EXISTS `doses`;
-CREATE TABLE IF NOT EXISTS `doses` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `doses` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name_en` varchar(191) DEFAULT NULL,
+  `name_bn` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `doses_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `doses`
@@ -9057,18 +9039,15 @@ INSERT INTO `doses` (`id`, `name_en`, `name_bn`, `status`, `created_by`, `create
 -- Table structure for table `durations`
 --
 
-DROP TABLE IF EXISTS `durations`;
-CREATE TABLE IF NOT EXISTS `durations` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `durations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name_en` varchar(191) DEFAULT NULL,
+  `name_bn` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `durations_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `durations`
@@ -9093,17 +9072,14 @@ INSERT INTO `durations` (`id`, `name_en`, `name_bn`, `status`, `created_by`, `cr
 -- Table structure for table `failed_jobs`
 --
 
-DROP TABLE IF EXISTS `failed_jobs`;
-CREATE TABLE IF NOT EXISTS `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(191) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -9112,20 +9088,17 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
 -- Table structure for table `favourite_medications`
 --
 
-DROP TABLE IF EXISTS `favourite_medications`;
-CREATE TABLE IF NOT EXISTS `favourite_medications` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `medicine` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dose` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `instruction` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `duration` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `note` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+CREATE TABLE `favourite_medications` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `medicine` varchar(191) DEFAULT NULL,
+  `dose` varchar(191) DEFAULT NULL,
+  `instruction` varchar(191) DEFAULT NULL,
+  `duration` varchar(191) DEFAULT NULL,
+  `note` varchar(191) DEFAULT NULL,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `favourite_medications_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `favourite_medications`
@@ -9140,24 +9113,21 @@ INSERT INTO `favourite_medications` (`id`, `medicine`, `dose`, `instruction`, `d
 -- Table structure for table `generics`
 --
 
-DROP TABLE IF EXISTS `generics`;
-CREATE TABLE IF NOT EXISTS `generics` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `generics` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `generics_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=2109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `generics`
 --
 
 INSERT INTO `generics` (`id`, `name`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, '5 Aminosalicylic Acid (Mesalamine)', 1, 1, '2021-09-22 05:49:00', '2023-04-22 02:21:11'),
+(1, '5 Aminosalicylic Acid (Mesalamine)', 1, 1, '2021-09-22 05:49:00', '2023-05-11 08:47:26'),
 (2, '5-Fluorouracil (5-FU)', 1, 1, '2021-09-22 05:49:00', '2021-09-22 05:49:00'),
 (3, 'Abacavir + Dolutegravir + Lamivudine', 1, 1, '2021-09-22 05:49:00', '2021-09-22 05:49:00'),
 (4, 'Abacavir + Lamivudine + Zidovudine', 1, 1, '2021-09-22 05:49:00', '2021-09-22 05:49:00'),
@@ -11274,18 +11244,15 @@ INSERT INTO `generics` (`id`, `name`, `status`, `created_by`, `created_at`, `upd
 -- Table structure for table `instructions`
 --
 
-DROP TABLE IF EXISTS `instructions`;
-CREATE TABLE IF NOT EXISTS `instructions` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `instructions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name_en` varchar(191) DEFAULT NULL,
+  `name_bn` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `instructions_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `instructions`
@@ -11304,25 +11271,15 @@ INSERT INTO `instructions` (`id`, `name_en`, `name_bn`, `status`, `created_by`, 
 -- Table structure for table `media_libraries`
 --
 
-DROP TABLE IF EXISTS `media_libraries`;
-CREATE TABLE IF NOT EXISTS `media_libraries` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `path` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `media_libraries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `path` varchar(191) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `media_libraries_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `media_libraries`
---
-
-INSERT INTO `media_libraries` (`id`, `name`, `path`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Pakhi.png', 'images/media_library/1682877678.png', 1, 1, '2023-04-30 12:01:18', '2023-04-30 12:01:18');
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -11330,20 +11287,17 @@ INSERT INTO `media_libraries` (`id`, `name`, `path`, `status`, `created_by`, `cr
 -- Table structure for table `medications`
 --
 
-DROP TABLE IF EXISTS `medications`;
-CREATE TABLE IF NOT EXISTS `medications` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `medications` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `appointment_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `medicine` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dose` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `instruction` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `duration` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `note` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `medicine` varchar(191) DEFAULT NULL,
+  `dose` varchar(191) DEFAULT NULL,
+  `instruction` varchar(191) DEFAULT NULL,
+  `duration` varchar(191) DEFAULT NULL,
+  `note` varchar(191) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `medications_appointment_id_foreign` (`appointment_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `medications`
@@ -11352,7 +11306,11 @@ CREATE TABLE IF NOT EXISTS `medications` (
 INSERT INTO `medications` (`id`, `appointment_id`, `medicine`, `dose`, `instruction`, `duration`, `note`, `created_at`, `updated_at`) VALUES
 (12, 2, 'Napa 600mg', '0 + 0 + 1', 'after meal', '7 days', '2nd', '2023-05-04 04:54:59', '2023-05-04 04:54:59'),
 (13, 3, 'Napa 700mg', '0 + 0 + 1', 'after meal', '7 days', '3rd', '2023-05-04 04:55:34', '2023-05-04 04:55:34'),
-(11, 1, 'Napa 500mg', '0 + 0 + 1', 'after meal', '7 days', '1st', '2023-05-04 04:54:01', '2023-05-04 04:54:01');
+(11, 1, 'Napa 500mg', '0 + 0 + 1', 'after meal', '7 days', '1st', '2023-05-04 04:54:01', '2023-05-04 04:54:01'),
+(31, 5, 'Laxadil EP - (Drug International Ltd.)', '1+1+1', 'After meal', '7 days', 'N/A', '2023-05-10 03:55:56', '2023-05-10 03:55:56'),
+(32, 5, 'Napa', '1+1+1', 'After meal', '7 days', 'N/A', '2023-05-10 03:55:56', '2023-05-10 03:55:56'),
+(33, 5, 'Napa 500 mg', '1+1+1', 'after meal', '7 days', NULL, '2023-05-10 03:55:56', '2023-05-10 03:55:56'),
+(34, 5, 'Laxate (Unknown) Sachet-3.5gm', '0 + 0 + 1', 'before meal', '1 day', 'জ্বর থাকলে খাবেন', '2023-05-10 04:04:04', '2023-05-10 04:04:04');
 
 -- --------------------------------------------------------
 
@@ -11360,24 +11318,22 @@ INSERT INTO `medications` (`id`, `appointment_id`, `medicine`, `dose`, `instruct
 -- Table structure for table `medicine_templates`
 --
 
-DROP TABLE IF EXISTS `medicine_templates`;
-CREATE TABLE IF NOT EXISTS `medicine_templates` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `medicine_templates` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `medicine_templates_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `medicine_templates`
 --
 
 INSERT INTO `medicine_templates` (`id`, `name`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
-(2, 'First template', 1, NULL, '2023-05-01 11:28:21', '2023-05-01 11:28:21');
+(2, 'First template', 1, NULL, '2023-05-01 11:28:21', '2023-05-01 11:28:21'),
+(3, 'For Fever', 1, NULL, '2023-05-07 01:14:53', '2023-05-07 01:14:53');
 
 -- --------------------------------------------------------
 
@@ -11385,13 +11341,11 @@ INSERT INTO `medicine_templates` (`id`, `name`, `status`, `created_by`, `created
 -- Table structure for table `migrations`
 --
 
-DROP TABLE IF EXISTS `migrations`;
-CREATE TABLE IF NOT EXISTS `migrations` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -11425,7 +11379,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (27, '2023_05_01_083008_create_medications_table', 15),
 (28, '2023_05_01_155816_create_medicine_templates_table', 16),
 (29, '2023_05_01_155905_create_templated_medicines_table', 16),
-(30, '2023_05_03_203001_create_favourite_medications_table', 17);
+(30, '2023_05_03_203001_create_favourite_medications_table', 17),
+(32, '2023_05_07_064603_create_personal_settings_table', 18);
 
 -- --------------------------------------------------------
 
@@ -11433,13 +11388,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `model_has_permissions`
 --
 
-DROP TABLE IF EXISTS `model_has_permissions`;
-CREATE TABLE IF NOT EXISTS `model_has_permissions` (
+CREATE TABLE `model_has_permissions` (
   `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `model_id` bigint(20) UNSIGNED NOT NULL,
-  PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
-  KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`)
+  `model_type` varchar(191) NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -11448,13 +11400,10 @@ CREATE TABLE IF NOT EXISTS `model_has_permissions` (
 -- Table structure for table `model_has_roles`
 --
 
-DROP TABLE IF EXISTS `model_has_roles`;
-CREATE TABLE IF NOT EXISTS `model_has_roles` (
+CREATE TABLE `model_has_roles` (
   `role_id` bigint(20) UNSIGNED NOT NULL,
-  `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `model_id` bigint(20) UNSIGNED NOT NULL,
-  PRIMARY KEY (`role_id`,`model_id`,`model_type`),
-  KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`)
+  `model_type` varchar(191) NOT NULL,
+  `model_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -11463,11 +11412,8 @@ CREATE TABLE IF NOT EXISTS `model_has_roles` (
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
-(1, 'App\\Models\\User', 2),
-(1, 'App\\Models\\User', 4),
 (2, 'App\\Models\\User', 1),
-(2, 'App\\Models\\User', 2),
-(3, 'App\\Models\\User', 2);
+(6, 'App\\Models\\User', 5);
 
 -- --------------------------------------------------------
 
@@ -11475,12 +11421,10 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 -- Table structure for table `password_reset_tokens`
 --
 
-DROP TABLE IF EXISTS `password_reset_tokens`;
-CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`email`)
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(191) NOT NULL,
+  `token` varchar(191) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -11496,37 +11440,30 @@ INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
 -- Table structure for table `patients`
 --
 
-DROP TABLE IF EXISTS `patients`;
-CREATE TABLE IF NOT EXISTS `patients` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `registration_no` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nid` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dob` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `father_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mother_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `marital_status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `spouse_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `religion` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nationality` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `occupation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bloodgroup` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `present_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `permanent_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
+CREATE TABLE `patients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `registration_no` varchar(191) DEFAULT NULL,
+  `nid` varchar(191) DEFAULT NULL,
+  `dob` varchar(191) DEFAULT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `father_name` varchar(191) DEFAULT NULL,
+  `mother_name` varchar(191) DEFAULT NULL,
+  `marital_status` varchar(191) DEFAULT NULL,
+  `spouse_name` varchar(191) DEFAULT NULL,
+  `gender` varchar(191) DEFAULT NULL,
+  `religion` varchar(191) DEFAULT NULL,
+  `nationality` varchar(191) DEFAULT NULL,
+  `phone` varchar(191) DEFAULT NULL,
+  `email` varchar(191) DEFAULT NULL,
+  `occupation` varchar(191) DEFAULT NULL,
+  `bloodgroup` varchar(191) DEFAULT NULL,
+  `present_address` varchar(191) DEFAULT NULL,
+  `permanent_address` varchar(191) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `patients_nid_unique` (`nid`),
-  UNIQUE KEY `patients_phone_unique` (`phone`),
-  UNIQUE KEY `patients_email_unique` (`email`),
-  UNIQUE KEY `patients_registration_no_unique` (`registration_no`),
-  KEY `patients_created_by_foreign` (`created_by`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `patients`
@@ -11542,17 +11479,14 @@ INSERT INTO `patients` (`id`, `registration_no`, `nid`, `dob`, `name`, `father_n
 -- Table structure for table `permissions`
 --
 
-DROP TABLE IF EXISTS `permissions`;
-CREATE TABLE IF NOT EXISTS `permissions` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(125) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(125) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `permissions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(125) NOT NULL,
+  `type` varchar(191) NOT NULL,
+  `guard_name` varchar(125) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `permissions`
@@ -11564,9 +11498,16 @@ INSERT INTO `permissions` (`id`, `name`, `type`, `guard_name`, `created_at`, `up
 (3, 'Modify User', 'User Management', 'web', '2023-04-20 09:36:53', '2023-04-20 10:21:13'),
 (4, 'Delete User', 'User Management', 'web', '2023-04-20 09:37:14', '2023-04-20 10:20:58'),
 (5, 'Read Role', 'Role Management', 'web', '2023-04-21 04:46:45', '2023-04-21 04:46:45'),
-(6, 'Write  Role', 'Role Management', 'web', '2023-04-21 04:47:00', '2023-04-21 04:47:00'),
-(7, 'Modify  Role', 'Role Management', 'web', '2023-04-21 04:47:23', '2023-04-21 04:47:23'),
-(8, 'Delete  Role', 'Role Management', 'web', '2023-04-21 04:47:41', '2023-04-21 04:47:41');
+(6, 'Write Role', 'Role Management', 'web', '2023-04-21 04:47:00', '2023-05-11 08:23:51'),
+(7, 'Modify Role', 'Role Management', 'web', '2023-04-21 04:47:23', '2023-05-11 08:23:35'),
+(8, 'Delete Role', 'Role Management', 'web', '2023-04-21 04:47:41', '2023-05-11 08:24:07'),
+(9, 'Medication Settings', 'EMR', 'web', '2023-05-11 06:51:13', '2023-05-11 06:51:13'),
+(10, 'Clinical Settings', 'EMR', 'web', '2023-05-11 06:51:39', '2023-05-11 06:51:39'),
+(11, 'RX Setup', 'EMR', 'web', '2023-05-11 06:55:04', '2023-05-11 06:55:04'),
+(12, 'Read Permission', 'Permission Management', 'web', '2023-05-11 08:03:33', '2023-05-11 08:03:33'),
+(13, 'Write Permission', 'Permission Management', 'web', '2023-05-11 08:04:14', '2023-05-11 08:04:14'),
+(14, 'Modify Permission', 'Permission Management', 'web', '2023-05-11 08:04:36', '2023-05-11 08:04:36'),
+(15, 'Delete Permission', 'Permission Management', 'web', '2023-05-11 08:04:59', '2023-05-11 08:04:59');
 
 -- --------------------------------------------------------
 
@@ -11574,22 +11515,72 @@ INSERT INTO `permissions` (`id`, `name`, `type`, `guard_name`, `created_at`, `up
 -- Table structure for table `personal_access_tokens`
 --
 
-DROP TABLE IF EXISTS `personal_access_tokens`;
-CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `tokenable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(191) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(191) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_settings`
+--
+
+CREATE TABLE `personal_settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `org_title` varchar(191) DEFAULT NULL,
+  `org_subtitle` varchar(191) DEFAULT NULL,
+  `org_logo` varchar(191) DEFAULT NULL,
+  `org_phone` varchar(191) DEFAULT NULL,
+  `org_fax` varchar(191) DEFAULT NULL,
+  `org_mail` varchar(191) DEFAULT NULL,
+  `org_web` varchar(191) DEFAULT NULL,
+  `org_address` varchar(191) DEFAULT NULL,
+  `prescription_patient_info_modal` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_vital_sign_modal` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_allergy_modal` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_past_history_modal` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_gynae_obs_modal` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_child_history_modal` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_chief_complaint_tab` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_case_summery_tab` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_drug_history_tab` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_on_examinition_tab` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_investigation_tab` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_diagnosis_tab` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_procedure_tab` tinyint(4) NOT NULL DEFAULT 1,
+  `print_margin_top` tinyint(4) NOT NULL DEFAULT 1,
+  `print_margin_bottom` tinyint(4) NOT NULL DEFAULT 1,
+  `print_margin_left` tinyint(4) NOT NULL DEFAULT 1,
+  `print_margin_right` tinyint(4) NOT NULL DEFAULT 1,
+  `print_chief_complaint` tinyint(4) NOT NULL DEFAULT 1,
+  `print_case_summery` tinyint(4) NOT NULL DEFAULT 1,
+  `print_on_examinition` tinyint(4) NOT NULL DEFAULT 1,
+  `print_investigation` tinyint(4) NOT NULL DEFAULT 1,
+  `print_diagnosis` tinyint(4) NOT NULL DEFAULT 1,
+  `print_advice` tinyint(4) NOT NULL DEFAULT 1,
+  `print_follow_up` tinyint(4) NOT NULL DEFAULT 1,
+  `print_signature` tinyint(4) NOT NULL DEFAULT 1,
+  `print_image` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `personal_settings`
+--
+
+INSERT INTO `personal_settings` (`id`, `org_title`, `org_subtitle`, `org_logo`, `org_phone`, `org_fax`, `org_mail`, `org_web`, `org_address`, `prescription_patient_info_modal`, `prescription_vital_sign_modal`, `prescription_allergy_modal`, `prescription_past_history_modal`, `prescription_gynae_obs_modal`, `prescription_child_history_modal`, `prescription_chief_complaint_tab`, `prescription_case_summery_tab`, `prescription_drug_history_tab`, `prescription_on_examinition_tab`, `prescription_investigation_tab`, `prescription_diagnosis_tab`, `prescription_procedure_tab`, `print_margin_top`, `print_margin_bottom`, `print_margin_left`, `print_margin_right`, `print_chief_complaint`, `print_case_summery`, `print_on_examinition`, `print_investigation`, `print_diagnosis`, `print_advice`, `print_follow_up`, `print_signature`, `print_image`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'Your Organization Name', 'Organization Subtitle', '1683650920_1.jpg', '+880100000001', '+880200000000', 'info@organization.org', 'organization.org', '00/0 Address, District, Country', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL, '2023-05-10 04:57:39');
 
 -- --------------------------------------------------------
 
@@ -11597,16 +11588,13 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
 -- Table structure for table `roles`
 --
 
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(125) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guard_name` varchar(125) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(125) NOT NULL,
+  `guard_name` varchar(125) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `roles`
@@ -11614,8 +11602,6 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'Super Admin', 'web', '2023-04-19 07:05:32', '2023-04-19 07:05:32'),
-(2, 'Admin', 'web', '2023-04-19 07:05:55', '2023-04-19 07:05:55'),
-(3, 'User', 'web', '2023-04-19 07:06:34', '2023-04-19 07:06:34'),
 (6, 'Doctor', 'web', '2023-04-20 12:07:11', '2023-04-20 12:07:11');
 
 -- --------------------------------------------------------
@@ -11624,12 +11610,9 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VAL
 -- Table structure for table `role_has_permissions`
 --
 
-DROP TABLE IF EXISTS `role_has_permissions`;
-CREATE TABLE IF NOT EXISTS `role_has_permissions` (
+CREATE TABLE `role_has_permissions` (
   `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `role_id` bigint(20) UNSIGNED NOT NULL,
-  PRIMARY KEY (`permission_id`,`role_id`),
-  KEY `role_has_permissions_role_id_foreign` (`role_id`)
+  `role_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -11638,17 +11621,23 @@ CREATE TABLE IF NOT EXISTS `role_has_permissions` (
 
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (1, 1),
-(1, 2),
-(1, 3),
-(1, 6),
 (2, 1),
-(2, 2),
-(2, 6),
 (3, 1),
-(3, 2),
 (4, 1),
-(4, 2),
-(5, 3);
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(9, 6),
+(10, 1),
+(10, 6),
+(11, 1),
+(11, 6),
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1);
 
 -- --------------------------------------------------------
 
@@ -11656,20 +11645,17 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 -- Table structure for table `templated_medicines`
 --
 
-DROP TABLE IF EXISTS `templated_medicines`;
-CREATE TABLE IF NOT EXISTS `templated_medicines` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `templated_medicines` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `medicine_template_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `medicine` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dose` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `instruction` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `duration` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `note` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `medicine` varchar(191) DEFAULT NULL,
+  `dose` varchar(191) DEFAULT NULL,
+  `instruction` varchar(191) DEFAULT NULL,
+  `duration` varchar(191) DEFAULT NULL,
+  `note` varchar(191) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `templated_medicines_medicine_template_id_foreign` (`medicine_template_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `templated_medicines`
@@ -11678,7 +11664,11 @@ CREATE TABLE IF NOT EXISTS `templated_medicines` (
 INSERT INTO `templated_medicines` (`id`, `medicine_template_id`, `medicine`, `dose`, `instruction`, `duration`, `note`, `created_at`, `updated_at`) VALUES
 (1, 2, 'Laxadil EP - (Drug International Ltd.)', '1+1+1', 'After meal', '7 days', 'N/A', '2023-05-01 11:28:21', '2023-05-01 11:28:21'),
 (2, 2, 'Napa', '1+1+1', 'After meal', '7 days', 'N/A', '2023-05-01 11:28:21', '2023-05-01 11:28:21'),
-(3, 2, 'Napa 500 mg', '1+1+1', 'after meal', '7 days', NULL, '2023-05-01 11:28:21', '2023-05-01 11:28:21');
+(3, 2, 'Napa 500 mg', '1+1+1', 'after meal', '7 days', NULL, '2023-05-01 11:28:21', '2023-05-01 11:28:21'),
+(4, 3, 'Laxate (Unknown) Sachet-3.5gm', '0 + 0 + 1', 'before meal', '10 days', 'জ্বর না থাকলে খাবেন না।', '2023-05-07 01:14:53', '2023-05-07 01:14:53'),
+(5, 3, 'Laxate (Unknown) Sachet-3.5gm', '0 + 0 + 1', 'before meal', '1 day', NULL, '2023-05-07 01:14:53', '2023-05-07 01:14:53'),
+(6, 3, 'Laxadil EP - (Drug International Ltd.)', '1+1+1', 'After meal', '7 days', 'N/A', '2023-05-07 01:14:53', '2023-05-07 01:14:53'),
+(7, 3, 'Laxadil EP - (Drug International Ltd.)', '1+1+1', 'After meal', '7 days', 'N/A', '2023-05-07 01:14:53', '2023-05-07 01:14:53');
 
 -- --------------------------------------------------------
 
@@ -11686,43 +11676,37 @@ INSERT INTO `templated_medicines` (`id`, `medicine_template_id`, `medicine`, `do
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `email` varchar(191) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(191) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `nid` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dob` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `reg_no` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `avater` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `signature` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `religion` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nationality` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bloodgroup` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `present_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `permanent_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`),
-  UNIQUE KEY `users_nid_unique` (`nid`),
-  UNIQUE KEY `users_phone_unique` (`phone`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `nid` varchar(191) DEFAULT NULL,
+  `phone` varchar(191) DEFAULT NULL,
+  `dob` varchar(191) DEFAULT NULL,
+  `reg_no` varchar(191) DEFAULT NULL,
+  `avater` varchar(191) DEFAULT NULL,
+  `signature` varchar(191) DEFAULT NULL,
+  `gender` varchar(191) DEFAULT NULL,
+  `religion` varchar(191) DEFAULT NULL,
+  `nationality` varchar(191) DEFAULT NULL,
+  `bloodgroup` varchar(191) DEFAULT NULL,
+  `present_address` varchar(191) DEFAULT NULL,
+  `permanent_address` varchar(191) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`, `nid`, `phone`, `dob`, `reg_no`, `avater`, `signature`, `gender`, `religion`, `nationality`, `bloodgroup`, `present_address`, `permanent_address`) VALUES
-(1, 'Prodip Munshi', 'munshiprodip@gmail.com', NULL, '$2y$10$BFgBm9s9sWvtoLVXtO5SY.F6sDEc.BHooK.woXD65SpZ70No7seaO', NULL, '2023-04-15 08:17:16', '2023-04-24 00:12:11', 1, '19930610279000277', '01736834294', '1993-04-07', 'A0000001', '1682316731_1.jpg', NULL, 'Male', 'Hindu', 'Bangladeshi', 'A(+ve)', 'Khwaja Yunus Ali Medical College & Hospital, Enayetpur, Sirajganj.', 'Bara Bashail, Agailjhara, Barisal.'),
-(2, 'Alamgir Sarker', 'sarker@gmail.com', NULL, '$2y$10$xobnNgTAkzFt6C1coNU5D.xZ2TfNGlqpNUPe0rjbKgzeNScnbv7lW', NULL, '2023-04-16 10:57:05', '2023-04-19 19:37:17', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Rupa Haldar', 'rupa@gmail.com', NULL, '$2y$10$dyz2pZkrxZS/gyzGvaFNre75BUZ2m9sLrLl0X5UdwPqGoQvgAqcxq', NULL, '2023-04-19 19:39:38', '2023-04-19 19:39:38', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 'Prodip Munshi', 'munshiprodip@gmail.com', NULL, '$2y$10$BFgBm9s9sWvtoLVXtO5SY.F6sDEc.BHooK.woXD65SpZ70No7seaO', NULL, '2023-04-15 08:17:16', '2023-05-07 11:13:01', 1, '19930610279000277', '01736834294', '1993-04-07', 'A0000001', '1683479581_1.jpg', NULL, 'Male', 'Hindu', 'Bangladeshi', 'A(+ve)', 'Khwaja Yunus Ali Medical College & Hospital, Enayetpur, Sirajganj.', 'Bara Bashail, Agailjhara, Barisal.'),
+(5, 'Dr. John', 'john@example.com', NULL, '$2y$10$H2LIOqfZaWE7tSZWmab00.sOHtxOBZruIaMjmN4Gn/3Msqm5wvS5C', NULL, '2023-05-10 12:59:40', '2023-05-10 12:59:40', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -11730,12 +11714,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 -- Table structure for table `user_clinical_component`
 --
 
-DROP TABLE IF EXISTS `user_clinical_component`;
-CREATE TABLE IF NOT EXISTS `user_clinical_component` (
+CREATE TABLE `user_clinical_component` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `clinical_component_id` bigint(20) UNSIGNED NOT NULL,
-  PRIMARY KEY (`user_id`,`clinical_component_id`),
-  KEY `user_clinical_component_clinical_component_id_foreign` (`clinical_component_id`)
+  `clinical_component_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -11744,16 +11725,366 @@ CREATE TABLE IF NOT EXISTS `user_clinical_component` (
 
 INSERT INTO `user_clinical_component` (`user_id`, `clinical_component_id`) VALUES
 (1, 1),
-(1, 2),
 (1, 4),
-(1, 6),
-(1, 9),
+(1, 7),
+(1, 841),
+(1, 842),
 (1, 6067),
 (1, 6068),
 (1, 6069),
 (1, 6076),
 (1, 7555),
-(1, 7556);
+(1, 7556),
+(5, 6421),
+(5, 6424),
+(5, 6426);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `appointments_appointment_no_unique` (`appointment_no`),
+  ADD KEY `appointments_patient_id_foreign` (`patient_id`),
+  ADD KEY `appointments_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `brands_generic_id_foreign` (`generic_id`),
+  ADD KEY `brands_company_id_foreign` (`company_id`),
+  ADD KEY `brands_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `clinical_components`
+--
+ALTER TABLE `clinical_components`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `clinical_components_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `companies_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `component_types`
+--
+ALTER TABLE `component_types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doses`
+--
+ALTER TABLE `doses`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `doses_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `durations`
+--
+ALTER TABLE `durations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `durations_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `favourite_medications`
+--
+ALTER TABLE `favourite_medications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `favourite_medications_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `generics`
+--
+ALTER TABLE `generics`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `generics_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `instructions`
+--
+ALTER TABLE `instructions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `instructions_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `media_libraries`
+--
+ALTER TABLE `media_libraries`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `media_libraries_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `medications`
+--
+ALTER TABLE `medications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `medications_appointment_id_foreign` (`appointment_id`);
+
+--
+-- Indexes for table `medicine_templates`
+--
+ALTER TABLE `medicine_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `medicine_templates_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `model_has_permissions`
+--
+ALTER TABLE `model_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
+-- Indexes for table `model_has_roles`
+--
+ALTER TABLE `model_has_roles`
+  ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
+  ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
+
+--
+-- Indexes for table `password_reset_tokens`
+--
+ALTER TABLE `password_reset_tokens`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `patients`
+--
+ALTER TABLE `patients`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `patients_nid_unique` (`nid`),
+  ADD UNIQUE KEY `patients_phone_unique` (`phone`),
+  ADD UNIQUE KEY `patients_email_unique` (`email`),
+  ADD UNIQUE KEY `patients_registration_no_unique` (`registration_no`),
+  ADD KEY `patients_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`);
+
+--
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `personal_settings`
+--
+ALTER TABLE `personal_settings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `personal_settings_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`);
+
+--
+-- Indexes for table `role_has_permissions`
+--
+ALTER TABLE `role_has_permissions`
+  ADD PRIMARY KEY (`permission_id`,`role_id`),
+  ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
+
+--
+-- Indexes for table `templated_medicines`
+--
+ALTER TABLE `templated_medicines`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `templated_medicines_medicine_template_id_foreign` (`medicine_template_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD UNIQUE KEY `users_nid_unique` (`nid`),
+  ADD UNIQUE KEY `users_phone_unique` (`phone`);
+
+--
+-- Indexes for table `user_clinical_component`
+--
+ALTER TABLE `user_clinical_component`
+  ADD PRIMARY KEY (`user_id`,`clinical_component_id`),
+  ADD KEY `user_clinical_component_clinical_component_id_foreign` (`clinical_component_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=602;
+
+--
+-- AUTO_INCREMENT for table `clinical_components`
+--
+ALTER TABLE `clinical_components`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7557;
+
+--
+-- AUTO_INCREMENT for table `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=654;
+
+--
+-- AUTO_INCREMENT for table `component_types`
+--
+ALTER TABLE `component_types`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `doses`
+--
+ALTER TABLE `doses`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `durations`
+--
+ALTER TABLE `durations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `favourite_medications`
+--
+ALTER TABLE `favourite_medications`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `generics`
+--
+ALTER TABLE `generics`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2109;
+
+--
+-- AUTO_INCREMENT for table `instructions`
+--
+ALTER TABLE `instructions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `media_libraries`
+--
+ALTER TABLE `media_libraries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `medications`
+--
+ALTER TABLE `medications`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `medicine_templates`
+--
+ALTER TABLE `medicine_templates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `patients`
+--
+ALTER TABLE `patients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `personal_settings`
+--
+ALTER TABLE `personal_settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `templated_medicines`
+--
+ALTER TABLE `templated_medicines`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `personal_settings`
+--
+ALTER TABLE `personal_settings`
+  ADD CONSTRAINT `personal_settings_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
