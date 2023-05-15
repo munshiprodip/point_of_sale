@@ -1,9 +1,12 @@
 <?php
 
 
+Route::get('/patients-list', 'AppointmentController@patientList')->name('patients.list');
+
 Route::get('/appointments', 'AppointmentController@index')->name('appointments');
 Route::get('/appointments/create', 'AppointmentController@create')->name('appointments.create');
 Route::post('/appointments/store', 'AppointmentController@store')->name('appointments.store'); // create patient & create appointment 
+Route::post('/appointments/new-appointment', 'AppointmentController@newAppointment')->name('appointments.new_appointment'); // create patient & create appointment 
 Route::get('/appointments/{appointment_no}/prescribe', 'AppointmentController@prescribe')->name('appointments.prescribe'); // create patient & create appointment 
 Route::patch('/appointments/{id}/update', 'AppointmentController@update')->name('appointments.update'); // create patient & create appointment 
 

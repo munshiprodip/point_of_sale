@@ -117,9 +117,9 @@
             <table width="100%">
                 <tr>
                     <td style="text-align: center; position: relative;">
-                        <img src="{{ asset('images/logo').'/'.$settings->org_logo}}" alt="org_logo" style="position: absolute; left: 15px; height: 65px; width: 100px;" />
-                        <h2 class="m-0">{{ $settings->org_title}}</h2>
-                        <p class="m-0">{{ $settings->org_subtitle}}</p>
+                        <img src="{{ asset('images/logo').'/'.$personal_settings->org_logo}}" alt="org_logo" style="position: absolute; left: 15px; height: 65px; width: 100px;" />
+                        <h2 class="m-0">{{ $personal_settings->org_title}}</h2>
+                        <p class="m-0">{{ $personal_settings->org_subtitle}}</p>
                     </td>
                 </tr>
             </table>
@@ -178,7 +178,7 @@
 
     <div class="page-footer">
         <footer style="width:21cm; height:28px; margin:0 auto;">
-        {{ $settings->org_title}} , {{ $settings->org_address}}
+        {{ $personal_settings->org_title}} , {{ $personal_settings->org_address}}
         </footer>
     </div>
 
@@ -239,25 +239,25 @@
                                     </tr>
                                 </table>
 
-                                @if ($appointment->case_summary)
+                                @if($personal_settings->print_case_summery)
                                     <p class="m-0 p-0 mt-5" style="text-decoration:underline; font-weight:bold;">Case
                                         Summary:</p>
                                     <pre class="m-0 p-0" style="font-family:Arial; margin-left:10px;">{{ $appointment->case_summary }}</pre>
                                 @endif
 
-                                @if ($appointment->chief_complaints)
+                                @if($personal_settings->print_chief_complaint)
                                     <p class="m-0 p-0 mt-5" style="text-decoration:underline; font-weight:bold;">Chief
                                         Complaint:</p>
                                     <pre class="m-0 p-0" style="font-family:Arial; margin-left:10px;">{{ $appointment->chief_complaints }}</pre>
                                 @endif
 
-                                @if ($appointment->diagnosis)
+                                @if($personal_settings->print_diagnosis)
                                     <p class="m-0 p-0 mt-5" style="text-decoration:underline; font-weight:bold;">
                                         Diagnosis:</p>
                                     <pre class="m-0 p-0" style="font-family:Arial; margin-left:10px;">{{ $appointment->diagnosis }}</pre>
                                 @endif
 
-                                @if ($appointment->procedure)
+                                @if($personal_settings->print_procedure)
                                     <p class="m-0 p-0 mt-5" style="text-decoration:underline; font-weight:bold;">
                                         Procedure / Plan:</p>
                                     <pre class="m-0 p-0" style="font-family:Arial; margin-left:10px;">{{ $appointment->procedure }}</pre>
@@ -285,15 +285,15 @@
                         <table>
                             <tr>
                                 <td>
-                                    @if ($appointment->investigations)
+                                    @if($personal_settings->print_investigation)
                                     <p class="m-0 p-0" style="text-decoration:underline; font-weight:bold;">
                                         Investigation:</p>
                                     <pre class="m-0 p-0" style="font-family:Arial; margin-left:10px;">{{ $appointment->investigations }}</pre>
                                     @endif
                                 </td>
                                 <td style="text-align: center;">
-                                    @if ($appointment->doctor->signature)
-                                        <img style="width: 100px;" src="{{ asset($appointment->doctor->signature) }}"
+                                    @if($personal_settings->print_signature)
+                                        <img style="width: 100px;" src="{{ asset('images/signatures').'/'.$appointment->doctor->signature }}"
                                             alt="">
                                     @endif
 
@@ -304,9 +304,10 @@
                             </tr>
                         </table>
 
-                        <p class="m-0 p-0" style="text-decoration:underline; font-weight:bold;">Advice:</p>
-                        <pre class="m-0 p-0" style="font-family:Arial; margin-left:10px;">{{ $appointment->advice }}</pre>
-
+                        @if($personal_settings->print_advice)
+                            <p class="m-0 p-0" style="text-decoration:underline; font-weight:bold;">Advice:</p>
+                            <pre class="m-0 p-0" style="font-family:Arial; margin-left:10px;">{{ $appointment->advice }}</pre>
+                        @endif
                     </main>
                 </td>
             </tr>

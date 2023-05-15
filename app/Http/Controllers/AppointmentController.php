@@ -44,14 +44,91 @@ class AppointmentController extends Controller
         return view('patients.appointments.index', compact('appointments'));
     }
 
-    public function todaysAppointment(Request $request)
+    public function patientList(Request $request)
     {
-        return view('patients.appointments.index');
+        $patients = Patient::where('id', '>', 0);
+        //$patients = Patient::where('created_by', auth()->id());
+        if($request->ajax()){
+            return DataTables::of($patients)
+            ->addColumn('appointment_count', function($row){
+                return $row->appointments->count();
+            })
+            ->addIndexColumn()
+            ->make(true);
+        }
+        return view('patients.index');
     }
+
+    public function newAppointment(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'patient_id'     => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success'   => false,
+                'type'      => 'info',
+                'title'     => 'Info!',
+                'message'   => $validator->messages()->all()[0],
+            ]);
+        }
+
+        $patient = Patient::findOrFail($request->patient_id);
+        $appointment = $patient->appointments()->where('created_by', auth()->id())->whereDate('created_at', Carbon::today())->first();
+
+        if($appointment){
+            return response()->json([
+                'success'   => false,
+                'type'      => 'info',
+                'title'     => 'Info!',
+                'appointment' => $appointment,
+                'message'   => 'This patient allready appointed today',
+            ]); 
+        }
+        $appointment = Appointment::create([
+            'appointment_no'    => $this->generateUniqueId('appointments', 'appointment_no', 'C'),
+            'patient_id'        => $patient->id,
+            'created_by'        => auth()->id(),
+        ]);
+
+        return response()->json([
+            'success'   => true,
+            'type'      => 'success',
+            'title'     => 'Success!',
+            'appointment' => $appointment,
+            'message'   => 'Appointment created successfully',
+        ]); 
+    }
+
+    
 
     public function create()
     {
-        return view('patients.appointments.create');
+        $bloodgroups = [
+            0 => 'A(+ve)',
+            1 => 'B(+ve)',
+            2 => 'AB(+ve)',
+            3 => 'O(+ve)',
+            4 => 'A(-ve)',
+            5 => 'B(-ve)',
+            6 => 'AB(-ve)',
+            7 => 'O(-ve)',         
+        ];
+        $genders = [
+            0 => 'Male',
+            1 => 'Female',
+            2 => 'Others',
+        ]; 
+        $religions = [
+            0 => 'Muslim',
+            1 => 'Hindu',
+        ];
+        $marital_status = [
+            0 => 'Married',
+            1 => 'Unmarried',
+        ];
+        return view('patients.appointments.create', compact('bloodgroups', 'genders', 'religions', 'marital_status'));
     }
 
     public function store(Request $request)
@@ -116,7 +193,7 @@ class AppointmentController extends Controller
             'weight'            => request('weight', NULL),
             'bmi'               => request('bmi', NULL),
             'ofc'               => request('ofc', NULL),
-            'created_by'        => request('doctor_id', auth()->id()),
+            'created_by'        => auth()->id(),
         ]);
 
         if(!$appointment->id){
@@ -211,7 +288,7 @@ class AppointmentController extends Controller
     public function prescribe($appointment_no)
     {
         $appointment = Appointment::with('patient')->where('appointment_no', $appointment_no)->first();
-
+        $personal_settings = auth()->user()->settings()->first();
         if($appointment?->created_by == auth()->id()){
             // return $appointment;
             $bloodgroups = [
@@ -250,7 +327,7 @@ class AppointmentController extends Controller
             $durations      = Duration::all();
 
             $ageText  = $this->calculateAge($appointment->patient->dob);
-            return view('patients.appointments.prescribe', compact('appointment', 'bloodgroups', 'genders', 'religions', 'marital_status', 'ageText', 'examination_values', 'brands', 'doses', 'instructions', 'durations'));
+            return view('patients.appointments.prescribe', compact('appointment', 'bloodgroups', 'genders', 'religions', 'marital_status', 'ageText', 'examination_values', 'brands', 'doses', 'instructions', 'durations', 'personal_settings'));
         }else{
             return response()->json([
                 'messege' => "Incorrect appointment number",
@@ -276,11 +353,11 @@ class AppointmentController extends Controller
     //Print prescription
     public function generatePrescription($appointment_id)
     {
-        $settings = PersonalSetting::where('created_by', auth()->id())->first();
+        $personal_settings = auth()->user()->settings()->first();
         $appointment = Appointment::find($appointment_id);
         //$pdf = PDF::loadView('patients.prescriptions.index', compact('appointment'));
         //return $pdf->stream($appointment->id.'.pdf');
-        return view('patients.prescriptions.index', compact('appointment', 'settings'));
+        return view('patients.prescriptions.index', compact('appointment', 'personal_settings'));
     }
 
 

@@ -58,12 +58,24 @@
 
       <!-- Modal's buttons -->
       <li style="margin-left: auto;" >
+        @if($personal_settings->prescription_patient_info_modal)
         <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#patients_info_modal">Patient's Info</button>
+        @endif
+        @if($personal_settings->prescription_vital_sign_modal)
         <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#vital_sign_modal">Vital Sign</button>
+        @endif
+        @if($personal_settings->prescription_allergy_modal)
         <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#allergy_modal">Allergy</button>
+        @endif
+        @if($personal_settings->prescription_past_history_modal)
         <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#past_history_modal">Past History</button>
-        <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#patients_info_modal">Gynae & Obs</button>
-        <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#patients_info_modal">Child History</button>
+        @endif
+        @if($personal_settings->prescription_gynae_obs_modal)
+        <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#gynae_obs_modal">Gynae & Obs</button>
+        @endif
+        @if($personal_settings->prescription_child_history_modal)
+        <button type="button" class="btn btn-outline-warning waves-effect ms-1" data-bs-toggle="modal" data-bs-target="#child_history_modal">Child History</button>
+        @endif
         <a target="_blank" href="{{ route('appointments.prescription', $appointment->id ) }}" type="button" class="btn btn-outline-secondary waves-effect ms-1">
           <span class="ti-xs ti ti-printer me-1"></span>Print
         </a>
@@ -72,7 +84,9 @@
     </ul>
 
     <!-- All Modals -->
+
     <!-- Patients Info Modal -->
+    @if($personal_settings->prescription_patient_info_modal)
     <div class="modal fade" id="patients_info_modal" data-bs-backdrop="static" tabindex="-1">
       <div class="modal-dialog modal-lg">
         <form class="modal-content" id="form_patients_info" >
@@ -312,9 +326,11 @@
         </form>
       </div>
     </div>
+    @endif
     <!-- End Patients Info Modal -->
 
     <!-- Vital sign Modal -->
+    @if($personal_settings->prescription_vital_sign_modal)
     <div class="modal fade" id="vital_sign_modal" data-bs-backdrop="static" tabindex="-1">
       <div class="modal-dialog modal-lg">
         <form class="modal-content" id="form_vital_sign" onsubmit="saveAppointmentData();" >
@@ -407,9 +423,11 @@
         </form>
       </div>
     </div>
+    @endif
     <!-- End Vital sign Modal -->
 
     <!-- Allergy Modal -->
+    @if($personal_settings->prescription_allergy_modal)
     <div class="modal fade" id="allergy_modal" data-bs-backdrop="static" tabindex="-1">
       <div class="modal-dialog modal-lg">
         <form class="modal-content" id="form_allergy" onsubmit="saveAppointmentData();" >
@@ -459,9 +477,11 @@
         </form>
       </div>
     </div>
+    @endif
     <!-- End Allergy Modal -->
 
     <!-- Past History Modal -->
+    @if($personal_settings->prescription_past_history_modal)
     <div class="modal fade" id="past_history_modal" data-bs-backdrop="static" tabindex="-1">
       <div class="modal-dialog modal-lg">
         <form class="modal-content" id="form_past_history" onsubmit="saveAppointmentData();">
@@ -534,7 +554,1013 @@
         </form>
       </div>
     </div>
+    @endif
     <!-- End Past History Modal -->
+
+    <!-- Gynae & Obs Modal -->
+    @if($personal_settings->prescription_gynae_obs_modal)
+    <div class="modal fade" id="gynae_obs_modal" data-bs-backdrop="static" tabindex="-1">
+      <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <form class="modal-content" id="form_gynae_obs" onsubmit="saveAppointmentData();">
+          @method('PATCH')
+          <div class="modal-header">
+            <h5 class="modal-title">Gynae & Obs</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-0">
+            <div class="nav-align-top">
+              <ul class="nav nav-tabs justify-content-end" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#para_tab" aria-controls="para_tab" aria-selected="false" tabindex="-1">Para</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#obs_history_tab" aria-controls="obs_history_tab" aria-selected="false" tabindex="-1">Obs History</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#sexual_history_tab" aria-controls="sexual_history_tab" aria-selected="true">Sexual History</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#menstrual_history_tab" aria-controls="menstrual_history_tab" aria-selected="true">Menstrual History</button>
+                </li>
+              </ul>
+
+              <div class="tab-content px-0">
+                <!-- Start tab -->
+                <div class="tab-pane fade active show" id="para_tab" role="tabpanel">
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                          <div class="col-sm-4">
+                              <label class="col-form-label" for="gynae_para_g">G</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="text" id="gynae_para_g" class="form-control" name="gynae_para_g" placeholder="G" value="{{ $appointment->g }}">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                          <div class="col-sm-4">
+                              <label class="col-form-label" for="gynae_para_t">T</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="text" id="gynae_para_t" class="form-control" name="gynae_para_t" placeholder="T" value="{{ $appointment->t }}">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                          <div class="col-sm-4">
+                              <label class="col-form-label" for="gynae_para_p">P</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="text" id="gynae_para_p" class="form-control" name="gynae_para_p" placeholder="P" value="{{ $appointment->p }}">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                          <div class="col-sm-4">
+                              <label class="col-form-label" for="gynae_para_a">A</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="text" id="gynae_para_a" class="form-control" name="gynae_para_a" placeholder="A" value="{{ $appointment->a }}">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                          <div class="col-sm-4">
+                              <label class="col-form-label" for="gynae_para_l">L</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="text" id="gynae_para_l" class="form-control" name="gynae_para_l" placeholder="L" value="{{ $appointment->l }}">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                          <div class="col-sm-4">
+                              <label class="col-form-label" for="gynae_para_parity">Parity</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="text" id="gynae_para_parity" class="form-control" name="gynae_para_parity" placeholder="Parity" value="{{ $appointment->parity }}">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                          <div class="col-sm-4">
+                              <label class="col-form-label" for="gynae_para_age_last_child">Age Last Child</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="text" id="gynae_para_age_last_child" class="form-control" name="gynae_para_age_last_child" placeholder="Age Last Child" value="{{ $appointment->age_last_child }}">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                          <div class="col-sm-4">
+                              <label class="col-form-label" for="gynae_para_type_of_delevery">Type of delevery</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <select class="form-control" name="gynae_para_type_of_delevery" id="gynae_para_type_of_delevery">
+                                <option value="Normal">Normal</option>
+                                <option value="C/S">C/S</option>
+                                <option value="Instrumental">Instrumental</option>
+                              </select>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End tab -->
+                <!-- Start tab -->
+                <div class="tab-pane fade" id="obs_history_tab" role="tabpanel">
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="obs_amenorrhea">Amenorrhea</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="obs_amenorrhea" id="obs_amenorrhea">
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="obs_fetal_movement">Fetal Movement</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="obs_fetal_movement" id="obs_fetal_movement">
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="obs_engagement">Engagement</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="obs_engagement" id="obs_engagement">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="obs_presentation">Presentation</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="obs_presentation" id="obs_presentation">
+                            <option value="Floating">Floating</option>
+                            <option value="Breech">Breech</option>
+                            <option value="Cephalic">Cephalic</option>
+                            <option value="Oblique">Oblique</option>
+                            <option value="Transverse">Transverse</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="obs_fetal_heart">Fetal Heart</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="obs_fetal_heart" id="obs_fetal_heart">
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End tab -->
+                <!-- Start tab -->
+                <div class="tab-pane fade" id="sexual_history_tab" role="tabpanel">
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="sexual_contraceptive">Contraceptive</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="sexual_contraceptive" id="sexual_contraceptive">
+                            <option value="Condom">Condom</option>
+                            <option value="Female condom">Female condom</option>
+                            <option value="Birth control pill">Birth control pill</option>
+                            <option value="IUD">IUD</option>
+                            <option value="Injection">Injection</option>
+                            <option value="Norplant">Norplant</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="sexual_dyspareunia">Dyspareunia</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="sexual_dyspareunia" id="sexual_dyspareunia">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="sexual_frequency">Frequency</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="sexual_frequency" id="sexual_frequency">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="sexual_post_coital_bleeding">Post coital bleeding</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="sexual_post_coital_bleeding" id="sexual_post_coital_bleeding">
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End tab -->
+                <!-- Start tab -->
+                <div class="tab-pane fade" id="menstrual_history_tab" role="tabpanel">
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_cycle">Cycle</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="menstrual_cycle" id="menstrual_cycle">
+                            <option value="Scanty">Scanty</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Heavy">Heavy</option>
+                            <option value="Too heavy">Too heavy</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_amount_of_flow">Amount of flow</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="menstrual_amount_of_flow" id="menstrual_amount_of_flow">
+                            <option value="Mild">Mild</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Severe">Severe</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_menopause">Menopause</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_menopause" id="menstrual_menopause">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_period">Period</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_period" id="menstrual_period">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_lmp">LMP</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_lmp" id="menstrual_lmp">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_menarche">Menarche</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_menarche" id="menstrual_menarche">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_edd">EDD</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_edd" id="menstrual_edd">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End tab -->
+              </div>
+            </div>           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    @endif
+    <!-- End Gynae & Obs Modal -->
+
+    <!-- Gynae & Obs Modal -->
+    @if($personal_settings->prescription_child_history_modal)
+    <div class="modal fade" id="child_history_modal" data-bs-backdrop="static" tabindex="-1">
+      <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <form class="modal-content" id="form_child_history" onsubmit="saveAppointmentData();">
+          @method('PATCH')
+          <div class="modal-header">
+            <h5 class="modal-title">Child History</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-0">
+            <div class="nav-align-top">
+              <ul class="nav nav-tabs justify-content-end" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#birth_history_tab" aria-controls="birth_history_tab" aria-selected="false" tabindex="-1">Birth History</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#health_history_tab" aria-controls="health_history_tab" aria-selected="false" tabindex="-1">Health History</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#developmental_milestones_tab" aria-controls="sexual_history_tab" aria-selected="true">Developmental Milestones</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#feeding_history_tab" aria-controls="feeding_history_tab" aria-selected="true">Feeding History</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#temperament_personality_tab" aria-controls="temperament_personality_tab" aria-selected="true">Temperament & Personality</button>
+                </li>
+              </ul>
+
+              <div class="tab-content px-0">
+                <!-- Start tab -->
+                <div class="tab-pane fade active show" id="birth_history_tab" role="tabpanel">
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_mothers_blood_group">Mother's Blood Group</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_mothers_blood_group" id="child_mothers_blood_group">
+                            <option value="">Select one</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_consanguinity_of_marrige_status">Consanguinity of marrige</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_consanguinity_of_marrige_status" id="child_consanguinity_of_marrige_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_rhesus_incompatibility_status">Rhesus incompatibility</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_rhesus_incompatibility_status" id="child_rhesus_incompatibility_status">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_haemolytic_disease_status">Haemolytic disease</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_haemolytic_disease_status" id="child_haemolytic_disease_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_mothers_age_during_birth">Mothers age during birth</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="child_mothers_age_during_birth" id="child_mothers_age_during_birth">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_gestation">Gestation</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="child_gestation" id="child_gestation">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_type_of_delevery">Type of delevery</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_type_of_delevery" id="child_type_of_delevery">
+                            <option value="">Select one</option>
+                            <option value="Normal">Normal</option>
+                            <option value="C/S">C/S</option>
+                            <option value="Instrumental">Instrumental</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_duration_of_labour">Duration of labour</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_duration_of_labour" id="child_duration_of_labour">
+                            <option value="">Select one</option>
+                            <option value="Prolonged">Prolonged</option>
+                            <option value="Short">Short</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Induced">Induced</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_complications_during_pregnancy">Complications during pregnancy</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_complications_during_pregnancy" id="child_complications_during_pregnancy">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_birth_trauma">Birth trauma</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_birth_trauma" id="child_birth_trauma">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_resuscitation">Resuscitation</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_resuscitation" id="child_resuscitation">
+                            <option value="">Select one</option>
+                            <option value="Required">Required</option>
+                            <option value="Not required">Not required</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_miscarriages_status">Miscarriages</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_miscarriages_status" id="child_miscarriages_status">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_fetal_distress_status">Fetal distress</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_fetal_distress_status" id="child_fetal_distress_status">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_presentation">Presentation</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_presentation" id="child_presentation">
+                            <option value="">Select one</option>
+                            <option value="Floating">Floating</option>
+                            <option value="Breech">Breech</option>
+                            <option value="Cephalic">Cephalic</option>
+                            <option value="Oblique">Oblique</option>
+                            <option value="Transverse">Transverse</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_birth_weight">Birth weight</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="child_birth_weight" id="child_birth_weight">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_delayed_crying_status">Delayed crying</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_delayed_crying_status" id="child_delayed_crying_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_convulsion_seizure">Convulsion seizure</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_convulsion_seizure" id="child_convulsion_seizure">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_febrile_illness">Febrile illness</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_febrile_illness" id="child_febrile_illness">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_bleeding_disorders">Bleeding disorders</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_bleeding_disorders" id="child_bleeding_disorders">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_jaundice_status">Jaundice</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_jaundice_status" id="child_jaundice_status">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_septicemia_status">Septicemia</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_septicemia_status" id="child_septicemia_status">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_hypoglycemia_status">Hypoglycemia</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_hypoglycemia_status" id="child_hypoglycemia_status">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_respiratory_distress">Respiratory distress</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_respiratory_distress" id="child_respiratory_distress">
+                            <option value="">Select one</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                <!-- End tab -->
+                <!-- Start tab -->
+                <div class="tab-pane fade" id="health_history_tab" role="tabpanel">
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_current_health_status">What is the current health status of your child?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_current_health_status" id="child_current_health_status">
+                            <option value="">Select one</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Poor">Yes</option>
+                            <option value="I don't know">I don't know</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_specific_medical_concerns">Do you have any specific medical concerns about your child?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_specific_medical_concerns" id="child_specific_medical_concerns">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_allergy_on_medications">Is your child allergic to any medication?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_allergy_on_medications" id="child_allergy_on_medications">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_allergic_medicines">Medicine list</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="child_allergic_medicines" id="child_allergic_medicines">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_immunization_status">Are your child's immunizations up to date?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_immunization_status" id="child_immunization_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            <option value="I don't know">I don't know</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_hearing_status">Did/does your child had a Hearing screening?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_hearing_status" id="child_hearing_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_vision_status">Did/does your child had a Vision screening?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_vision_status" id="child_vision_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_speech_status">Did/does your child had a Speech screening?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_speech_status" id="child_speech_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_recurrent_ear_status">Did/does your child have Recurrent ear infections?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_recurrent_ear_status" id="child_recurrent_ear_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="child_tube_in_ear_status">Did/does your child have tubes in his/her ears?</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="child_tube_in_ear_status" id="child_tube_in_ear_status">
+                            <option value="">Select one</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End tab -->
+                <!-- Start tab -->
+                <div class="tab-pane fade" id="sexual_history_tab" role="tabpanel">
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="sexual_contraceptive">Contraceptive</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="sexual_contraceptive" id="sexual_contraceptive">
+                            <option value="Condom">Condom</option>
+                            <option value="Female condom">Female condom</option>
+                            <option value="Birth control pill">Birth control pill</option>
+                            <option value="IUD">IUD</option>
+                            <option value="Injection">Injection</option>
+                            <option value="Norplant">Norplant</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="sexual_dyspareunia">Dyspareunia</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="sexual_dyspareunia" id="sexual_dyspareunia">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="sexual_frequency">Frequency</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="sexual_frequency" id="sexual_frequency">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="sexual_post_coital_bleeding">Post coital bleeding</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="sexual_post_coital_bleeding" id="sexual_post_coital_bleeding">
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End tab -->
+                <!-- Start tab -->
+                <div class="tab-pane fade" id="menstrual_history_tab" role="tabpanel">
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_cycle">Cycle</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="menstrual_cycle" id="menstrual_cycle">
+                            <option value="Scanty">Scanty</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Heavy">Heavy</option>
+                            <option value="Too heavy">Too heavy</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_amount_of_flow">Amount of flow</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="menstrual_amount_of_flow" id="menstrual_amount_of_flow">
+                            <option value="Mild">Mild</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Severe">Severe</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_menopause">Menopause</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_menopause" id="menstrual_menopause">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_period">Period</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_period" id="menstrual_period">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_lmp">LMP</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_lmp" id="menstrual_lmp">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_menarche">Menarche</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_menarche" id="menstrual_menarche">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-4">
+                          <label class="col-form-label" for="menstrual_edd">EDD</label>
+                        </div>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="menstrual_edd" id="menstrual_edd">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End tab -->
+              </div>
+            </div>           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    @endif
+    <!-- End Gynae & Obs Modal -->
 
 
 
@@ -753,84 +1779,98 @@
         <div class="bs-stepper vertical vertical-stepper-of-clinical-components">
           <!-- Page 1 steppers -->
           <div class="bs-stepper-header">
-            <div class="step active" data-target="#chief_complaint_step">
-              <button type="button" class="step-trigger" aria-selected="false">
-                <span class="bs-stepper-circle">
-                  <i class="ti ti-file-description"></i>
-                </span>
-                <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Chief Complaint</span>
-                  <span class="bs-stepper-subtitle">Add Chief Complaint</span>
-                </span>
-              </button>
-            </div>
-            <div class="line"></div>
-            <div class="step" data-target="#case_summary_step">
-              <button type="button" class="step-trigger" aria-selected="false">
-                <span class="bs-stepper-circle">
-                  <i class="ti ti-user"></i>
-                </span>
-                <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Case Summery</span>
-                  <span class="bs-stepper-subtitle">Add Case Summery</span>
-                </span>
-              </button>
-            </div>
-            <div class="line"></div>
-            <div class="step" data-target="#drug_history_step">
-              <button type="button" class="step-trigger" aria-selected="true">
-                <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
-                </span>
-                <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Drug History</span>
-                  <span class="bs-stepper-subtitle">Add Drug History</span>
-                </span>
-              </button>
-            </div>
-            <div class="line"></div>
-            <div class="step" data-target="#on_examination_step">
-              <button type="button" class="step-trigger" aria-selected="true">
-                <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
-                </span>
-                <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">On Examination</span>
-                  <span class="bs-stepper-subtitle">Add On Examination</span>
-                </span>
-              </button>
-            </div>
-            <div class="line"></div>
-            <div class="step" data-target="#investigations_step">
-              <button type="button" class="step-trigger" aria-selected="true">
-                <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
-                </span>
-                <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Investigation</span>
-                  <span class="bs-stepper-subtitle">Add Investigation</span>
-                </span>
-              </button>
-            </div>
-            <div class="line"></div>
-            <div class="step" data-target="#diagnosis_step">
-              <button type="button" class="step-trigger" aria-selected="true">
-                <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
-                </span>
-                <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Diagnosis</span>
-                  <span class="bs-stepper-subtitle">Add Diagnosis</span>
-                </span>
-              </button>
-            </div>
-            <div class="line"></div>
-            <div class="step" data-target="#procedure_step">
-              <button type="button" class="step-trigger" aria-selected="true">
-                <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
-                </span>
-                <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Procedure / Plan</span>
-                  <span class="bs-stepper-subtitle">Add Procedure / Plan</span>
-                </span>
-              </button>
-            </div>
+            @if($personal_settings->prescription_chief_complaint_tab)
+              <div class="step active" data-target="#chief_complaint_step">
+                <button type="button" class="step-trigger" aria-selected="false">
+                  <span class="bs-stepper-circle">
+                    <i class="ti ti-file-description"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title">Chief Complaint</span>
+                    <span class="bs-stepper-subtitle">Add Chief Complaint</span>
+                  </span>
+                </button>
+              </div>
+              <div class="line"></div>
+            @endif
+            @if($personal_settings->prescription_case_summery_tab)
+              <div class="step" data-target="#case_summary_step">
+                <button type="button" class="step-trigger" aria-selected="false">
+                  <span class="bs-stepper-circle">
+                    <i class="ti ti-user"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title">Case Summery</span>
+                    <span class="bs-stepper-subtitle">Add Case Summery</span>
+                  </span>
+                </button>
+              </div>
+              <div class="line"></div>
+            @endif
+            @if($personal_settings->prescription_drug_history_tab)
+              <div class="step" data-target="#drug_history_step">
+                <button type="button" class="step-trigger" aria-selected="true">
+                  <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title">Drug History</span>
+                    <span class="bs-stepper-subtitle">Add Drug History</span>
+                  </span>
+                </button>
+              </div>
+              <div class="line"></div>
+            @endif
+            @if($personal_settings->prescription_on_examinition_tab)
+              <div class="step" data-target="#on_examination_step">
+                <button type="button" class="step-trigger" aria-selected="true">
+                  <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title">On Examination</span>
+                    <span class="bs-stepper-subtitle">Add On Examination</span>
+                  </span>
+                </button>
+              </div>
+              <div class="line"></div>
+            @endif
+            @if($personal_settings->prescription_investigation_tab)
+              <div class="step" data-target="#investigations_step">
+                <button type="button" class="step-trigger" aria-selected="true">
+                  <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title">Investigation</span>
+                    <span class="bs-stepper-subtitle">Add Investigation</span>
+                  </span>
+                </button>
+              </div>
+              <div class="line"></div>
+            @endif
+            @if($personal_settings->prescription_diagnosis_tab)
+              <div class="step" data-target="#diagnosis_step">
+                <button type="button" class="step-trigger" aria-selected="true">
+                  <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title">Diagnosis</span>
+                    <span class="bs-stepper-subtitle">Add Diagnosis</span>
+                  </span>
+                </button>
+              </div>
+              <div class="line"></div>
+            @endif
+            @if($personal_settings->prescription_procedure_tab)
+              <div class="step" data-target="#procedure_step">
+                <button type="button" class="step-trigger" aria-selected="true">
+                  <span class="bs-stepper-circle"><i class="ti ti-brand-instagram"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title">Procedure / Plan</span>
+                    <span class="bs-stepper-subtitle">Add Procedure / Plan</span>
+                  </span>
+                </button>
+              </div>
+            @endif
           </div>
           <!-- End Page 1 steppers -->
 
@@ -838,6 +1878,7 @@
           <div class="bs-stepper-content">
             <form onsubmit="saveAppointmentData();">
               <!-- Chief Complaint -->
+              @if($personal_settings->prescription_chief_complaint_tab)
               <div id="chief_complaint_step" class="content active dstepper-block">
                 <div class="content-header mb-3 d-flex justify-content-between">
                   <h6 class="mb-0">Chief Complaint</h6>
@@ -881,8 +1922,9 @@
 
                 </div>
               </div>
-
+              @endif
               <!-- Case Summery -->
+              @if($personal_settings->prescription_case_summery_tab)
               <div id="case_summary_step" class="content dstepper-block">
                 <div class="content-header mb-3 d-flex justify-content-between">
                   <h6 class="mb-0">Case Summery</h6>
@@ -926,7 +1968,9 @@
 
                 </div>
               </div>
+              @endif
               <!-- Drug History -->
+              @if($personal_settings->prescription_drug_history_tab)
               <div id="drug_history_step" class="content dstepper-block">
                 <div class="content-header mb-3 d-flex justify-content-between">
                   <h6 class="mb-0">Drug History</h6>
@@ -959,8 +2003,9 @@
 
                 </div>
               </div>
-
+              @endif
               <!-- On Examination -->
+              @if($personal_settings->prescription_on_examinition_tab)
               <div id="on_examination_step" class="content dstepper-block">
                 <div class="row g-3">
                   <div class="nav-align-top">
@@ -1218,7 +2263,9 @@
                   </div>
                 </div>
               </div>
+              @endif
               <!-- Investigation -->
+              @if($personal_settings->prescription_investigation_tab)
               <div id="investigations_step" class="content dstepper-block">
                 <div class="content-header mb-3 d-flex justify-content-between">
                   <h6 class="mb-0">Investigations</h6>
@@ -1262,7 +2309,9 @@
 
                 </div>
               </div>
+              @endif
               <!-- Diagnosis -->
+              @if($personal_settings->prescription_diagnosis_tab)
               <div id="diagnosis_step" class="content dstepper-block">
                 <div class="content-header mb-3 d-flex justify-content-between">
                   <h6 class="mb-0">Diagnosis</h6>
@@ -1306,7 +2355,9 @@
 
                 </div>
               </div>
+              @endif
               <!-- Procedure -->
+              @if($personal_settings->prescription_procedure_tab)
               <div id="procedure_step" class="content dstepper-block">
                 <div class="content-header mb-3 d-flex justify-content-between">
                   <h6 class="mb-0">Procedures</h6>
@@ -1350,6 +2401,7 @@
 
                 </div>
               </div>
+              @endif
 
             </form>
           </div>

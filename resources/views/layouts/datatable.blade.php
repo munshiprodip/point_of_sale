@@ -156,7 +156,12 @@
                 </ul>
             </li>
 
-
+            <li class="menu-item {{ Route::currentRouteNamed('patients.list') ?  'active' : '' }}">
+                <a href="{{ route('patients.list') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <div>Patients List</div>
+                </a>
+            </li>
 
             <li class="menu-item {{ Route::currentRouteNamed('appointments') ?  'active' : '' }}">
                 <a href="{{ route('appointments') }}" class="menu-link">

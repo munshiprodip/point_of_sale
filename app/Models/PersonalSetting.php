@@ -46,10 +46,12 @@ class PersonalSetting extends Model
         'print_on_examinition',
         'print_investigation',
         'print_diagnosis',
+        'print_procedure',
         'print_advice',
         'print_follow_up',
         'print_signature',
         'print_image',
+        'created_by'
     ];
 
     public function doctor()

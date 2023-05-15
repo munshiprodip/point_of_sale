@@ -5,32 +5,43 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
+use App\Models\PersonalSetting;
 use App\Models\User;
 use Hash;
 
 class PersonalSettingController extends Controller
 {
-    public function organizationSetting ()
+    public function getSettings()
     {
         $personal_settings = auth()->user()->settings()->first();
+        if(!$personal_settings){
+            $personal_settings = PersonalSetting::create([
+                'created_by' => auth()->id(),
+            ]);
+        }
+        return $personal_settings;
+    }
+    public function organizationSetting ()
+    {
+        $personal_settings = $this->getSettings();
         return view('settings.profiles.organization.index', compact('personal_settings'));
     }
 
     public function emrSetting ()
     {
-        $personal_settings = auth()->user()->settings()->first();
+        $personal_settings = $this->getSettings();
         return view('settings.profiles.emr.index', compact('personal_settings'));
     }
 
     public function printSetting ()
     {
-        $personal_settings = auth()->user()->settings()->first();
+        $personal_settings = $this->getSettings();
         return view('settings.profiles.print.index', compact('personal_settings'));
     }
 
     public function organizationSettingUpdate(Request $request)
     {
-        $personal_settings = auth()->user()->settings()->first();
+        $personal_settings = $this->getSettings();
         
 
         if($request->hasFile('org_logo')){
@@ -88,7 +99,7 @@ class PersonalSettingController extends Controller
 
     public function emrSettingUpdate(Request $request)
     {
-        $personal_settings = auth()->user()->settings()->first();
+        $personal_settings = $this->getSettings();
         
 
         if($request->hasFile('org_logo')){
@@ -152,13 +163,13 @@ class PersonalSettingController extends Controller
 
     public function printSettingUpdate(Request $request)
     {
-        $personal_settings = auth()->user()->settings()->first();
+        $personal_settings = $this->getSettings();
         
 
-        if($request->hasFile('org_logo')){
-
+        if($request->hasFile('signature')){
+            $user = auth()->user();
             $validator = Validator::make($request->all(), [
-                'org_logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'signature' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             if ($validator->fails()) {
@@ -170,21 +181,21 @@ class PersonalSettingController extends Controller
                 ]);
             }
 
-            $org_logo = $request->file('org_logo');
-            $imageName = time() .'_'. $personal_settings->id . '.' . $org_logo->getClientOriginalExtension();
+            $signature = $request->file('signature');
+            $imageName = time() .'_'. $user->id . '.' . $signature->getClientOriginalExtension();
 
-            $request->org_logo->move(public_path('images/logo'), $imageName);
+            $request->signature->move(public_path('images/signatures'), $imageName);
 
             //delete old image
-            if($personal_settings->org_logo != NULL){
-                $old_image = public_path('images/logo/'.$personal_settings->org_logo);
+            if($user->signature != NULL){
+                $old_image = public_path('images/signatures/'.$user->signature);
                 if(file_exists($old_image)){
                     unlink($old_image);
                 }
             }
 
-            $personal_settings->org_logo = $imageName;
-            $personal_settings->save();
+            $user->signature = $imageName;
+            $user->save();
         }
 
         $personal_settings->print_margin_top                    =   request('print_margin_top', $personal_settings->print_margin_top);

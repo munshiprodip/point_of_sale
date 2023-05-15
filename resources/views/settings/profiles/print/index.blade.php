@@ -11,14 +11,14 @@
                     <!-- Account -->
                     <div class="card-body">
                         <div class="d-flex align-items-start align-items-sm-center gap-4">
-                            <img src="{{ asset('images/logo').'/'.$personal_settings?->org_logo}}" alt="org_logo" class="d-block w-px-100 h-px-100 rounded" id="uploadLogo" />
+                            <img src="{{ asset('images/signatures').'/'.auth()->user()->signature}}" alt="signature" class="d-block w-px-100 h-px-100 rounded" id="uploadSignature" />
                             <div class="button-wrapper">
                                 <label for="upload" class="btn btn-primary me-2 mb-3" tabindex="0">
-                                    <span class="d-none d-sm-block">Upload new logo</span>
+                                    <span class="d-none d-sm-block">Upload Signature</span>
                                     <i class="ti ti-upload d-block d-sm-none"></i>
-                                    <input type="file" id="upload" name="org_logo" class="org_logo-input" hidden accept="image/png, image/jpeg" />
+                                    <input type="file" id="upload" name="signature" class="signature-input" hidden accept="image/png, image/jpeg" />
                                 </label>
-                                <button type="button" class="btn btn-label-secondary org_logo-reset mb-3">
+                                <button type="button" class="btn btn-label-secondary signature-reset mb-3">
                                     <i class="ti ti-refresh-dot d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block">Reset</span>
                                 </button>
@@ -96,9 +96,9 @@
 
             
 
-            let e = document.getElementById("uploadLogo");
-            const l = document.querySelector(".org_logo-input"),
-            c = document.querySelector(".org_logo-reset");
+            let e = document.getElementById("uploadSignature");
+            const l = document.querySelector(".signature-input"),
+            c = document.querySelector(".signature-reset");
             if (e) {
             const r = e.src;
             (l.onchange = () => {
