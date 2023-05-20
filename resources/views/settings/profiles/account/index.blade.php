@@ -91,6 +91,11 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="appointment_fee">Appointment Fee</label>
+                                <input type="number" id="appointment_fee" name="appointment_fee" class=" form-control" value="{{ auth()->user()->appointment_fee}}">
+                                   
+                            </div>
                         </div>
                         <div class="mt-2">
                             <button type="submit" class="btn btn-primary me-2">Save changes</button>

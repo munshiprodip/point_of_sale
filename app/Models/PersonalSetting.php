@@ -19,6 +19,7 @@ class PersonalSetting extends Model
         'org_mail',
         'org_web',
         'org_address',
+        'appointment_fee',
 
         // Prescribe page ui options
         'prescription_patient_info_modal',

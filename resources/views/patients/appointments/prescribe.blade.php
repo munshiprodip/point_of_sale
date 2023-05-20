@@ -591,83 +591,84 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                           <div class="col-sm-4">
-                              <label class="col-form-label" for="gynae_para_g">G</label>
+                              <label class="col-form-label" for="obs_history_option_1">G</label>
                           </div>
                           <div class="col-sm-8">
-                              <input type="text" id="gynae_para_g" class="form-control" name="gynae_para_g" placeholder="G" value="{{ $appointment->g }}">
+                              <input type="text" id="obs_history_option_1" class="form-control" name="obs_history_option_1" placeholder="G" value="{{ $appointment->obs_history_option_1 }}">
                           </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                           <div class="col-sm-4">
-                              <label class="col-form-label" for="gynae_para_t">T</label>
+                              <label class="col-form-label" for="obs_history_option_2">T</label>
                           </div>
                           <div class="col-sm-8">
-                              <input type="text" id="gynae_para_t" class="form-control" name="gynae_para_t" placeholder="T" value="{{ $appointment->t }}">
+                              <input type="text" id="obs_history_option_2" class="form-control" name="obs_history_option_2" placeholder="T" value="{{ $appointment->obs_history_option_2 }}">
                           </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                           <div class="col-sm-4">
-                              <label class="col-form-label" for="gynae_para_p">P</label>
+                              <label class="col-form-label" for="obs_history_option_3">P</label>
                           </div>
                           <div class="col-sm-8">
-                              <input type="text" id="gynae_para_p" class="form-control" name="gynae_para_p" placeholder="P" value="{{ $appointment->p }}">
+                              <input type="text" id="obs_history_option_3" class="form-control" name="obs_history_option_3" placeholder="P" value="{{ $appointment->obs_history_option_3 }}">
                           </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                           <div class="col-sm-4">
-                              <label class="col-form-label" for="gynae_para_a">A</label>
+                              <label class="col-form-label" for="obs_history_option_4">A</label>
                           </div>
                           <div class="col-sm-8">
-                              <input type="text" id="gynae_para_a" class="form-control" name="gynae_para_a" placeholder="A" value="{{ $appointment->a }}">
+                              <input type="text" id="obs_history_option_4" class="form-control" name="obs_history_option_4" placeholder="A" value="{{ $appointment->obs_history_option_4 }}">
                           </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                           <div class="col-sm-4">
-                              <label class="col-form-label" for="gynae_para_l">L</label>
+                              <label class="col-form-label" for="obs_history_option_5">L</label>
                           </div>
                           <div class="col-sm-8">
-                              <input type="text" id="gynae_para_l" class="form-control" name="gynae_para_l" placeholder="L" value="{{ $appointment->l }}">
+                              <input type="text" id="obs_history_option_5" class="form-control" name="obs_history_option_5" placeholder="L" value="{{ $appointment->obs_history_option_5 }}">
                           </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                           <div class="col-sm-4">
-                              <label class="col-form-label" for="gynae_para_parity">Parity</label>
+                              <label class="col-form-label" for="obs_history_option_6">Parity</label>
                           </div>
                           <div class="col-sm-8">
-                              <input type="text" id="gynae_para_parity" class="form-control" name="gynae_para_parity" placeholder="Parity" value="{{ $appointment->parity }}">
+                              <input type="text" id="obs_history_option_6" class="form-control" name="obs_history_option_6" placeholder="Parity" value="{{ $appointment->obs_history_option_6 }}">
                           </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                           <div class="col-sm-4">
-                              <label class="col-form-label" for="gynae_para_age_last_child">Age Last Child</label>
+                              <label class="col-form-label" for="obs_history_option_7">Age Last Child</label>
                           </div>
                           <div class="col-sm-8">
-                              <input type="text" id="gynae_para_age_last_child" class="form-control" name="gynae_para_age_last_child" placeholder="Age Last Child" value="{{ $appointment->age_last_child }}">
+                              <input type="text" id="obs_history_option_7" class="form-control" name="obs_history_option_7" placeholder="Age Last Child" value="{{ $appointment->obs_history_option_7 }}">
                           </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                           <div class="col-sm-4">
-                              <label class="col-form-label" for="gynae_para_type_of_delevery">Type of delevery</label>
+                              <label class="col-form-label" for="obs_history_option_8">Type of delevery</label>
                           </div>
                           <div class="col-sm-8">
-                              <select class="form-control" name="gynae_para_type_of_delevery" id="gynae_para_type_of_delevery">
-                                <option value="Normal">Normal</option>
-                                <option value="C/S">C/S</option>
-                                <option value="Instrumental">Instrumental</option>
+                              <select class="form-control" name="obs_history_option_8" id="obs_history_option_8">
+                                <option value="">Select one</option>
+                                <option value="Normal" {{ $appointment->obs_history_option_8 == 'Normal' ? 'selected' : ''}} >Normal</option>
+                                <option value="C/S" {{ $appointment->obs_history_option_8 == 'C/S' ? 'selected' : ''}} >C/S</option>
+                                <option value="Instrumental" {{ $appointment->obs_history_option_8 == 'Instrumental' ? 'selected' : ''}}>Instrumental</option>
                               </select>
                           </div>
                       </div>
@@ -681,12 +682,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="obs_amenorrhea">Amenorrhea</label>
+                          <label class="col-form-label" for="obs_history_option_9">Amenorrhea</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="obs_amenorrhea" id="obs_amenorrhea">
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                          <select class="form-control" name="obs_history_option_9" id="obs_history_option_9">
+                            <option value="">Select one</option>
+                            <option value="Present" {{ $appointment->obs_history_option_9 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->obs_history_option_9 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -694,12 +696,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="obs_fetal_movement">Fetal Movement</label>
+                          <label class="col-form-label" for="obs_history_option_10">Fetal Movement</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="obs_fetal_movement" id="obs_fetal_movement">
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                          <select class="form-control" name="obs_history_option_10" id="obs_history_option_10">
+                            <option value="">Select one</option>
+                            <option value="Present" {{ $appointment->obs_history_option_10 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->obs_history_option_10 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -707,12 +710,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="obs_engagement">Engagement</label>
+                          <label class="col-form-label" for="obs_history_option_11">Engagement</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="obs_engagement" id="obs_engagement">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                          <select class="form-control" name="obs_history_option_11" id="obs_history_option_11">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->obs_history_option_11 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->obs_history_option_11 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -720,15 +724,16 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="obs_presentation">Presentation</label>
+                          <label class="col-form-label" for="obs_history_option_12">Presentation</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="obs_presentation" id="obs_presentation">
-                            <option value="Floating">Floating</option>
-                            <option value="Breech">Breech</option>
-                            <option value="Cephalic">Cephalic</option>
-                            <option value="Oblique">Oblique</option>
-                            <option value="Transverse">Transverse</option>
+                          <select class="form-control" name="obs_history_option_12" id="obs_history_option_12">
+                            <option value="">Select one</option>
+                            <option value="Floating" {{ $appointment->obs_history_option_12 == "Floating" ? "selected" : "" }} >Floating</option>
+                            <option value="Breech" {{ $appointment->obs_history_option_12 == "Breech" ? "selected" : "" }} >Breech</option>
+                            <option value="Cephalic" {{ $appointment->obs_history_option_12 == "Cephalic" ? "selected" : "" }} >Cephalic</option>
+                            <option value="Oblique" {{ $appointment->obs_history_option_12 == "Oblique" ? "selected" : "" }} >Oblique</option>
+                            <option value="Transverse" {{ $appointment->obs_history_option_12 == "Transverse" ? "selected" : "" }} >Transverse</option>
                           </select>
                         </div>
                       </div>
@@ -736,12 +741,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="obs_fetal_heart">Fetal Heart</label>
+                          <label class="col-form-label" for="obs_history_option_13">Fetal Heart</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="obs_fetal_heart" id="obs_fetal_heart">
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                          <select class="form-control" name="obs_history_option_13" id="obs_history_option_13">
+                            <option value="">Select one</option>
+                            <option value="Present" {{ $appointment->obs_history_option_13 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->obs_history_option_13 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -755,16 +761,17 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="sexual_contraceptive">Contraceptive</label>
+                          <label class="col-form-label" for="obs_history_option_14">Contraceptive</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="sexual_contraceptive" id="sexual_contraceptive">
-                            <option value="Condom">Condom</option>
-                            <option value="Female condom">Female condom</option>
-                            <option value="Birth control pill">Birth control pill</option>
-                            <option value="IUD">IUD</option>
-                            <option value="Injection">Injection</option>
-                            <option value="Norplant">Norplant</option>
+                          <select class="form-control" name="obs_history_option_14" id="obs_history_option_14">
+                            <option value="">Select one</option>
+                            <option value="Condom" {{ $appointment->obs_history_option_14 == "Condom" ? "selected" : "" }} >Condom</option>
+                            <option value="Female condom" {{ $appointment->obs_history_option_14 == "Female condom" ? "selected" : "" }} >Female condom</option>
+                            <option value="Birth control pill" {{ $appointment->obs_history_option_14 == "Birth control pill" ? "selected" : "" }} >Birth control pill</option>
+                            <option value="IUD" {{ $appointment->obs_history_option_14 == "IUD" ? "selected" : "" }} >IUD</option>
+                            <option value="Injection" {{ $appointment->obs_history_option_14 == "Injection" ? "selected" : "" }} >Injection</option>
+                            <option value="Norplant" {{ $appointment->obs_history_option_14 == "Norplant" ? "selected" : "" }} >Norplant</option>
                           </select>
                         </div>
                       </div>
@@ -772,12 +779,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="sexual_dyspareunia">Dyspareunia</label>
+                          <label class="col-form-label" for="obs_history_option_15">Dyspareunia</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="sexual_dyspareunia" id="sexual_dyspareunia">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                          <select class="form-control" name="obs_history_option_15" id="obs_history_option_15">
+                          <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->obs_history_option_15 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->obs_history_option_15 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -785,22 +793,23 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="sexual_frequency">Frequency</label>
+                          <label class="col-form-label" for="obs_history_option_16">Frequency</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="sexual_frequency" id="sexual_frequency">
+                          <input type="text" class="form-control" name="obs_history_option_16" id="obs_history_option_16" value="{{ $appointment->obs_history_option_16 }}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="sexual_post_coital_bleeding">Post coital bleeding</label>
+                          <label class="col-form-label" for="obs_history_option_17">Post coital bleeding</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="sexual_post_coital_bleeding" id="sexual_post_coital_bleeding">
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                          <select class="form-control" name="obs_history_option_17" id="obs_history_option_17">
+                            <option value="">Select one</option>
+                            <option value="Present" {{ $appointment->obs_history_option_17 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->obs_history_option_17 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -814,14 +823,15 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_cycle">Cycle</label>
+                          <label class="col-form-label" for="obs_history_option_18">Cycle</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="menstrual_cycle" id="menstrual_cycle">
-                            <option value="Scanty">Scanty</option>
-                            <option value="Normal">Normal</option>
-                            <option value="Heavy">Heavy</option>
-                            <option value="Too heavy">Too heavy</option>
+                          <select class="form-control" name="obs_history_option_18" id="obs_history_option_18">
+                            <option value="">Select one</option>
+                            <option value="Scanty" {{ $appointment->obs_history_option_18 == "Scanty" ? "selected" : "" }}>Scanty</option>
+                            <option value="Normal" {{ $appointment->obs_history_option_18 == "Normal" ? "selected" : "" }}>Normal</option>
+                            <option value="Heavy" {{ $appointment->obs_history_option_18 == "Heavy" ? "selected" : "" }}>Heavy</option>
+                            <option value="Too heavy" {{ $appointment->obs_history_option_18 == "Too heavy" ? "selected" : "" }}>Too heavy</option>
                           </select>
                         </div>
                       </div>
@@ -829,13 +839,14 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_amount_of_flow">Amount of flow</label>
+                          <label class="col-form-label" for="obs_history_option_19">Amount of flow</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="menstrual_amount_of_flow" id="menstrual_amount_of_flow">
-                            <option value="Mild">Mild</option>
-                            <option value="Moderate">Moderate</option>
-                            <option value="Severe">Severe</option>
+                          <select class="form-control" name="obs_history_option_19" id="obs_history_option_19">
+                            <option value="">Select one</option>
+                            <option value="Mild" {{ $appointment->obs_history_option_19 == "Mild" ? "selected" : "" }}>Mild</option>
+                            <option value="Moderate" {{ $appointment->obs_history_option_19 == "Moderate" ? "selected" : "" }}>Moderate</option>
+                            <option value="Severe" {{ $appointment->obs_history_option_19 == "Severe" ? "selected" : "" }}>Severe</option>
                           </select>
                         </div>
                       </div>
@@ -843,50 +854,50 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_menopause">Menopause</label>
+                          <label class="col-form-label" for="obs_history_option_20">Menopause</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_menopause" id="menstrual_menopause">
+                          <input type="text" class="form-control" name="obs_history_option_20" id="obs_history_option_20" value="{{ $appointment->obs_history_option_20 }}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_period">Period</label>
+                          <label class="col-form-label" for="obs_history_option_21">Period</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_period" id="menstrual_period">
+                          <input type="text" class="form-control" name="obs_history_option_21" id="obs_history_option_21" value="{{ $appointment->obs_history_option_21 }}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_lmp">LMP</label>
+                          <label class="col-form-label" for="obs_history_option_22">LMP</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_lmp" id="menstrual_lmp">
+                          <input type="text" class="form-control" name="obs_history_option_22" id="obs_history_option_22" value="{{ $appointment->obs_history_option_22 }}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_menarche">Menarche</label>
+                          <label class="col-form-label" for="obs_history_option_23">Menarche</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_menarche" id="menstrual_menarche">
+                          <input type="text" class="form-control" name="obs_history_option_23" id="obs_history_option_23" value="{{ $appointment->obs_history_option_23 }}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_edd">EDD</label>
+                          <label class="col-form-label" for="obs_history_option_24">EDD</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_edd" id="menstrual_edd">
+                          <input type="text" class="form-control" name="obs_history_option_24" id="obs_history_option_24" value="{{ $appointment->obs_history_option_24 }}">
                         </div>
                       </div>
                     </div>
@@ -906,7 +917,7 @@
     @endif
     <!-- End Gynae & Obs Modal -->
 
-    <!-- Gynae & Obs Modal -->
+    <!-- Child history Modal -->
     @if($personal_settings->prescription_child_history_modal)
     <div class="modal fade" id="child_history_modal" data-bs-backdrop="static" tabindex="-1">
       <div class="modal-dialog modal-dialog-scrollable modal-xl">
@@ -926,7 +937,7 @@
                   <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#health_history_tab" aria-controls="health_history_tab" aria-selected="false" tabindex="-1">Health History</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#developmental_milestones_tab" aria-controls="sexual_history_tab" aria-selected="true">Developmental Milestones</button>
+                  <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#developmental_milestones_tab" aria-controls="developmental_milestones_tab" aria-selected="true">Developmental Milestones</button>
                 </li>
                 <li class="nav-item" role="presentation">
                   <button type="button" class="nav-link " role="tab" data-bs-toggle="tab" data-bs-target="#feeding_history_tab" aria-controls="feeding_history_tab" aria-selected="true">Feeding History</button>
@@ -943,12 +954,14 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_mothers_blood_group">Mother's Blood Group</label>
+                          <label class="col-form-label" for="child_history_option_1">Mother's Blood Group</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_mothers_blood_group" id="child_mothers_blood_group">
+                          <select class="form-control" name="child_history_option_1" id="child_history_option_1">
                             <option value="">Select one</option>
-                            <option value="Absent">Absent</option>
+                            @foreach($bloodgroups as $row)
+                            <option value="{{$row}}" {{ $appointment->child_history_option_1 == $row? "selected":"" }} >{{$row}}</option>
+                            @endforeach
                           </select>
                         </div>
                       </div>
@@ -956,13 +969,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_consanguinity_of_marrige_status">Consanguinity of marrige</label>
+                          <label class="col-form-label" for="child_history_option_2">Consanguinity of marrige</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_consanguinity_of_marrige_status" id="child_consanguinity_of_marrige_status">
+                          <select class="form-control" name="child_history_option_2" id="child_history_option_2">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_2 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_2 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -970,13 +983,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_rhesus_incompatibility_status">Rhesus incompatibility</label>
+                          <label class="col-form-label" for="child_history_option_3">Rhesus incompatibility</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_rhesus_incompatibility_status" id="child_rhesus_incompatibility_status">
+                          <select class="form-control" name="child_history_option_3" id="child_history_option_3">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_3 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_3 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -984,13 +997,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_haemolytic_disease_status">Haemolytic disease</label>
+                          <label class="col-form-label" for="child_history_option_4">Haemolytic disease</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_haemolytic_disease_status" id="child_haemolytic_disease_status">
+                          <select class="form-control" name="child_history_option_4" id="child_history_option_4">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_4 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_4 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -998,34 +1011,34 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_mothers_age_during_birth">Mothers age during birth</label>
+                          <label class="col-form-label" for="child_history_option_5">Mothers age during birth</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="child_mothers_age_during_birth" id="child_mothers_age_during_birth">
+                          <input type="text" class="form-control" name="child_history_option_5" id="child_history_option_5" value="{{$appointment->child_history_option_5}}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_gestation">Gestation</label>
+                          <label class="col-form-label" for="child_history_option_6">Gestation</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="child_gestation" id="child_gestation">
+                          <input type="text" class="form-control" name="child_history_option_6" id="child_history_option_6" value="{{$appointment->child_history_option_6}}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_type_of_delevery">Type of delevery</label>
+                          <label class="col-form-label" for="child_history_option_7">Type of delevery</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_type_of_delevery" id="child_type_of_delevery">
+                          <select class="form-control" name="child_history_option_7" id="child_history_option_7">
                             <option value="">Select one</option>
-                            <option value="Normal">Normal</option>
-                            <option value="C/S">C/S</option>
-                            <option value="Instrumental">Instrumental</option>
+                            <option value="Normal" {{ $appointment->child_history_option_7 == 'Normal' ? 'selected' : ''}} >Normal</option>
+                            <option value="C/S" {{ $appointment->child_history_option_7 == 'C/S' ? 'selected' : ''}} >C/S</option>
+                            <option value="Instrumental" {{ $appointment->child_history_option_7 == 'Instrumental' ? 'selected' : ''}}>Instrumental</option>
                           </select>
                         </div>
                       </div>
@@ -1033,15 +1046,15 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_duration_of_labour">Duration of labour</label>
+                          <label class="col-form-label" for="child_history_option_8">Duration of labour</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_duration_of_labour" id="child_duration_of_labour">
+                          <select class="form-control" name="child_history_option_8" id="child_history_option_8">
                             <option value="">Select one</option>
-                            <option value="Prolonged">Prolonged</option>
-                            <option value="Short">Short</option>
-                            <option value="Normal">Normal</option>
-                            <option value="Induced">Induced</option>
+                            <option value="Prolonged" {{ $appointment->child_history_option_8 == 'Prolonged' ? 'selected' : ''}}>Prolonged</option>
+                            <option value="Short" {{ $appointment->child_history_option_8 == 'Short' ? 'selected' : ''}}>Short</option>
+                            <option value="Normal" {{ $appointment->child_history_option_8 == 'Normal' ? 'selected' : ''}}>Normal</option>
+                            <option value="Induced" {{ $appointment->child_history_option_8 == 'Induced' ? 'selected' : ''}}>Induced</option>
                           </select>
                         </div>
                       </div>
@@ -1049,13 +1062,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_complications_during_pregnancy">Complications during pregnancy</label>
+                          <label class="col-form-label" for="child_history_option_9">Complications during pregnancy</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_complications_during_pregnancy" id="child_complications_during_pregnancy">
+                          <select class="form-control" name="child_history_option_9" id="child_history_option_9">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_9 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_9 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1063,13 +1076,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_birth_trauma">Birth trauma</label>
+                          <label class="col-form-label" for="child_history_option_10">Birth trauma</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_birth_trauma" id="child_birth_trauma">
+                          <select class="form-control" name="child_history_option_10" id="child_history_option_10">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_10 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_10 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1077,13 +1090,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_resuscitation">Resuscitation</label>
+                          <label class="col-form-label" for="child_history_option_11">Resuscitation</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_resuscitation" id="child_resuscitation">
+                          <select class="form-control" name="child_history_option_11" id="child_history_option_11">
                             <option value="">Select one</option>
-                            <option value="Required">Required</option>
-                            <option value="Not required">Not required</option>
+                            <option value="Required" {{ $appointment->child_history_option_11 == "Required" ? "selected" : "" }}>Required</option>
+                            <option value="Not required" {{ $appointment->child_history_option_11 == "Not required" ? "selected" : "" }}>Not required</option>
                           </select>
                         </div>
                       </div>
@@ -1091,13 +1104,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_miscarriages_status">Miscarriages</label>
+                          <label class="col-form-label" for="child_history_option_12">Miscarriages</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_miscarriages_status" id="child_miscarriages_status">
+                          <select class="form-control" name="child_history_option_12" id="child_history_option_12">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_12 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_12 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1105,13 +1118,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_fetal_distress_status">Fetal distress</label>
+                          <label class="col-form-label" for="child_history_option_13">Fetal distress</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_fetal_distress_status" id="child_fetal_distress_status">
+                          <select class="form-control" name="child_history_option_13" id="child_history_option_13">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_13 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_13 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1119,16 +1132,17 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_presentation">Presentation</label>
+                          <label class="col-form-label" for="child_history_option_14">Presentation</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_presentation" id="child_presentation">
+                          <select class="form-control" name="child_history_option_14" id="child_history_option_14">
                             <option value="">Select one</option>
-                            <option value="Floating">Floating</option>
-                            <option value="Breech">Breech</option>
-                            <option value="Cephalic">Cephalic</option>
-                            <option value="Oblique">Oblique</option>
-                            <option value="Transverse">Transverse</option>
+                            <option value="Floating" {{ $appointment->child_history_option_14 == "Floating" ? "selected" : "" }}>Floating</option>
+                            <option value="Breech" {{ $appointment->child_history_option_14 == "Breech" ? "selected" : "" }}>Breech</option>
+                            <option value="Cephalic" {{ $appointment->child_history_option_14 == "Cephalic" ? "selected" : "" }}>Cephalic</option>
+                            <option value="Oblique" {{ $appointment->child_history_option_14 == "Oblique" ? "selected" : "" }}>Oblique</option>
+                            <option value="Transverse" {{ $appointment->child_history_option_14 == "Transverse" ? "selected" : "" }}>Transverse</option>
+                            
                           </select>
                         </div>
                       </div>
@@ -1136,23 +1150,23 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_birth_weight">Birth weight</label>
+                          <label class="col-form-label" for="child_history_option_15">Birth weight</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="child_birth_weight" id="child_birth_weight">
+                          <input type="text" class="form-control" name="child_history_option_15" id="child_history_option_15" value="{{ $appointment->child_history_option_15 }}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_delayed_crying_status">Delayed crying</label>
+                          <label class="col-form-label" for="child_history_option_16">Delayed crying</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_delayed_crying_status" id="child_delayed_crying_status">
+                          <select class="form-control" name="child_history_option_16" id="child_history_option_16">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_16 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_16 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1160,13 +1174,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_convulsion_seizure">Convulsion seizure</label>
+                          <label class="col-form-label" for="child_history_option_17">Convulsion seizure</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_convulsion_seizure" id="child_convulsion_seizure">
+                          <select class="form-control" name="child_history_option_17" id="child_history_option_17">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_17 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_17 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1174,13 +1188,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_febrile_illness">Febrile illness</label>
+                          <label class="col-form-label" for="child_history_option_18">Febrile illness</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_febrile_illness" id="child_febrile_illness">
+                          <select class="form-control" name="child_history_option_18" id="child_history_option_18">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_18 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_18 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1188,13 +1202,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_bleeding_disorders">Bleeding disorders</label>
+                          <label class="col-form-label" for="child_history_option_19">Bleeding disorders</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_bleeding_disorders" id="child_bleeding_disorders">
+                          <select class="form-control" name="child_history_option_19" id="child_history_option_19">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_19 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_19 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1202,13 +1216,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_jaundice_status">Jaundice</label>
+                          <label class="col-form-label" for="child_history_option_20">Jaundice</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_jaundice_status" id="child_jaundice_status">
+                          <select class="form-control" name="child_history_option_20" id="child_history_option_20">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_20 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_20 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1216,13 +1230,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_septicemia_status">Septicemia</label>
+                          <label class="col-form-label" for="child_history_option_21">Septicemia</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_septicemia_status" id="child_septicemia_status">
+                          <select class="form-control" name="child_history_option_21" id="child_history_option_21">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_21 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_21 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1230,13 +1244,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_hypoglycemia_status">Hypoglycemia</label>
+                          <label class="col-form-label" for="child_history_option_22">Hypoglycemia</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_hypoglycemia_status" id="child_hypoglycemia_status">
+                          <select class="form-control" name="child_history_option_22" id="child_history_option_22">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_22 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_22 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1244,13 +1258,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_respiratory_distress">Respiratory distress</label>
+                          <label class="col-form-label" for="child_history_option_23">Respiratory distress</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_respiratory_distress" id="child_respiratory_distress">
+                          <select class="form-control" name="child_history_option_23" id="child_history_option_23">
                             <option value="">Select one</option>
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present" {{ $appointment->child_history_option_23 == "Present" ? "selected" : "" }}>Present</option>
+                            <option value="Absent" {{ $appointment->child_history_option_23 == "Absent" ? "selected" : "" }}>Absent</option>
                           </select>
                         </div>
                       </div>
@@ -1265,16 +1279,16 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_current_health_status">What is the current health status of your child?</label>
+                          <label class="col-form-label" for="child_history_option_24">What is the current health status of your child?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_current_health_status" id="child_current_health_status">
+                          <select class="form-control" name="child_history_option_24" id="child_history_option_24">
                             <option value="">Select one</option>
-                            <option value="Excellent">Excellent</option>
-                            <option value="Good">Good</option>
-                            <option value="Fair">Fair</option>
-                            <option value="Poor">Yes</option>
-                            <option value="I don't know">I don't know</option>
+                            <option value="Excellent" {{ $appointment->child_history_option_24 == "Excellent" ? "selected" : "" }}>Excellent</option>
+                            <option value="Good" {{ $appointment->child_history_option_24 == "Good" ? "selected" : "" }}>Good</option>
+                            <option value="Fair" {{ $appointment->child_history_option_24 == "Fair" ? "selected" : "" }}>Fair</option>
+                            <option value="Poor" {{ $appointment->child_history_option_24 == "Poor" ? "selected" : "" }}>Poor</option>
+                            <option value="I don't know" {{ $appointment->child_history_option_24 == "I don't know" ? "selected" : "" }}>I don't know</option>
                           </select>
                         </div>
                       </div>
@@ -1282,13 +1296,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_specific_medical_concerns">Do you have any specific medical concerns about your child?</label>
+                          <label class="col-form-label" for="child_history_option_25">Do you have any specific medical concerns about your child?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_specific_medical_concerns" id="child_specific_medical_concerns">
+                          <select class="form-control" name="child_history_option_25" id="child_history_option_25">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_25 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_25 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1296,13 +1310,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_allergy_on_medications">Is your child allergic to any medication?</label>
+                          <label class="col-form-label" for="child_history_option_26">Is your child allergic to any medication?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_allergy_on_medications" id="child_allergy_on_medications">
+                          <select class="form-control" name="child_history_option_26" id="child_history_option_26">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_26 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_26 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1310,24 +1324,24 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_allergic_medicines">Medicine list</label>
+                          <label class="col-form-label" for="child_history_option_27">Medicine list</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="child_allergic_medicines" id="child_allergic_medicines">
+                          <input type="text" class="form-control" name="child_history_option_27" id="child_history_option_27" value="{{ $appointment->child_history_option_27 }}">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_immunization_status">Are your child's immunizations up to date?</label>
+                          <label class="col-form-label" for="child_history_option_28">Are your child's immunizations up to date?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_immunization_status" id="child_immunization_status">
+                          <select class="form-control" name="child_history_option_28" id="child_history_option_28">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                            <option value="I don't know">I don't know</option>
+                            <option value="Yes" {{ $appointment->child_history_option_28 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_28 == "No" ? "selected" : "" }}>No</option>
+                            <option value="I don't know" {{ $appointment->child_history_option_28 == "I don't know" ? "selected" : "" }}>I don't know</option>
                           </select>
                         </div>
                       </div>
@@ -1335,13 +1349,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_hearing_status">Did/does your child had a Hearing screening?</label>
+                          <label class="col-form-label" for="child_history_option_29">Did/does your child had a Hearing screening?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_hearing_status" id="child_hearing_status">
+                          <select class="form-control" name="child_history_option_29" id="child_history_option_29">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_29 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_29 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1349,13 +1363,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_vision_status">Did/does your child had a Vision screening?</label>
+                          <label class="col-form-label" for="child_history_option_30">Did/does your child had a Vision screening?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_vision_status" id="child_vision_status">
+                          <select class="form-control" name="child_history_option_30" id="child_history_option_30">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_30 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_30 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1363,13 +1377,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_speech_status">Did/does your child had a Speech screening?</label>
+                          <label class="col-form-label" for="child_history_option_31">Did/does your child had a Speech screening?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_speech_status" id="child_speech_status">
+                          <select class="form-control" name="child_history_option_31" id="child_history_option_31">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_31 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_31 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1377,13 +1391,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_recurrent_ear_status">Did/does your child have Recurrent ear infections?</label>
+                          <label class="col-form-label" for="child_history_option_32">Did/does your child have Recurrent ear infections?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_recurrent_ear_status" id="child_recurrent_ear_status">
+                          <select class="form-control" name="child_history_option_32" id="child_history_option_32">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_32 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_32 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1391,13 +1405,13 @@
                     <div class="col-6 mb-2">
                       <div class=" row">
                         <div class="col-sm-4">
-                          <label class="col-form-label" for="child_tube_in_ear_status">Did/does your child have tubes in his/her ears?</label>
+                          <label class="col-form-label" for="child_history_option_33">Did/does your child have tubes in his/her ears?</label>
                         </div>
                         <div class="col-sm-8">
-                          <select class="form-control" name="child_tube_in_ear_status" id="child_tube_in_ear_status">
+                          <select class="form-control" name="child_history_option_33" id="child_history_option_33">
                             <option value="">Select one</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="Yes" {{ $appointment->child_history_option_33 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_33 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1406,57 +1420,564 @@
                 </div>
                 <!-- End tab -->
                 <!-- Start tab -->
-                <div class="tab-pane fade" id="sexual_history_tab" role="tabpanel">
+                <div class="tab-pane fade" id="developmental_milestones_tab" role="tabpanel">
+                  <div class="row">
+                  <strong>If you can recall, record the age at which your child reached the following developmental milestone</strong>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_34">Rolled over</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_34" id="child_history_option_34" value="{{$appointment->child_history_option_34}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_35">Sat up</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_35" id="child_history_option_35" value="{{$appointment->child_history_option_35}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_36">Crawled</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_36" id="child_history_option_36" value="{{$appointment->child_history_option_36}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_37">Walked</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_37" id="child_history_option_37" value="{{$appointment->child_history_option_37}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_38">Spoke first word</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_38" id="child_history_option_38" value="{{$appointment->child_history_option_38}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_39">Talked (2 words)</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_39" id="child_history_option_39" value="{{$appointment->child_history_option_39}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_40">Weaned (Bottle/Breast)</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_40" id="child_history_option_40" value="{{$appointment->child_history_option_40}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_41">Fed self (spoon)</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_41" id="child_history_option_41" value="{{$appointment->child_history_option_41}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_42">Drank from a cup</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_42" id="child_history_option_42" value="{{$appointment->child_history_option_42}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_43">Toilet trained</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_43" id="child_history_option_43" value="{{$appointment->child_history_option_43}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_44">Was your infant</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <select class="form-control" name="child_history_option_44" id="child_history_option_44">
+                            <option value="">Select one</option>
+                            <option value="Calm" {{ $appointment->child_history_option_44 == 'Calm' ? 'selected' : ''}} >Calm</option>
+                            <option value="Colicky" {{ $appointment->child_history_option_44 == 'Colicky' ? 'selected' : ''}} >Colicky</option>
+                            <option value="Fussy" {{ $appointment->child_history_option_44 == 'Fussy' ? 'selected' : ''}} >Fussy</option>
+                            <option value="Easily comfort" {{ $appointment->child_history_option_44 == 'Easily comfort' ? 'selected' : ''}} >Easily comfort</option>
+                            <option value="Excessively irritable" {{ $appointment->child_history_option_44 == 'Excessively irritable' ? 'selected' : ''}} >Excessively irritable</option>
+                            <option value="Pleasant/happy" {{ $appointment->child_history_option_44 == 'Pleasant/happy' ? 'selected' : ''}} >Pleasant/happy</option>
+                            
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-6 ">
+                          <label class="col-form-label" for="child_history_option_45">Completed</label>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="child_history_option_45" id="child_history_option_45" value="{{$appointment->child_history_option_45}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_46">Is your child currently seeing any medical specialists or therapists (such as a nurologist, occupational therapist, opthalmologist, physical therapist etc)?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_46" id="child_history_option_46">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_46 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_46 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_47">Does your child experience any of the following difficulties with sleep?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_47" id="child_history_option_47">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_47 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_47 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_48">Does your child have any of the following difficults with eating?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_48" id="child_history_option_48">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_48 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_48 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_49">Does your child have any of the following difficults with elimination?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_49" id="child_history_option_49">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_49 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_49 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_50">Does your child use a bottle?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_50" id="child_history_option_50">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_50 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_50 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_51">What hand does your child use to complete task?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_51" id="child_history_option_51">
+                            <option value="">Select one</option>
+                            <option value="Left" {{ $appointment->child_history_option_51 == "Left" ? "selected" : "" }}>Left</option>
+                            <option value="Right" {{ $appointment->child_history_option_51 == "Right" ? "selected" : "" }}>Right</option>
+                            <option value="Both" {{ $appointment->child_history_option_51 == "Both" ? "selected" : "" }}>Both</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_52">Does your child have problems with coordination?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_52" id="child_history_option_52">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_52 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_52 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_53">Does your child displayed any unusual repetitive movements or noises?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_53" id="child_history_option_53">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_53 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_53 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_54">Do you have concerns about your child's development in any of this area?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_54" id="child_history_option_54">
+                            <option value="">Select one</option>
+                            <option value="Speech or Language" {{ $appointment->child_history_option_54 == "Speech or Language" ? "selected" : "" }}>Speech or Language</option>
+                            <option value="Motor Skills" {{ $appointment->child_history_option_54 == "Motor Skills" ? "selected" : "" }}>Motor Skills</option>
+                            <option value="Social Skills" {{ $appointment->child_history_option_54 == "Social Skills" ? "selected" : "" }}>Social Skills</option>
+                            <option value="Cognitive" {{ $appointment->child_history_option_54 == "Cognitive" ? "selected" : "" }}>Cognitive</option>
+                            <option value="Sensory" {{ $appointment->child_history_option_54 == "Sensory" ? "selected" : "" }}>Sensory</option>
+                            <option value="Behavioral" {{ $appointment->child_history_option_54 == "Behavioral" ? "selected" : "" }}>Behavioral</option>
+                            <option value="Emotional" {{ $appointment->child_history_option_54 == "Emotional" ? "selected" : "" }}>Emotional</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_55">Does your child get dressed by themselves?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_55" id="child_history_option_55">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_55 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_55 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_56">Does your child avoid any physical activites?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_56" id="child_history_option_56">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_56 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_56 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_57">Do you have any current concerns regarding your child's speech or language?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_57" id="child_history_option_57">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_57 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_57 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_58">Does your child have a history of speech or language problems?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_58" id="child_history_option_58">
+                            <option value="">Select one</option>
+                             <option value="Yes" {{ $appointment->child_history_option_58 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_58 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_59">Does your child have any problems with expressive language?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_59" id="child_history_option_59">
+                            <option value="">Select one</option>
+                             <option value="Yes" {{ $appointment->child_history_option_59 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_59 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_60">Does your child have any problems saying sounds correctly?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_60" id="child_history_option_60">
+                            <option value="">Select one</option>
+                             <option value="Yes" {{ $appointment->child_history_option_60 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_60 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_61">Does your child have any difficulty with speech fluency?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_61" id="child_history_option_61">
+                            <option value="">Select one</option>
+                             <option value="Yes" {{ $appointment->child_history_option_61 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_61 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_62">Do you have any specific concerns about your child's hearing/listening?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_62" id="child_history_option_62">
+                            <option value="">Select one</option>
+                             <option value="Yes" {{ $appointment->child_history_option_62 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_62 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_63">Does your child have any difficulty using or understanding non-verbal cues?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_63" id="child_history_option_63">
+                            <option value="">Select one</option>
+                            <option value="Body Language" {{ $appointment->child_history_option_63 == "Body Language" ? "selected" : "" }}>Body Language</option>
+                            <option value="Facial expressions" {{ $appointment->child_history_option_63 == "Facial expressions" ? "selected" : "" }}>Facial expressions</option>
+                            <option value="Tone of voice" {{ $appointment->child_history_option_63 == "Tone of voice" ? "selected" : "" }}>Tone of voice</option>
+                            <option value="Rate of speech" {{ $appointment->child_history_option_63 == "Rate of speech" ? "selected" : "" }}>Rate of speech</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_64">Does your child usually play?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_64" id="child_history_option_64">
+                            <option value="">Select one</option>
+                            <option value="Alone" {{ $appointment->child_history_option_64 == "Alone" ? "selected" : "" }}>Alone</option>
+                            <option value="W/Siblings" {{ $appointment->child_history_option_64 == "W/Siblings" ? "selected" : "" }}>W/Siblings</option>
+                            <option value="W/Peers" {{ $appointment->child_history_option_64 == "W/Peers" ? "selected" : "" }}>W/Peers</option>
+                            <option value="W/Younger Children" {{ $appointment->child_history_option_64 == "W/Younger Children" ? "selected" : "" }}>W/Younger Children</option>
+                            <option value="W/Older Children" {{ $appointment->child_history_option_64 == "W/Older Children" ? "selected" : "" }}>W/Older Children</option>
+                            <option value="W/Adults" {{ $appointment->child_history_option_64 == "W/Adults" ? "selected" : "" }}>W/Adults</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_65">Does your child have a hard time making friends?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_65" id="child_history_option_65">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_65 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_65 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_66">Is your child currently enrolled in school?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_66" id="child_history_option_66">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_66 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_66 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_67">Do you have concerns regarding school performance?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_67" id="child_history_option_67">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_67 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_67 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_68">Did preschool teachers, daycare providers or other caregivers observe difficulty with any of the following?</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_68" id="child_history_option_68">
+                            <option value="">Select one</option>
+                            <option value="Structured activity" {{ $appointment->child_history_option_68 == "Structured activity" ? "selected" : "" }}>Structured activity</option>
+                            <option value="Group activity" {{ $appointment->child_history_option_68 == "Group activity" ? "selected" : "" }}>Group activity</option>
+                            <option value="behavior" {{ $appointment->child_history_option_68 == "behavior" ? "selected" : "" }}>behavior</option>
+                            <option value="Attention" {{ $appointment->child_history_option_68 == "Attention" ? "selected" : "" }}>Attention</option>
+                            <option value="Peer Relationships" {{ $appointment->child_history_option_68 == "Peer Relationships" ? "selected" : "" }}>Peer Relationships</option>
+                            <option value="Transitions" {{ $appointment->child_history_option_68 == "Transitions" ? "selected" : "" }}>Transitions</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_69">Do you have concerns related to</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_69" id="child_history_option_69">
+                            <option value="">Select one</option>
+                            <option value="Off task behavior" {{ $appointment->child_history_option_69 == "Off task behavior" ? "selected" : "" }}>Off task behavior</option>
+                            <option value="Attention" {{ $appointment->child_history_option_69 == "Attention" ? "selected" : "" }}>Attention</option>
+                            <option value="Concentration" {{ $appointment->child_history_option_69 == "Concentration" ? "selected" : "" }}>Concentration</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                <!-- End tab -->
+                <!-- Start tab -->
+                <div class="tab-pane fade" id="feeding_history_tab" role="tabpanel">
                   <div class="row">
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="sexual_contraceptive">Contraceptive</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_70">Colostrum</label>
                         </div>
-                        <div class="col-sm-8">
-                          <select class="form-control" name="sexual_contraceptive" id="sexual_contraceptive">
-                            <option value="Condom">Condom</option>
-                            <option value="Female condom">Female condom</option>
-                            <option value="Birth control pill">Birth control pill</option>
-                            <option value="IUD">IUD</option>
-                            <option value="Injection">Injection</option>
-                            <option value="Norplant">Norplant</option>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_70" id="child_history_option_70">
+                            <option value="">Select one</option>
+                            <option value="Taken" {{ $appointment->child_history_option_70 == "Taken" ? "selected" : "" }}>Taken</option>
+                            <option value="Not taken" {{ $appointment->child_history_option_70 == "Not taken" ? "selected" : "" }}>Not taken</option>
                           </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="sexual_dyspareunia">Dyspareunia</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_71">EBF</label>
                         </div>
-                        <div class="col-sm-8">
-                          <select class="form-control" name="sexual_dyspareunia" id="sexual_dyspareunia">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_71" id="child_history_option_71">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_71 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_71 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="sexual_frequency">Frequency</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_72">Bottle feeding</label>
                         </div>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" name="sexual_frequency" id="sexual_frequency">
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_72" id="child_history_option_72">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_72 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_72 == "No" ? "selected" : "" }}>No</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="sexual_post_coital_bleeding">Post coital bleeding</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_73">Complementary feed</label>
                         </div>
-                        <div class="col-sm-8">
-                          <select class="form-control" name="sexual_post_coital_bleeding" id="sexual_post_coital_bleeding">
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_73" id="child_history_option_73">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_73 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_73 == "No" ? "selected" : "" }}>No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_74">Mixed feeding</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_74" id="child_history_option_74">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_74 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_74 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
@@ -1465,84 +1986,170 @@
                 </div>
                 <!-- End tab -->
                 <!-- Start tab -->
-                <div class="tab-pane fade" id="menstrual_history_tab" role="tabpanel">
+                <div class="tab-pane fade" id="temperament_personality_tab" role="tabpanel">
                   <div class="row">
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_cycle">Cycle</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_75">Does your child have frequent temper outbursts (e.g., yelling, hitting or stomping feet)?</label>
                         </div>
-                        <div class="col-sm-8">
-                          <select class="form-control" name="menstrual_cycle" id="menstrual_cycle">
-                            <option value="Scanty">Scanty</option>
-                            <option value="Normal">Normal</option>
-                            <option value="Heavy">Heavy</option>
-                            <option value="Too heavy">Too heavy</option>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_75" id="child_history_option_75">
+                            <option value="">Select one</option>
+                            <option value="Yes" {{ $appointment->child_history_option_75 == "Yes" ? "selected" : "" }}>Yes</option>
+                            <option value="No" {{ $appointment->child_history_option_75 == "No" ? "selected" : "" }}>No</option>
                           </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_amount_of_flow">Amount of flow</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_76">Energy</label>
                         </div>
-                        <div class="col-sm-8">
-                          <select class="form-control" name="menstrual_amount_of_flow" id="menstrual_amount_of_flow">
-                            <option value="Mild">Mild</option>
-                            <option value="Moderate">Moderate</option>
-                            <option value="Severe">Severe</option>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_76" id="child_history_option_76">
+                            <option value="">Select one</option>
+                            <option value="Sedentary" {{ $appointment->child_history_option_76 == "Sedentary" ? "selected" : "" }}>Sedentary</option>
+                            <option value="Active" {{ $appointment->child_history_option_76 == "Active" ? "selected" : "" }}>Active</option>
+                            <option value="Very active" {{ $appointment->child_history_option_76 == "Very active" ? "selected" : "" }}>Very active</option>
                           </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_menopause">Menopause</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_77">First Reaction (to new people, activities, ideas)</label>
                         </div>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_menopause" id="menstrual_menopause">
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_77" id="child_history_option_77">
+                            <option value="">Select one</option>
+                            <option value="Avoidant" {{ $appointment->child_history_option_77 == "Avoidant" ? "selected" : "" }}>Avoidant</option>
+                            <option value="Shy" {{ $appointment->child_history_option_77 == "Shy" ? "selected" : "" }}>Shy</option>
+                            <option value="Outgoing" {{ $appointment->child_history_option_77 == "Outgoing" ? "selected" : "" }}>Outgoing</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_period">Period</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_78">Intensity (strength of emotional reactions)</label>
                         </div>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_period" id="menstrual_period">
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_78" id="child_history_option_78">
+                            <option value="">Select one</option>
+                            <option value="Withdraw" {{ $appointment->child_history_option_78 == "Withdraw" ? "selected" : "" }}>Withdraw</option>
+                            <option value="Toilet refusal" {{ $appointment->child_history_option_78 == "Toilet refusal" ? "selected" : "" }}>Toilet refusal</option>
+                            <option value="Strong reaction" {{ $appointment->child_history_option_78 == "Strong reaction" ? "selected" : "" }}>Strong reaction</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_lmp">LMP</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_79">Mood (general emotional tone)</label>
                         </div>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_lmp" id="menstrual_lmp">
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_79" id="child_history_option_79">
+                            <option value="">Select one</option>
+                            <option value="Difficult sitting at table" {{ $appointment->child_history_option_79 == "Difficult sitting at table" ? "selected" : "" }}>Difficult sitting at table</option>
+                            <option value="Over eats" {{ $appointment->child_history_option_79 == "Over eats" ? "selected" : "" }}>Over eats</option>
+                            <option value="Avoids food due to texture" {{ $appointment->child_history_option_79 == "Avoids food due to texture" ? "selected" : "" }}>Avoids food due to texture</option>
+                            <option value="Poor food choices" {{ $appointment->child_history_option_79 == "Poor food choices" ? "selected" : "" }}>Poor food choices</option>
+                            <option value="Picky eater" {{ $appointment->child_history_option_79 == "Picky eater" ? "selected" : "" }}>Picky eater</option>
+                            <option value="Odd eating behaviors" {{ $appointment->child_history_option_79 == "Odd eating behaviors" ? "selected" : "" }}>Odd eating behaviors</option>
+                            <option value="Restricted diets" {{ $appointment->child_history_option_79 == "Restricted diets" ? "selected" : "" }}>Restricted diets</option>
+                            <option value="Yes" {{ $appointment->child_history_option_79 == "Yes" ? "selected" : "" }}>Yes</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_menarche">Menarche</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_80">Persistence (ease of stopping when involved in an activity)</label>
                         </div>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_menarche" id="menstrual_menarche">
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_80" id="child_history_option_80">
+                            <option value="">Select one</option>
+                            <option value="Hard" {{ $appointment->child_history_option_80 == "Hard" ? "selected" : "" }}>Hard</option>
+                            <option value="Easily redirected" {{ $appointment->child_history_option_80 == "Easily redirected" ? "selected" : "" }}>Easily redirected</option>
+                            <option value="Hard to focus on an activity" {{ $appointment->child_history_option_80 == "Hard to focus on an activity" ? "selected" : "" }}>Hard to focus on an activity</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                     <div class="col-6 mb-2">
                       <div class=" row">
-                        <div class="col-sm-4">
-                          <label class="col-form-label" for="menstrual_edd">EDD</label>
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_81">Sensitivity (to noises, emotions, tastes, textures, stress)</label>
                         </div>
-                        <div class="col-sm-8">
-                          <input type="text" class="form-control" name="menstrual_edd" id="menstrual_edd">
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_81" id="child_history_option_81">
+                            <option value="">Select one</option>
+                            <option value="Not sensitive" {{ $appointment->child_history_option_81 == "Not sensitive" ? "selected" : "" }}>Not sensitive</option>
+                            <option value="Mild" {{ $appointment->child_history_option_81 == "Mild" ? "selected" : "" }}>Mild</option>
+                            <option value="Very sensitive" {{ $appointment->child_history_option_81 == "Very sensitive" ? "selected" : "" }}>Very sensitive</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_82">Perceptiveness (notices people, noises, objects)</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_82" id="child_history_option_82">
+                            <option value="">Select one</option>
+                            <option value="Hardly ever notices" {{ $appointment->child_history_option_82 == "Hardly ever notices" ? "selected" : "" }}>Hardly ever notices</option>
+                            <option value="Turns to looks" {{ $appointment->child_history_option_82 == "Turns to looks" ? "selected" : "" }}>Turns to looks</option>
+                            <option value="Overly perceptive" {{ $appointment->child_history_option_82 == "Overly perceptive" ? "selected" : "" }}>Overly perceptive</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_83">Adaptability (copes with transitions, changes in routine)</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_83" id="child_history_option_83">
+                            <option value="">Select one</option>
+                            <option value="Slow" {{ $appointment->child_history_option_83 == "Slow" ? "selected" : "" }}>Slow</option>
+                            <option value="Flexible" {{ $appointment->child_history_option_83 == "Flexible" ? "selected" : "" }}>Flexible</option>
+                            <option value="Quickly" {{ $appointment->child_history_option_83 == "Quickly" ? "selected" : "" }}>Quickly</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_84">Attention Span/Distractibility</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <select class="form-control" name="child_history_option_84" id="child_history_option_84">
+                            <option value="">Select one</option>
+                            <option value="Easily distracted" {{ $appointment->child_history_option_84 == "Easily distracted" ? "selected" : "" }}>Easily distracted</option>
+                            <option value="Sometimes distracted" {{ $appointment->child_history_option_84 == "Sometimes distracted" ? "selected" : "" }}>Sometimes distracted</option>
+                            <option value="Stay focused" {{ $appointment->child_history_option_84 == "Stay focused" ? "selected" : "" }}>Stay focused</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-2">
+                      <div class=" row">
+                        <div class="col-sm-8 ">
+                          <label class="col-form-label" for="child_history_option_85">Additional Comments</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <input class="form-control" name="child_history_option_85" id="child_history_option_85" value="{{ $appointment->child_history_option_85}}">
+                         
                         </div>
                       </div>
                     </div>
@@ -1560,7 +2167,7 @@
       </div>
     </div>
     @endif
-    <!-- End Gynae & Obs Modal -->
+    <!-- End Child history Modal -->
 
 
 

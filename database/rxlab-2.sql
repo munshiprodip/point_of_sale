@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 12, 2023 at 01:08 PM
+-- Generation Time: May 20, 2023 at 05:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -80,21 +80,179 @@ CREATE TABLE `appointments` (
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `opthalmology_option_1` tinytext DEFAULT NULL,
+  `opthalmology_option_2` tinytext DEFAULT NULL,
+  `opthalmology_option_3` tinytext DEFAULT NULL,
+  `opthalmology_option_4` tinytext DEFAULT NULL,
+  `opthalmology_option_5` tinytext DEFAULT NULL,
+  `opthalmology_option_6` tinytext DEFAULT NULL,
+  `opthalmology_option_7` tinytext DEFAULT NULL,
+  `opthalmology_option_8` tinytext DEFAULT NULL,
+  `opthalmology_option_9` tinytext DEFAULT NULL,
+  `opthalmology_option_10` tinytext DEFAULT NULL,
+  `opthalmology_option_11` tinytext DEFAULT NULL,
+  `opthalmology_option_12` tinytext DEFAULT NULL,
+  `opthalmology_option_13` tinytext DEFAULT NULL,
+  `opthalmology_option_14` tinytext DEFAULT NULL,
+  `opthalmology_option_15` tinytext DEFAULT NULL,
+  `opthalmology_option_16` tinytext DEFAULT NULL,
+  `opthalmology_option_17` tinytext DEFAULT NULL,
+  `opthalmology_option_18` tinytext DEFAULT NULL,
+  `opthalmology_option_19` tinytext DEFAULT NULL,
+  `opthalmology_option_20` tinytext DEFAULT NULL,
+  `opthalmology_option_21` tinytext DEFAULT NULL,
+  `opthalmology_option_22` tinytext DEFAULT NULL,
+  `opthalmology_option_23` tinytext DEFAULT NULL,
+  `opthalmology_option_24` tinytext DEFAULT NULL,
+  `opthalmology_option_25` tinytext DEFAULT NULL,
+  `child_history_option_1` tinytext DEFAULT NULL,
+  `child_history_option_2` tinytext DEFAULT NULL,
+  `child_history_option_3` tinytext DEFAULT NULL,
+  `child_history_option_4` tinytext DEFAULT NULL,
+  `child_history_option_5` tinytext DEFAULT NULL,
+  `child_history_option_6` tinytext DEFAULT NULL,
+  `child_history_option_7` tinytext DEFAULT NULL,
+  `child_history_option_8` tinytext DEFAULT NULL,
+  `child_history_option_9` tinytext DEFAULT NULL,
+  `child_history_option_10` tinytext DEFAULT NULL,
+  `child_history_option_11` tinytext DEFAULT NULL,
+  `child_history_option_12` tinytext DEFAULT NULL,
+  `child_history_option_13` tinytext DEFAULT NULL,
+  `child_history_option_14` tinytext DEFAULT NULL,
+  `child_history_option_15` tinytext DEFAULT NULL,
+  `child_history_option_16` tinytext DEFAULT NULL,
+  `child_history_option_17` tinytext DEFAULT NULL,
+  `child_history_option_18` tinytext DEFAULT NULL,
+  `child_history_option_19` tinytext DEFAULT NULL,
+  `child_history_option_20` tinytext DEFAULT NULL,
+  `child_history_option_21` tinytext DEFAULT NULL,
+  `child_history_option_22` tinytext DEFAULT NULL,
+  `child_history_option_23` tinytext DEFAULT NULL,
+  `child_history_option_24` tinytext DEFAULT NULL,
+  `child_history_option_25` tinytext DEFAULT NULL,
+  `child_history_option_26` tinytext DEFAULT NULL,
+  `child_history_option_27` tinytext DEFAULT NULL,
+  `child_history_option_28` tinytext DEFAULT NULL,
+  `child_history_option_29` tinytext DEFAULT NULL,
+  `child_history_option_30` tinytext DEFAULT NULL,
+  `child_history_option_31` tinytext DEFAULT NULL,
+  `child_history_option_32` tinytext DEFAULT NULL,
+  `child_history_option_33` tinytext DEFAULT NULL,
+  `child_history_option_34` tinytext DEFAULT NULL,
+  `child_history_option_35` tinytext DEFAULT NULL,
+  `child_history_option_36` tinytext DEFAULT NULL,
+  `child_history_option_37` tinytext DEFAULT NULL,
+  `child_history_option_38` tinytext DEFAULT NULL,
+  `child_history_option_39` tinytext DEFAULT NULL,
+  `child_history_option_40` tinytext DEFAULT NULL,
+  `child_history_option_41` tinytext DEFAULT NULL,
+  `child_history_option_42` tinytext DEFAULT NULL,
+  `child_history_option_43` tinytext DEFAULT NULL,
+  `child_history_option_44` tinytext DEFAULT NULL,
+  `child_history_option_45` tinytext DEFAULT NULL,
+  `child_history_option_46` tinytext DEFAULT NULL,
+  `child_history_option_47` tinytext DEFAULT NULL,
+  `child_history_option_48` tinytext DEFAULT NULL,
+  `child_history_option_49` tinytext DEFAULT NULL,
+  `child_history_option_50` tinytext DEFAULT NULL,
+  `child_history_option_51` tinytext DEFAULT NULL,
+  `child_history_option_52` tinytext DEFAULT NULL,
+  `child_history_option_53` tinytext DEFAULT NULL,
+  `child_history_option_54` tinytext DEFAULT NULL,
+  `child_history_option_55` tinytext DEFAULT NULL,
+  `child_history_option_56` tinytext DEFAULT NULL,
+  `child_history_option_57` tinytext DEFAULT NULL,
+  `child_history_option_58` tinytext DEFAULT NULL,
+  `child_history_option_59` tinytext DEFAULT NULL,
+  `child_history_option_60` tinytext DEFAULT NULL,
+  `child_history_option_61` tinytext DEFAULT NULL,
+  `child_history_option_62` tinytext DEFAULT NULL,
+  `child_history_option_63` tinytext DEFAULT NULL,
+  `child_history_option_64` tinytext DEFAULT NULL,
+  `child_history_option_65` tinytext DEFAULT NULL,
+  `child_history_option_66` tinytext DEFAULT NULL,
+  `child_history_option_67` tinytext DEFAULT NULL,
+  `child_history_option_68` tinytext DEFAULT NULL,
+  `child_history_option_69` tinytext DEFAULT NULL,
+  `child_history_option_70` tinytext DEFAULT NULL,
+  `child_history_option_71` tinytext DEFAULT NULL,
+  `child_history_option_72` tinytext DEFAULT NULL,
+  `child_history_option_73` tinytext DEFAULT NULL,
+  `child_history_option_74` tinytext DEFAULT NULL,
+  `child_history_option_75` tinytext DEFAULT NULL,
+  `child_history_option_76` tinytext DEFAULT NULL,
+  `child_history_option_77` tinytext DEFAULT NULL,
+  `child_history_option_78` tinytext DEFAULT NULL,
+  `child_history_option_79` tinytext DEFAULT NULL,
+  `child_history_option_80` tinytext DEFAULT NULL,
+  `child_history_option_81` tinytext DEFAULT NULL,
+  `child_history_option_82` tinytext DEFAULT NULL,
+  `child_history_option_83` tinytext DEFAULT NULL,
+  `child_history_option_84` tinytext DEFAULT NULL,
+  `child_history_option_85` tinytext DEFAULT NULL,
+  `child_history_option_86` tinytext DEFAULT NULL,
+  `child_history_option_87` tinytext DEFAULT NULL,
+  `child_history_option_88` tinytext DEFAULT NULL,
+  `child_history_option_89` tinytext DEFAULT NULL,
+  `child_history_option_90` tinytext DEFAULT NULL,
+  `child_history_option_91` tinytext DEFAULT NULL,
+  `child_history_option_92` tinytext DEFAULT NULL,
+  `child_history_option_93` tinytext DEFAULT NULL,
+  `child_history_option_94` tinytext DEFAULT NULL,
+  `child_history_option_95` tinytext DEFAULT NULL,
+  `obs_history_option_1` tinytext DEFAULT NULL,
+  `obs_history_option_2` tinytext DEFAULT NULL,
+  `obs_history_option_3` tinytext DEFAULT NULL,
+  `obs_history_option_4` tinytext DEFAULT NULL,
+  `obs_history_option_5` tinytext DEFAULT NULL,
+  `obs_history_option_6` tinytext DEFAULT NULL,
+  `obs_history_option_7` tinytext DEFAULT NULL,
+  `obs_history_option_8` tinytext DEFAULT NULL,
+  `obs_history_option_9` tinytext DEFAULT NULL,
+  `obs_history_option_10` tinytext DEFAULT NULL,
+  `obs_history_option_11` tinytext DEFAULT NULL,
+  `obs_history_option_12` tinytext DEFAULT NULL,
+  `obs_history_option_13` tinytext DEFAULT NULL,
+  `obs_history_option_14` tinytext DEFAULT NULL,
+  `obs_history_option_15` tinytext DEFAULT NULL,
+  `obs_history_option_16` tinytext DEFAULT NULL,
+  `obs_history_option_17` tinytext DEFAULT NULL,
+  `obs_history_option_18` tinytext DEFAULT NULL,
+  `obs_history_option_19` tinytext DEFAULT NULL,
+  `obs_history_option_20` tinytext DEFAULT NULL,
+  `obs_history_option_21` tinytext DEFAULT NULL,
+  `obs_history_option_22` tinytext DEFAULT NULL,
+  `obs_history_option_23` tinytext DEFAULT NULL,
+  `obs_history_option_24` tinytext DEFAULT NULL,
+  `obs_history_option_25` tinytext DEFAULT NULL,
+  `appointment_fee` decimal(8,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `appointments`
 --
 
-INSERT INTO `appointments` (`id`, `appointment_no`, `patient_id`, `anaemia`, `jaundice`, `cyanosis`, `oedema`, `dehydration`, `pulse_rate`, `sao2`, `respiratory_rate`, `bp_systolic`, `bp_diastolic`, `temperature`, `height`, `weight`, `bmi`, `rr`, `ofc`, `bsa`, `us_ratio`, `ls_ratio`, `other_oe`, `chief_complaints`, `case_summary`, `on_examination`, `past_medical_history`, `past_surgical_history`, `past_personal_history`, `past_family_history`, `past_drug_history`, `allergy_history`, `food_allergy`, `drug_allergy`, `other_allergy`, `cardiovascular_system`, `respiratory_system`, `abdominal_system`, `genito_urinary_system`, `locomotor_system`, `nervous_system`, `others_system`, `investigations`, `diagnosis`, `procedure`, `advice`, `follow_up`, `next_visit`, `image`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'C202304000001', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Nasal obstruction\r\nH/O Br. Asthma\r\nNasal obstruction\r\nhelloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI\r\nPoor appetitecc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voiceH/O UTI\r\nPoor appetite\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nNasal obstruction\r\ncc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voice\r\ntest', 'Test 2\r\nTest\r\nTest 2\r\ntest cs 3\r\nTest', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'VITA Sure Package (Vit. D + Calcium + Phosphate + Intact PTH)', 'DA42.40 Allergic gastritis due to IgE-mediated hypersensitivity', 'Vulvar-Vaginal Reconstruction', NULL, NULL, NULL, NULL, 1, 1, '2023-04-24 10:08:10', '2023-04-29 07:33:17'),
-(2, 'C202304000002', 1, '(-)', '(-)', '(-)', '(-)', '(-)', '95', '98', '85', '120', '80', '98', '150', '60', '24', '75', '20', '22', '22', '22', 'test', 'Nasal obstruction\r\nH/O Br. Asthma\r\nNasal obstruction\r\nhelloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI', 'test cs 2', 'Male Genitalia: Appears Normal, Both Testes Descended To Corresponding  Scrotum\r\nTriceps Jerk', 'Test m', 'Test  s', 'Test  f', 'Test  h', 'hello', NULL, 'Test Food', 'Test Drug', 'Others', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Advices', '20-04-2023', NULL, NULL, 1, 1, '2023-04-24 10:45:35', '2023-05-01 11:36:34'),
-(3, 'C202304000003', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'helloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI\r\nPoor appetitecc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voiceH/O UTI\r\nPoor appetite\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nNasal obstruction\r\ncc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voice\r\ntest', 'test cs 3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-24 10:53:57', '2023-04-29 05:29:22'),
-(4, 'C202304000004', 2, NULL, NULL, NULL, NULL, NULL, '95', '98', '85', '120', '80', NULL, '150', '60', NULL, NULL, '20', NULL, NULL, NULL, NULL, 'মাথা ব্যাথাFever for 4-5 days\r\nBoth parents are tested positive for COVID-19\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti', 'ফঘধগফহ দফগ দফগ দ্গফহ দফগ হদফঘ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Liver Function Test:: * SGPT * Serum Total Protein * Serum Albumin & A:G ratio\r\nCBC with ESR\r\nBarium Swallow Xray of Esophagus', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-29 08:41:12', '2023-04-29 08:50:16'),
-(5, 'C202305000001', 1, '(-)', '(-)', '(-)', '(-)', '(-)', '75', '95', '70', '124', '85', '105', '152', '60', '24', '50', '20', '20', '20', '10', NULL, 'Pain on left side of ear and cheek\r\nNodular swelling behind left ear\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti', 'Case summery text...\r\nCase summery text...\r\nCase summery text...', NULL, NULL, NULL, NULL, NULL, 'Drug History', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'X-ray Chest PA and Left Lateral view\r\nCBC with ESR\r\nUrine CS\r\nUSG of both scrotum with duplex scan', 'LB22.0 Congenital asplenia\r\nP36.0 Sepsis of newborn due to streptococcus, group B', 'Glasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography\r\nGlasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography\r\nGlasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography', 'Advices', '03-07-2023', NULL, NULL, 1, 1, '2023-05-06 09:37:34', '2023-05-07 01:12:02'),
-(6, 'C202305000006', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-11 12:29:12', '2023-05-11 12:29:12'),
-(7, 'C202305000007', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, '2023-05-11 12:30:40', '2023-05-11 12:30:40');
+INSERT INTO `appointments` (`id`, `appointment_no`, `patient_id`, `anaemia`, `jaundice`, `cyanosis`, `oedema`, `dehydration`, `pulse_rate`, `sao2`, `respiratory_rate`, `bp_systolic`, `bp_diastolic`, `temperature`, `height`, `weight`, `bmi`, `rr`, `ofc`, `bsa`, `us_ratio`, `ls_ratio`, `other_oe`, `chief_complaints`, `case_summary`, `on_examination`, `past_medical_history`, `past_surgical_history`, `past_personal_history`, `past_family_history`, `past_drug_history`, `allergy_history`, `food_allergy`, `drug_allergy`, `other_allergy`, `cardiovascular_system`, `respiratory_system`, `abdominal_system`, `genito_urinary_system`, `locomotor_system`, `nervous_system`, `others_system`, `investigations`, `diagnosis`, `procedure`, `advice`, `follow_up`, `next_visit`, `image`, `status`, `created_by`, `created_at`, `updated_at`, `opthalmology_option_1`, `opthalmology_option_2`, `opthalmology_option_3`, `opthalmology_option_4`, `opthalmology_option_5`, `opthalmology_option_6`, `opthalmology_option_7`, `opthalmology_option_8`, `opthalmology_option_9`, `opthalmology_option_10`, `opthalmology_option_11`, `opthalmology_option_12`, `opthalmology_option_13`, `opthalmology_option_14`, `opthalmology_option_15`, `opthalmology_option_16`, `opthalmology_option_17`, `opthalmology_option_18`, `opthalmology_option_19`, `opthalmology_option_20`, `opthalmology_option_21`, `opthalmology_option_22`, `opthalmology_option_23`, `opthalmology_option_24`, `opthalmology_option_25`, `child_history_option_1`, `child_history_option_2`, `child_history_option_3`, `child_history_option_4`, `child_history_option_5`, `child_history_option_6`, `child_history_option_7`, `child_history_option_8`, `child_history_option_9`, `child_history_option_10`, `child_history_option_11`, `child_history_option_12`, `child_history_option_13`, `child_history_option_14`, `child_history_option_15`, `child_history_option_16`, `child_history_option_17`, `child_history_option_18`, `child_history_option_19`, `child_history_option_20`, `child_history_option_21`, `child_history_option_22`, `child_history_option_23`, `child_history_option_24`, `child_history_option_25`, `child_history_option_26`, `child_history_option_27`, `child_history_option_28`, `child_history_option_29`, `child_history_option_30`, `child_history_option_31`, `child_history_option_32`, `child_history_option_33`, `child_history_option_34`, `child_history_option_35`, `child_history_option_36`, `child_history_option_37`, `child_history_option_38`, `child_history_option_39`, `child_history_option_40`, `child_history_option_41`, `child_history_option_42`, `child_history_option_43`, `child_history_option_44`, `child_history_option_45`, `child_history_option_46`, `child_history_option_47`, `child_history_option_48`, `child_history_option_49`, `child_history_option_50`, `child_history_option_51`, `child_history_option_52`, `child_history_option_53`, `child_history_option_54`, `child_history_option_55`, `child_history_option_56`, `child_history_option_57`, `child_history_option_58`, `child_history_option_59`, `child_history_option_60`, `child_history_option_61`, `child_history_option_62`, `child_history_option_63`, `child_history_option_64`, `child_history_option_65`, `child_history_option_66`, `child_history_option_67`, `child_history_option_68`, `child_history_option_69`, `child_history_option_70`, `child_history_option_71`, `child_history_option_72`, `child_history_option_73`, `child_history_option_74`, `child_history_option_75`, `child_history_option_76`, `child_history_option_77`, `child_history_option_78`, `child_history_option_79`, `child_history_option_80`, `child_history_option_81`, `child_history_option_82`, `child_history_option_83`, `child_history_option_84`, `child_history_option_85`, `child_history_option_86`, `child_history_option_87`, `child_history_option_88`, `child_history_option_89`, `child_history_option_90`, `child_history_option_91`, `child_history_option_92`, `child_history_option_93`, `child_history_option_94`, `child_history_option_95`, `obs_history_option_1`, `obs_history_option_2`, `obs_history_option_3`, `obs_history_option_4`, `obs_history_option_5`, `obs_history_option_6`, `obs_history_option_7`, `obs_history_option_8`, `obs_history_option_9`, `obs_history_option_10`, `obs_history_option_11`, `obs_history_option_12`, `obs_history_option_13`, `obs_history_option_14`, `obs_history_option_15`, `obs_history_option_16`, `obs_history_option_17`, `obs_history_option_18`, `obs_history_option_19`, `obs_history_option_20`, `obs_history_option_21`, `obs_history_option_22`, `obs_history_option_23`, `obs_history_option_24`, `obs_history_option_25`, `appointment_fee`) VALUES
+(1, 'C202304000001', 1, 'Select one', 'Select one', 'Select one', 'Select one', 'Select one', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Nasal obstruction\r\nH/O Br. Asthma\r\nNasal obstruction\r\nhelloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI\r\nPoor appetitecc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voiceH/O UTI\r\nPoor appetite\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nNasal obstruction\r\ncc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voice\r\ntest', 'Test 2\r\nTest\r\nTest 2\r\ntest cs 3\r\nTest', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'VITA Sure Package (Vit. D + Calcium + Phosphate + Intact PTH)', 'DA42.40 Allergic gastritis due to IgE-mediated hypersensitivity', 'Vulvar-Vaginal Reconstruction', NULL, NULL, NULL, NULL, 1, 1, '2023-04-24 10:08:10', '2023-05-17 07:49:15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AB(+ve)', NULL, 'Present', NULL, '20', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '11', NULL, NULL, NULL, NULL, '11', NULL, 'Instrumental', 'Present', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 400.00),
+(2, 'C202304000002', 1, '(-)', '(-)', '(-)', '(-)', '(-)', '95', '98', '85', '120', '80', '98', '150', '60', '24', '75', '20', '22', '22', '22', 'test', 'Nasal obstruction\r\nH/O Br. Asthma\r\nNasal obstruction\r\nhelloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI', 'test cs 2', 'Male Genitalia: Appears Normal, Both Testes Descended To Corresponding  Scrotum\r\nTriceps Jerk', 'Test m', 'Test  s', 'Test  f', 'Test  h', 'hello', NULL, 'Test Food', 'Test Drug', 'Others', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Advices', '20-04-2023', NULL, NULL, 1, 1, '2023-04-24 10:45:35', '2023-05-01 11:36:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(3, 'C202304000003', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'helloFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nH/O UTI\r\nPoor appetitecc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voiceH/O UTI\r\nPoor appetite\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti\r\nNasal obstruction\r\ncc1\r\nNasal obstruction for 3 years\r\nOccassional Hoarseness of voice\r\ntest', 'test cs 3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-24 10:53:57', '2023-04-29 05:29:22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(4, 'C202304000004', 2, NULL, NULL, NULL, NULL, NULL, '95', '98', '85', '120', '80', NULL, '150', '60', NULL, NULL, '20', NULL, NULL, NULL, NULL, 'মাথা ব্যাথাFever for 4-5 days\r\nBoth parents are tested positive for COVID-19\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti', 'ফঘধগফহ দফগ দফগ দ্গফহ দফগ হদফঘ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Liver Function Test:: * SGPT * Serum Total Protein * Serum Albumin & A:G ratio\r\nCBC with ESR\r\nBarium Swallow Xray of Esophagus', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-29 08:41:12', '2023-04-29 08:50:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(5, 'C202305000001', 1, '(-)', '(-)', '(-)', '(-)', '(-)', '75', '95', '70', '124', '85', '105', '152', '60', '24', '50', '20', '20', '20', '10', NULL, 'Pain on left side of ear and cheek\r\nNodular swelling behind left ear\r\nFever for 5 days\r\nOccasional Cough and respiratory difficulty for 3-4 days\r\nConsti', 'Case summery text...\r\nCase summery text...\r\nCase summery text...', NULL, NULL, NULL, NULL, NULL, 'Drug History', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'X-ray Chest PA and Left Lateral view\r\nCBC with ESR\r\nUrine CS\r\nUSG of both scrotum with duplex scan', 'LB22.0 Congenital asplenia\r\nP36.0 Sepsis of newborn due to streptococcus, group B', 'Glasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography\r\nGlasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography\r\nGlasgow Coma Scale - Adult\r\nTesticular Evaluation using Bedside Ultrasonography', 'Advices', '03-07-2023', NULL, NULL, 1, 1, '2023-05-06 09:37:34', '2023-05-07 01:12:02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(6, 'C202305000006', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-11 12:29:12', '2023-05-11 12:29:12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(7, 'C202305000007', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, '2023-05-11 12:30:40', '2023-05-11 12:30:40', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(8, 'C202305000008', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-13 03:07:39', '2023-05-13 03:07:39', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(9, 'C202305000009', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, '2023-05-13 09:34:02', '2023-05-13 09:34:02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500.00),
+(10, 'C202305000010', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 5, '2023-05-13 09:37:31', '2023-05-13 09:37:31', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(11, 'C202305000011', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-13 09:38:07', '2023-05-13 09:38:07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(12, 'C202305000012', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-17 12:41:00', '2023-05-17 12:41:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(13, 'C202305000013', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-17 12:41:03', '2023-05-17 12:41:03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(14, 'C202305000014', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-18 00:15:02', '2023-05-18 00:15:02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(15, 'C202305000015', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-18 19:33:27', '2023-05-19 11:06:48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Absent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Sometimes distracted', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(16, 'C202305000016', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-18 19:48:43', '2023-05-18 19:48:43', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(17, 'C202305000017', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-18 19:48:46', '2023-05-18 19:48:46', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(18, 'C202305000018', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-19 09:21:16', '2023-05-19 09:21:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 600.00),
+(19, 'C202305000019', 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-05-19 09:28:26', '2023-05-19 09:28:26', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 500.00);
 
 -- --------------------------------------------------------
 
@@ -113,7 +271,7 @@ CREATE TABLE `brands` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `brands`
@@ -736,7 +894,7 @@ CREATE TABLE `clinical_components` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `clinical_components`
@@ -8320,7 +8478,7 @@ CREATE TABLE `companies` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `companies`
@@ -8985,6 +9143,25 @@ INSERT INTO `companies` (`id`, `name`, `status`, `created_by`, `created_at`, `up
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `component_templates`
+--
+
+CREATE TABLE `component_templates` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) DEFAULT NULL,
+  `template_type` varchar(191) DEFAULT NULL,
+  `description` varchar(191) DEFAULT NULL,
+  `template_en` longtext DEFAULT NULL,
+  `template_bn` longtext DEFAULT NULL,
+  `active_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `component_types`
 --
 
@@ -8993,7 +9170,7 @@ CREATE TABLE `component_types` (
   `name` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -9009,7 +9186,7 @@ CREATE TABLE `doses` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `doses`
@@ -9047,7 +9224,7 @@ CREATE TABLE `durations` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `durations`
@@ -9080,7 +9257,7 @@ CREATE TABLE `failed_jobs` (
   `payload` longtext NOT NULL,
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -9098,7 +9275,7 @@ CREATE TABLE `favourite_medications` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `favourite_medications`
@@ -9120,7 +9297,7 @@ CREATE TABLE `generics` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `generics`
@@ -11252,7 +11429,7 @@ CREATE TABLE `instructions` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `instructions`
@@ -11279,7 +11456,7 @@ CREATE TABLE `media_libraries` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -11297,7 +11474,7 @@ CREATE TABLE `medications` (
   `note` varchar(191) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `medications`
@@ -11307,6 +11484,7 @@ INSERT INTO `medications` (`id`, `appointment_id`, `medicine`, `dose`, `instruct
 (12, 2, 'Napa 600mg', '0 + 0 + 1', 'after meal', '7 days', '2nd', '2023-05-04 04:54:59', '2023-05-04 04:54:59'),
 (13, 3, 'Napa 700mg', '0 + 0 + 1', 'after meal', '7 days', '3rd', '2023-05-04 04:55:34', '2023-05-04 04:55:34'),
 (11, 1, 'Napa 500mg', '0 + 0 + 1', 'after meal', '7 days', '1st', '2023-05-04 04:54:01', '2023-05-04 04:54:01'),
+(35, 1, 'fdfd', '5=5', 'gfgfhghg', 'hghgh', NULL, '2023-05-18 00:01:06', '2023-05-18 00:01:06'),
 (31, 5, 'Laxadil EP - (Drug International Ltd.)', '1+1+1', 'After meal', '7 days', 'N/A', '2023-05-10 03:55:56', '2023-05-10 03:55:56'),
 (32, 5, 'Napa', '1+1+1', 'After meal', '7 days', 'N/A', '2023-05-10 03:55:56', '2023-05-10 03:55:56'),
 (33, 5, 'Napa 500 mg', '1+1+1', 'after meal', '7 days', NULL, '2023-05-10 03:55:56', '2023-05-10 03:55:56'),
@@ -11325,7 +11503,7 @@ CREATE TABLE `medicine_templates` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `medicine_templates`
@@ -11345,7 +11523,7 @@ CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(191) NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -11380,7 +11558,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2023_05_01_155816_create_medicine_templates_table', 16),
 (29, '2023_05_01_155905_create_templated_medicines_table', 16),
 (30, '2023_05_03_203001_create_favourite_medications_table', 17),
-(32, '2023_05_07_064603_create_personal_settings_table', 18);
+(32, '2023_05_07_064603_create_personal_settings_table', 18),
+(36, '2023_05_18_182111_add_appointment_fee_to_appointments', 20),
+(35, '2023_05_15_170819_add_gynae_and_obs_columns_to_appointments_table', 19),
+(37, '2023_05_18_183027_add_appointment_fee_to_personal_settings', 21),
+(38, '2023_05_19_010151_add_appointment_fee_to_users', 22),
+(39, '2023_05_20_084702_create_component_templates_table', 23);
 
 -- --------------------------------------------------------
 
@@ -11392,7 +11575,7 @@ CREATE TABLE `model_has_permissions` (
   `permission_id` bigint(20) UNSIGNED NOT NULL,
   `model_type` varchar(191) NOT NULL,
   `model_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -11404,7 +11587,7 @@ CREATE TABLE `model_has_roles` (
   `role_id` bigint(20) UNSIGNED NOT NULL,
   `model_type` varchar(191) NOT NULL,
   `model_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `model_has_roles`
@@ -11425,7 +11608,7 @@ CREATE TABLE `password_reset_tokens` (
   `email` varchar(191) NOT NULL,
   `token` varchar(191) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `password_reset_tokens`
@@ -11463,7 +11646,7 @@ CREATE TABLE `patients` (
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `patients`
@@ -11471,7 +11654,10 @@ CREATE TABLE `patients` (
 
 INSERT INTO `patients` (`id`, `registration_no`, `nid`, `dob`, `name`, `father_name`, `mother_name`, `marital_status`, `spouse_name`, `gender`, `religion`, `nationality`, `phone`, `email`, `occupation`, `bloodgroup`, `present_address`, `permanent_address`, `status`, `created_by`, `created_at`, `updated_at`) VALUES
 (1, 'R202304000001', '1953696513', '1983-12-16', 'Alamgir Sarker', 'Md.Shajahan Ali', 'Mrs.Razia Khatun', 'Married', 'Test', 'Male', 'Muslim', 'Bangladeshi', '01716573674', 'alamgirbts@gmail.com', 'Engineer', 'B(+ve)', 'Khwaja Yunus Ali Medical College & Hospital', 'Khwaja Yunus Ali Medical College & Hospital', 1, 1, '2023-04-24 10:08:10', '2023-04-25 08:28:23'),
-(2, 'R202304000002', NULL, '1993-04-07', 'Sonjit Sen', NULL, NULL, NULL, NULL, 'Male', NULL, NULL, '01783247952', NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-29 08:41:12', '2023-04-29 08:43:06');
+(2, 'R202304000002', NULL, '1993-04-07', 'Sonjit Sen', NULL, NULL, NULL, NULL, 'Male', NULL, NULL, '01783247952', NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-04-29 08:41:12', '2023-04-29 08:43:06'),
+(3, 'R202305000001', NULL, NULL, 'Md. Hasem', NULL, NULL, NULL, NULL, NULL, 'Muslim', 'Bangladeshi', '0173694783', NULL, NULL, 'A(+ve)', NULL, NULL, 1, 1, '2023-05-18 19:33:27', '2023-05-18 19:33:27'),
+(4, 'R202305000004', NULL, NULL, '6578346589734', NULL, NULL, NULL, NULL, NULL, 'Muslim', 'Bangladeshi', 'Rupa', NULL, NULL, 'A(+ve)', NULL, NULL, 1, 1, '2023-05-19 09:21:16', '2023-05-19 09:21:16'),
+(5, 'R202305000005', NULL, NULL, 'Babul Das', NULL, NULL, NULL, NULL, NULL, 'Muslim', 'Bangladeshi', '374872384', NULL, NULL, 'A(+ve)', NULL, NULL, 1, 1, '2023-05-19 09:28:26', '2023-05-19 09:28:26');
 
 -- --------------------------------------------------------
 
@@ -11486,7 +11672,7 @@ CREATE TABLE `permissions` (
   `guard_name` varchar(125) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `permissions`
@@ -11526,7 +11712,7 @@ CREATE TABLE `personal_access_tokens` (
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -11544,32 +11730,33 @@ CREATE TABLE `personal_settings` (
   `org_mail` varchar(191) DEFAULT NULL,
   `org_web` varchar(191) DEFAULT NULL,
   `org_address` varchar(191) DEFAULT NULL,
-  `prescription_patient_info_modal` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_vital_sign_modal` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_allergy_modal` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_past_history_modal` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_gynae_obs_modal` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_child_history_modal` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_chief_complaint_tab` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_case_summery_tab` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_drug_history_tab` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_on_examinition_tab` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_investigation_tab` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_diagnosis_tab` tinyint(4) NOT NULL DEFAULT 1,
-  `prescription_procedure_tab` tinyint(4) NOT NULL DEFAULT 1,
-  `print_margin_top` tinyint(4) NOT NULL DEFAULT 1,
-  `print_margin_bottom` tinyint(4) NOT NULL DEFAULT 1,
-  `print_margin_left` tinyint(4) NOT NULL DEFAULT 1,
-  `print_margin_right` tinyint(4) NOT NULL DEFAULT 1,
-  `print_chief_complaint` tinyint(4) NOT NULL DEFAULT 1,
-  `print_case_summery` tinyint(4) NOT NULL DEFAULT 1,
-  `print_on_examinition` tinyint(4) NOT NULL DEFAULT 1,
-  `print_investigation` tinyint(4) NOT NULL DEFAULT 1,
-  `print_diagnosis` tinyint(4) NOT NULL DEFAULT 1,
-  `print_advice` tinyint(4) NOT NULL DEFAULT 1,
-  `print_follow_up` tinyint(4) NOT NULL DEFAULT 1,
-  `print_signature` tinyint(4) NOT NULL DEFAULT 1,
-  `print_image` tinyint(4) NOT NULL DEFAULT 1,
+  `prescription_patient_info_modal` tinyint(4) DEFAULT 1,
+  `prescription_vital_sign_modal` tinyint(4) DEFAULT 1,
+  `prescription_allergy_modal` tinyint(4) DEFAULT 1,
+  `prescription_past_history_modal` tinyint(4) DEFAULT 1,
+  `prescription_gynae_obs_modal` tinyint(4) DEFAULT 1,
+  `prescription_child_history_modal` tinyint(4) DEFAULT 1,
+  `prescription_chief_complaint_tab` tinyint(4) DEFAULT 1,
+  `prescription_case_summery_tab` tinyint(4) DEFAULT 1,
+  `prescription_drug_history_tab` tinyint(4) DEFAULT 1,
+  `prescription_on_examinition_tab` tinyint(4) DEFAULT 1,
+  `prescription_investigation_tab` tinyint(4) DEFAULT 1,
+  `prescription_diagnosis_tab` tinyint(4) DEFAULT 1,
+  `prescription_procedure_tab` tinyint(4) DEFAULT 1,
+  `print_margin_top` tinyint(4) DEFAULT 1,
+  `print_margin_bottom` tinyint(4) DEFAULT 1,
+  `print_margin_left` tinyint(4) DEFAULT 1,
+  `print_margin_right` tinyint(4) DEFAULT 1,
+  `print_chief_complaint` tinyint(4) DEFAULT 1,
+  `print_case_summery` tinyint(4) DEFAULT 1,
+  `print_on_examinition` tinyint(4) DEFAULT 1,
+  `print_investigation` tinyint(4) DEFAULT 1,
+  `print_diagnosis` tinyint(4) DEFAULT 1,
+  `print_procedure` tinyint(4) DEFAULT 1,
+  `print_advice` tinyint(4) DEFAULT 1,
+  `print_follow_up` tinyint(4) DEFAULT 1,
+  `print_signature` tinyint(4) DEFAULT 1,
+  `print_image` tinyint(4) DEFAULT 1,
   `created_by` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -11579,8 +11766,9 @@ CREATE TABLE `personal_settings` (
 -- Dumping data for table `personal_settings`
 --
 
-INSERT INTO `personal_settings` (`id`, `org_title`, `org_subtitle`, `org_logo`, `org_phone`, `org_fax`, `org_mail`, `org_web`, `org_address`, `prescription_patient_info_modal`, `prescription_vital_sign_modal`, `prescription_allergy_modal`, `prescription_past_history_modal`, `prescription_gynae_obs_modal`, `prescription_child_history_modal`, `prescription_chief_complaint_tab`, `prescription_case_summery_tab`, `prescription_drug_history_tab`, `prescription_on_examinition_tab`, `prescription_investigation_tab`, `prescription_diagnosis_tab`, `prescription_procedure_tab`, `print_margin_top`, `print_margin_bottom`, `print_margin_left`, `print_margin_right`, `print_chief_complaint`, `print_case_summery`, `print_on_examinition`, `print_investigation`, `print_diagnosis`, `print_advice`, `print_follow_up`, `print_signature`, `print_image`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Your Organization Name', 'Organization Subtitle', '1683650920_1.jpg', '+880100000001', '+880200000000', 'info@organization.org', 'organization.org', '00/0 Address, District, Country', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL, '2023-05-10 04:57:39');
+INSERT INTO `personal_settings` (`id`, `org_title`, `org_subtitle`, `org_logo`, `org_phone`, `org_fax`, `org_mail`, `org_web`, `org_address`, `prescription_patient_info_modal`, `prescription_vital_sign_modal`, `prescription_allergy_modal`, `prescription_past_history_modal`, `prescription_gynae_obs_modal`, `prescription_child_history_modal`, `prescription_chief_complaint_tab`, `prescription_case_summery_tab`, `prescription_drug_history_tab`, `prescription_on_examinition_tab`, `prescription_investigation_tab`, `prescription_diagnosis_tab`, `prescription_procedure_tab`, `print_margin_top`, `print_margin_bottom`, `print_margin_left`, `print_margin_right`, `print_chief_complaint`, `print_case_summery`, `print_on_examinition`, `print_investigation`, `print_diagnosis`, `print_procedure`, `print_advice`, `print_follow_up`, `print_signature`, `print_image`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'Your Organization Name', 'Organization Subtitle', '1683650920_1.jpg', '+880100000001', '+880200000000', 'info@organization.org', 'organization.org', '00/0 Address, District, Country', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, NULL, 1, 1, 1, 1, 1, NULL, '2023-05-18 00:14:53'),
+(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL, 0, 0, 0, 0, 5, '2023-05-12 10:28:06', '2023-05-12 10:30:06');
 
 -- --------------------------------------------------------
 
@@ -11594,7 +11782,7 @@ CREATE TABLE `roles` (
   `guard_name` varchar(125) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `roles`
@@ -11613,7 +11801,7 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VAL
 CREATE TABLE `role_has_permissions` (
   `permission_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `role_has_permissions`
@@ -11655,7 +11843,7 @@ CREATE TABLE `templated_medicines` (
   `note` varchar(191) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `templated_medicines`
@@ -11697,16 +11885,17 @@ CREATE TABLE `users` (
   `nationality` varchar(191) DEFAULT NULL,
   `bloodgroup` varchar(191) DEFAULT NULL,
   `present_address` varchar(191) DEFAULT NULL,
-  `permanent_address` varchar(191) DEFAULT NULL
+  `permanent_address` varchar(191) DEFAULT NULL,
+  `appointment_fee` decimal(8,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`, `nid`, `phone`, `dob`, `reg_no`, `avater`, `signature`, `gender`, `religion`, `nationality`, `bloodgroup`, `present_address`, `permanent_address`) VALUES
-(1, 'Prodip Munshi', 'munshiprodip@gmail.com', NULL, '$2y$10$BFgBm9s9sWvtoLVXtO5SY.F6sDEc.BHooK.woXD65SpZ70No7seaO', NULL, '2023-04-15 08:17:16', '2023-05-07 11:13:01', 1, '19930610279000277', '01736834294', '1993-04-07', 'A0000001', '1683479581_1.jpg', NULL, 'Male', 'Hindu', 'Bangladeshi', 'A(+ve)', 'Khwaja Yunus Ali Medical College & Hospital, Enayetpur, Sirajganj.', 'Bara Bashail, Agailjhara, Barisal.'),
-(5, 'Dr. John', 'john@example.com', NULL, '$2y$10$H2LIOqfZaWE7tSZWmab00.sOHtxOBZruIaMjmN4Gn/3Msqm5wvS5C', NULL, '2023-05-10 12:59:40', '2023-05-10 12:59:40', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `status`, `nid`, `phone`, `dob`, `reg_no`, `avater`, `signature`, `gender`, `religion`, `nationality`, `bloodgroup`, `present_address`, `permanent_address`, `appointment_fee`) VALUES
+(1, 'Prodip Munshi', 'munshiprodip@gmail.com', NULL, '$2y$10$BFgBm9s9sWvtoLVXtO5SY.F6sDEc.BHooK.woXD65SpZ70No7seaO', NULL, '2023-04-15 08:17:16', '2023-05-18 19:32:47', 1, '19930610279000277', '01736834294', '1993-04-07', 'A0000001', '1683479581_1.jpg', '1683908143_1.png', 'Male', 'Hindu', 'Bangladeshi', 'A(+ve)', 'Khwaja Yunus Ali Medical College & Hospital, Enayetpur, Sirajganj.', 'Bara Bashail, Agailjhara, Barisal.', 600.00),
+(5, 'Dr. John', 'john@example.com', NULL, '$2y$10$H2LIOqfZaWE7tSZWmab00.sOHtxOBZruIaMjmN4Gn/3Msqm5wvS5C', NULL, '2023-05-10 12:59:40', '2023-05-12 10:29:27', 1, NULL, NULL, NULL, NULL, NULL, '1683908967_5.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -11717,7 +11906,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 CREATE TABLE `user_clinical_component` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `clinical_component_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user_clinical_component`
@@ -11774,6 +11963,13 @@ ALTER TABLE `clinical_components`
 ALTER TABLE `companies`
   ADD PRIMARY KEY (`id`),
   ADD KEY `companies_created_by_foreign` (`created_by`);
+
+--
+-- Indexes for table `component_templates`
+--
+ALTER TABLE `component_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `component_templates_created_by_foreign` (`created_by`);
 
 --
 -- Indexes for table `component_types`
@@ -11948,7 +12144,7 @@ ALTER TABLE `user_clinical_component`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -11967,6 +12163,12 @@ ALTER TABLE `clinical_components`
 --
 ALTER TABLE `companies`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=654;
+
+--
+-- AUTO_INCREMENT for table `component_templates`
+--
+ALTER TABLE `component_templates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `component_types`
@@ -12020,7 +12222,7 @@ ALTER TABLE `media_libraries`
 -- AUTO_INCREMENT for table `medications`
 --
 ALTER TABLE `medications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `medicine_templates`
@@ -12032,13 +12234,13 @@ ALTER TABLE `medicine_templates`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -12056,7 +12258,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `personal_settings`
 --
 ALTER TABLE `personal_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -12079,6 +12281,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `component_templates`
+--
+ALTER TABLE `component_templates`
+  ADD CONSTRAINT `component_templates_created_by_foreign` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `personal_settings`

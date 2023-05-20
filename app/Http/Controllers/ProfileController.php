@@ -52,6 +52,7 @@ class ProfileController extends Controller
             'nationality'           => 'required',
             'gender'                => 'required',
             'bloodgroup'            => 'required',
+            'appointment_fee'       => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -107,6 +108,8 @@ class ProfileController extends Controller
         $user->nationality  = $request->nationality;
         $user->gender       = $request->gender;
         $user->bloodgroup   = $request->bloodgroup;
+        $user->appointment_fee   = $request->appointment_fee;
+        
         $user->save();
 
         

@@ -250,7 +250,7 @@
                                 <label class="col-form-label" for="present_address">Present Address</label>
                             </div>
                             <div class="col-sm-9">
-                              <textarea class="form-control" name="present_address" id="present_address" rows="2"></textarea>
+                              <textarea class="form-control" name="present_address" id="present_address" rows="5"></textarea>
                             </div>
                         </div>
                     </div>
@@ -261,7 +261,7 @@
                                 <label class="col-form-label" for="permanent_address">Permanent Address</label>
                             </div>
                             <div class="col-sm-9">
-                              <textarea class="form-control" name="permanent_address" id="permanent_address" rows="2"></textarea>
+                              <textarea class="form-control" name="permanent_address" id="permanent_address" rows="5"></textarea>
                             </div>
                         </div>
                     </div>
@@ -381,11 +381,23 @@
                                 </div>
                             </div>
 
+                            <div class="col-12">
+                                <div class="mb-1 row">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label" for="appointment_fee">Appointment Fee</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="appointment_fee" class="form-control" name="appointment_fee"
+                                            placeholder="TK. 500.00" value="{{ auth()->user()->appointment_fee }}" />
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-12 mt-3">
+                <div class="col-md-12 mt-4">
                     <div class="card">
                         <div class="card-body">
                             <input type="hidden" name="patient_id" id="patient_id">

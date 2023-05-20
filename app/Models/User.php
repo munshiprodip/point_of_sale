@@ -34,6 +34,7 @@ class User extends Authenticatable
         'bloodgroup',
         'present_address',
         'permanent_address',
+        'appointment_fee',
     ];
 
     /**
