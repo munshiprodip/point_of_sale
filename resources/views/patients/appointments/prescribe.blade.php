@@ -2200,6 +2200,35 @@
     </div>
     <!-- End favourite clinical components Modal -->
 
+    <!-- Templated components Modal -->
+    <div class="modal fade" id="components_templates_modal" data-bs-backdrop="static" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h5 class="modal-title" id="components_templates_modal_title">Favourite</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-0">
+            <table class="dt-responsive table" id="components_templates_table" >
+              <thead>
+                  <tr>
+                      <th>SL</th>
+                      <th>NAME</th>
+                      <th>OPTIONS</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Templated components Modal -->
+
     <!-- Previous clinical component Modal -->
     <div class="modal fade" id="previous_clinical_components_modal" data-bs-backdrop="static" tabindex="-1">
       <div class="modal-dialog modal-lg">
@@ -2493,9 +2522,9 @@
                     <button class="btn btn-outline-danger btn-xs ms-2" onclick="openFavouriteComponentsModal('chief_complaints'); return false;">
                       <i class="ti ti-heart"></i>
                     </button>
-                    <!-- <button class="btn btn-outline-info btn-xs ms-2">
+                    <button class="btn btn-outline-info btn-xs ms-2" onclick="openTemplatedComponentsModal('chief_complaints'); return false;">
                       <i class="ti ti-file-certificate"></i>
-                    </button> -->
+                    </button>
                     <button class="btn btn-outline-info btn-xs ms-2" onclick="openPreviousClinicalComponentsModal('chief_complaints'); return false;">
                       <i class="ti ti-arrow-back-up"></i>
                     </button>
@@ -2539,9 +2568,9 @@
                     <button class="btn btn-outline-danger btn-xs ms-2" onclick="openFavouriteComponentsModal('case_summary'); return false;">
                       <i class="ti ti-heart"></i>
                     </button>
-                    <!-- <button class="btn btn-outline-info btn-xs ms-2">
+                    <button class="btn btn-outline-info btn-xs ms-2" onclick="openTemplatedComponentsModal('case_summary'); return false;">
                       <i class="ti ti-file-certificate"></i>
-                    </button> -->
+                    </button>
                     <button class="btn btn-outline-info btn-xs ms-2" onclick="openPreviousClinicalComponentsModal('case_summary'); return false;">
                       <i class="ti ti-arrow-back-up"></i>
                     </button>
@@ -2582,6 +2611,9 @@
                 <div class="content-header mb-3 d-flex justify-content-between">
                   <h6 class="mb-0">Drug History</h6>
                   <div>
+                    <button class="btn btn-outline-info btn-xs ms-2" onclick="openTemplatedComponentsModal('past_drug_history'); return false;">
+                      <i class="ti ti-file-certificate"></i>
+                    </button>
                     <button class="btn btn-outline-info btn-xs ms-2" onclick="openPreviousClinicalComponentsModal('past_drug_history'); return false;">
                       <i class="ti ti-arrow-back-up"></i>
                     </button>
@@ -2822,6 +2854,9 @@
                                 <button class="btn btn-outline-danger btn-xs ms-2" onclick="openFavouriteComponentsModal('on_examination'); return false;">
                                   <i class="ti ti-heart"></i>
                                 </button>
+                                <button class="btn btn-outline-info btn-xs ms-2" onclick="openTemplatedComponentsModal('on_examination'); return false;">
+                                  <i class="ti ti-file-certificate"></i>
+                                </button>
                                 <button class="btn btn-outline-info btn-xs ms-2" onclick="openPreviousClinicalComponentsModal('on_examination'); return false;">
                                   <i class="ti ti-arrow-back-up"></i>
                                 </button>
@@ -2880,9 +2915,9 @@
                     <button class="btn btn-outline-danger btn-xs ms-2" onclick="openFavouriteComponentsModal('investigations'); return false;">
                       <i class="ti ti-heart"></i>
                     </button>
-                    <!-- <button class="btn btn-outline-info btn-xs ms-2">
+                    <button class="btn btn-outline-info btn-xs ms-2" onclick="openTemplatedComponentsModal('investigations'); return false;">
                       <i class="ti ti-file-certificate"></i>
-                    </button> -->
+                    </button>
                     <button class="btn btn-outline-info btn-xs ms-2" onclick="openPreviousClinicalComponentsModal('investigations'); return false;">
                       <i class="ti ti-arrow-back-up"></i>
                     </button>
@@ -2926,9 +2961,9 @@
                     <button class="btn btn-outline-danger btn-xs ms-2" onclick="openFavouriteComponentsModal('diagnosis'); return false;">
                       <i class="ti ti-heart"></i>
                     </button>
-                    <!-- <button class="btn btn-outline-info btn-xs ms-2">
+                    <button class="btn btn-outline-info btn-xs ms-2" onclick="openTemplatedComponentsModal('diagnosis'); return false;">
                       <i class="ti ti-file-certificate"></i>
-                    </button> -->
+                    </button>
                     <button class="btn btn-outline-info btn-xs ms-2" onclick="openPreviousClinicalComponentsModal('diagnosis'); return false;">
                       <i class="ti ti-arrow-back-up"></i>
                     </button>
@@ -2972,9 +3007,9 @@
                     <button class="btn btn-outline-danger btn-xs ms-2" onclick="openFavouriteComponentsModal('procedure'); return false;">
                       <i class="ti ti-heart"></i>
                     </button>
-                    <!-- <button class="btn btn-outline-info btn-xs ms-2">
+                    <button class="btn btn-outline-info btn-xs ms-2" onclick="openTemplatedComponentsModal('procedure'); return false;">
                       <i class="ti ti-file-certificate"></i>
-                    </button> -->
+                    </button>
                     <button class="btn btn-outline-info btn-xs ms-2" onclick="openPreviousClinicalComponentsModal('procedure'); return false;">
                       <i class="ti ti-arrow-back-up"></i>
                     </button>
@@ -3120,7 +3155,7 @@
                 <div class="content-header mb-3 d-flex justify-content-between">
                   <h6 class="mb-0">Advices</h6>
                   <div>
-                    <button class="btn btn-outline-info btn-xs ms-2" onclick="return false;">
+                    <button class="btn btn-outline-info btn-xs ms-2" onclick="openTemplatedComponentsModal('advice'); return false;">
                       <i class="ti ti-file-certificate"></i>
                     </button>
                     <button class="btn btn-outline-info btn-xs ms-2" onclick="openPreviousClinicalComponentsModal('advice'); return false;">
@@ -3344,6 +3379,44 @@
       }
       $('#favourite_components_modal_title').text('Favourite ' + component_type.split('_').join(' '));
       $('#favourite_components_modal').modal('show');
+    };
+
+    // Open  components templates modal and load data in DataTable
+    let components_templates_table;
+    function openTemplatedComponentsModal(template_type) {
+      let request_url = `{{ route('components_templates', ':template_type') }}`.replace(':template_type', template_type);
+      if (!components_templates_table) {
+        components_templates_table = $('#components_templates_table').DataTable({
+          ajax: request_url,
+          processing:true,
+          serverSide:true,
+          columns: [
+              {data: 'DT_RowIndex', searchable: false, orderable: false},
+              { data: "name" },
+              { data: (row) => {
+                      return (`
+                          <div class="dropdown">
+                              <a class="btn btn-primary btn-sm" href="javascript:void(0);" onclick='addSelectedComponentToTextArea("${row.template_type}", ${JSON.stringify(row.template_en)} )'><i class="ti ti-plus me-1"></i> Add </a>
+                          </div>
+                      `);
+                  } 
+              },
+          ],
+
+          columnDefs: [
+              { 
+                  'searchable'    : false, 
+                  'targets'       : [2] 
+              },
+          ],
+          pageLength: 5,
+          responsive: true,
+        });
+      }else {
+        components_templates_table.ajax.url(request_url).load();
+      }
+      $('#components_templates_modal_title').text('Templated ' + template_type.split('_').join(' '));
+      $('#components_templates_modal').modal('show');
     };
 
     // Open previous clinical components modal and load data in DataTable

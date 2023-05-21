@@ -210,46 +210,70 @@
                     </ul>
                 </li>
             @endcan
+            
+
             @can('Clinical Settings')
-                <li class="menu-item {{ request()->is('settings/clinical/*') ?  'active open' : '' }} ">
+                <li class="menu-item {{ Route::currentRouteNamed('clinical_components') ?  'active open' : '' }}">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class='menu-icon tf-icons ti ti-stethoscope'></i>
                         <div>Clinical Setup</div>
                     </a>
+
+                    @php
+                        $all_components_types = [
+                            'Case Summary'          => 'case_summary',
+                            'Chief Complaints'      => 'chief_complaints',
+                            'On Examination'        => 'on_examination',
+                            'Diagnosis'             => 'diagnosis',
+                            'Investigations'        => 'investigations',
+                            'Procedure'             => 'procedure',
+                        ];
+                    @endphp
                     <ul class="menu-sub">
-                        <li class="menu-item {{ request()->is('*/case_summary') ?  'active' : '' }}">
-                            <a href="{{ route('clinical_components', 'case_summary') }}" class="menu-link">
-                                <div>Case Summary</div>
+                        @foreach($all_components_types as $menu=>$type)
+                        <li class="menu-item {{ Route::currentRouteNamed('clinical_components') && Request::route('component_type') == $type ?  'active' : '' }}">
+                            <a href="{{ route('clinical_components', $type ) }}" class="menu-link">
+                                <div class="text-capitalize">{{ $menu }}</div>
                             </a>
                         </li>
-                        <li class="menu-item {{ request()->is('*/chief_complaints') ?  'active' : '' }}">
-                            <a href="{{ route('clinical_components', 'chief_complaints') }}" class="menu-link">
-                                <div>Chief Complaints</div>
+                        @endforeach
+                    </ul>
+
+                    
+                </li>
+            @endcan
+
+            @can('Template Settings')
+                <li class="menu-item {{ Route::currentRouteNamed('components_templates') ?  'active open' : '' }}">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class='menu-icon tf-icons ti ti-file-certificate'></i>
+                        <div>Templates Setup</div>
+                    </a>
+                    @php
+                        $all_templates_types = [
+                            'Case Summary'          => 'case_summary',
+                            'Chief Complaints'      => 'chief_complaints',
+                            'On Examination'        => 'on_examination',
+                            'Past Drug History'     => 'past_drug_history',
+                            'Diagnosis'             => 'diagnosis',
+                            'Investigations'        => 'investigations',
+                            'Procedure'             => 'procedure',
+                            'Advice'                => 'advice',
+                        ];
+                    @endphp
+                    <ul class="menu-sub">
+                        @foreach($all_templates_types as $menu => $type)
+                        <li class="menu-item {{ Route::currentRouteNamed('components_templates') && Request::route('template_type') == $type ?  'active' : '' }}">
+                            <a href="{{ route('components_templates', $type ) }}" class="menu-link">
+                                <div>{{ $menu }}</div>
                             </a>
                         </li>
-                        <li class="menu-item {{ request()->is('*/on_examination') ?  'active' : '' }}">
-                            <a href="{{ route('clinical_components', 'on_examination') }}" class="menu-link">
-                                <div>On Examinations</div>
-                            </a>
-                        </li>
-                        <li class="menu-item {{ request()->is('*/diagnosis') ?  'active' : '' }}">
-                            <a href="{{ route('clinical_components', 'diagnosis') }}" class="menu-link">
-                                <div>Diagnosis</div>
-                            </a>
-                        </li>
-                        <li class="menu-item {{ request()->is('*/investigations') ?  'active' : '' }}">
-                            <a href="{{ route('clinical_components', 'investigations') }}" class="menu-link">
-                                <div>Investigations</div>
-                            </a>
-                        </li>
-                        <li class="menu-item {{ request()->is('*/procedure') ?  'active' : '' }}">
-                            <a href="{{ route('clinical_components', 'procedure') }}" class="menu-link">
-                                <div>Procedures</div>
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                 </li>
             @endcan
+
+
             <li class="menu-item {{ request()->is('settings/profiles/*') ?  'active open' : '' }} ">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons ti ti-adjustments'></i>

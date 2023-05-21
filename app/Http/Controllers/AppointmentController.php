@@ -506,9 +506,9 @@ class AppointmentController extends Controller
     {
         $personal_settings = auth()->user()->settings()->first();
         $appointment = Appointment::find($appointment_id);
-        //$pdf = PDF::loadView('patients.prescriptions.index', compact('appointment'));
-        //return $pdf->stream($appointment->id.'.pdf');
-        return view('patients.prescriptions.index', compact('appointment', 'personal_settings'));
+        $pdf = PDF::loadView('patients.prescriptions.index2', compact('appointment', 'personal_settings'));
+        return $pdf->stream($appointment->id.'.pdf');
+        //return view('patients.prescriptions.index', compact('appointment', 'personal_settings'));
     }
 
 

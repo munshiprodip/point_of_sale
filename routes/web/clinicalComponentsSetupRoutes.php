@@ -14,3 +14,14 @@ Route::post('/clinical_components/add_to_favourite', 'ClinicalComponentControlle
 Route::post('/clinical_components/remove_from_favourite', 'ClinicalComponentController@removeComponentFromFavourite')->name('clinical_components.remove_from_favourite'); // Write
 
 Route::get('/clinical_components/{component_type}/select_option_search', 'ClinicalComponentController@selectOptionsSearch')->name('clinical_components.select_option_search'); // Write
+
+
+
+
+// components template routes
+Route::get('/templates/components_templates/{template_type}', 'ComponentTemplateController@index')->name('components_templates'); // Read
+Route::post('/templates/components_templates/store', 'ComponentTemplateController@store')->name('components_templates.store'); // Write
+Route::get('/templates/components_templates/find/{id}', 'ComponentTemplateController@findById')->name('components_templates.find'); // Modify
+Route::patch('/templates/components_templates/update/{id}', 'ComponentTemplateController@update')->name('components_templates.update'); // Modify
+Route::get('/templates/components_templates/change_status/{id}', 'ComponentTemplateController@changeStatus')->name('components_templates.change_status'); // Modify
+Route::delete('/templates/components_templates/delete/{id}', 'ComponentTemplateController@destroy')->name('components_templates.destroy'); // Delete
