@@ -3,43 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
-use App\Models\User;
 use App\Models\Organization;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Hash;
 
-
-class UserController extends Controller
+class OrganizationController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:Read User', ['only' => ['index']]);
-        $this->middleware('permission:Write User', ['only' => ['store']]);
-        $this->middleware('permission:Modify User', ['only' => ['findById', 'update', 'changeStatus']]);
-        $this->middleware('permission:Delete User', ['only' => ['destroy']]);
+        //$this->middleware('permission:Medication Settings');
     }
+    // Display a listing of the resource & return response for ajax request.
     public function index(Request $request)
     {
-        $users = User::with('roles');
         if($request->ajax()){
-            return DataTables::of($users)->make(true);
+            $organizations = Organization::where('id', '>', 0);
+            return DataTables::of($organizations)->addIndexColumn()->make(true);
         }
-        $roles = Role::all();
-        $organizations = Organization::all();
-        return view('admin.users.index', compact('roles', 'organizations'));
+        return view('organizations.index');
     }
+
+    // Store a newly created resource in storage & return json response
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name'          => 'required',
-            'email'         => 'required|unique:users',
-            'password'      => 'required',
-            'roles'         => 'required',
-            'organization_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -51,15 +41,12 @@ class UserController extends Controller
             ]);
         }
 
-        $user = User::create([
+        $organization = Organization::create([
             'name' => $request->name,
-            'email' => $request->email,
-            'organization_id' => $request->organization_id,
-            'password' => Hash::make($request->password),
+            'created_by' => auth()->id(),
         ]);
 
-        if($user){
-            $user->assignRole($request->roles);
+        if($organization){
             return response()->json([
                 'success'   => true,
                 'type'      => 'success',
@@ -76,16 +63,15 @@ class UserController extends Controller
         }
         
     }
-    //Get user by id
+
+    //Find the specified resource in storage & return json response
     public function findById($id)
     {
-        $user = User::with('roles')->where('id', $id)->first();
-        $roles = $user->getRoleNames();
-        if($user){
+        $organization = Organization::findOrFail($id);
+        if($organization){
             return response()->json([
-                'success'   => true,
-                'user'      => $user,
-                'roles'     => $roles,
+                'success'       => true,
+                'data'     => $organization,
             ]);
         }else{
             return response()->json([
@@ -96,14 +82,13 @@ class UserController extends Controller
             ]);
         }
     }
+
+    //Update the specified resource in storage & return json response
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $organization = Organization::findOrFail($id);
         $validator = Validator::make($request->all(), [
             'name'          => 'required',
-            'email'         => 'required|unique:users,email,'.$user->id,
-            'roles'         => 'required',
-            'organization_id'         => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -115,13 +100,9 @@ class UserController extends Controller
             ]);
         }
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->organization_id = $request->organization_id;
-        $user->save();
-
-        $user->syncRoles($request->roles);
-        
+        $organization->name = $request->name;
+        $organization->save();
+      
         return response()->json([
             'success'   => true,
             'type'      => 'success',
@@ -130,11 +111,13 @@ class UserController extends Controller
         ]);
         
     }
+
+    //Change the current status of specified resource from storage & return json response.
     public function changeStatus($id)
     {
-        $user = User::findOrFail($id);
-        $user->status = !$user->status;
-        $user->save();
+        $organization = Organization::findOrFail($id);
+        $organization->status = !$organization->status;
+        $organization->save();
         return response()->json([
             'success'   => true,
             'type'      => 'success',
@@ -142,9 +125,11 @@ class UserController extends Controller
             'message' => 'Status changed successfully'
         ]);
     }
+
+    //Remove the specified resource from storage & return json response.
     public function destroy($id)
     {
-        User::destroy($id);
+        Organization::destroy($id);
 
         return response()->json([
             'success'   => true,

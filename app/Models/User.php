@@ -25,16 +25,14 @@ class User extends Authenticatable
         'nid',
         'phone',
         'dob',
-        'reg_no',
         'avater',
-        'signature',
         'gender',
         'religion',
         'nationality',
         'bloodgroup',
         'present_address',
         'permanent_address',
-        'appointment_fee',
+        'organization_id',
     ];
 
     /**
@@ -57,26 +55,8 @@ class User extends Authenticatable
     ];
 
 
-    public function settings()
+    public function organization()
     {
-        return $this->hasMany(PersonalSetting::class, 'created_by');
-    }
-
-    public function appointments()
-    {
-        return $this->hasMany(Appointment::class, 'created_by');
-    }
-
-    public function clinicalComponents()
-    {
-        return $this->belongsToMany(ClinicalComponent::class, 'user_clinical_component', 'user_id', 'clinical_component_id');
-    }
-
-    public function favourites($component_type) // $type = (case_summery, chief_complaint, on_examination, diagnosis, investigation, reocedure)
-    {
-        if($component_type == 'all'){
-            return $this->belongsToMany(ClinicalComponent::class);
-        }
-        return $this->belongsToMany(ClinicalComponent::class, 'user_clinical_component', 'user_id', 'clinical_component_id')->where('component_type', $component_type);
+        return $this->belongsTo(Organization::class, 'organization_id');
     }
 }

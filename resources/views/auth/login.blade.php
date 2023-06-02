@@ -1,9 +1,9 @@
 @extends("layouts.auth")
 
 @section('content')
-    <h3 class="mb-1 fw-bold">Welcome to RxLab! 👋</h3>
+    <h3 class="mb-1 fw-bold">Welcome</h3>
         <p class="mb-4">
-            Please sign-in to your account and start the adventure
+            Please sign-in to your account
         </p>
 
         <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('login') }}" >
@@ -49,21 +49,5 @@
             </p>
         @endif
 
-        <div class="divider my-4">
-            <div class="divider-text">or</div>
-        </div>
-
-        <div class="d-flex justify-content-center">
-            <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3" >
-                <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
-            </a>
-
-            <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3" >
-                <i class="tf-icons fa-brands fa-google fs-5"></i>
-            </a>
-
-            <a href="javascript:;" class="btn btn-icon btn-label-twitter">
-                <i class="tf-icons fa-brands fa-twitter fs-5"></i>
-            </a>
-        </div>
+       
 @endsection

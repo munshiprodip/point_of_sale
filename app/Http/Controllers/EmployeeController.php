@@ -3,43 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
-use App\Models\User;
-use App\Models\Organization;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Hash;
+use App\Models\Employee;
 
-
-class UserController extends Controller
+class EmployeeController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:Read User', ['only' => ['index']]);
-        $this->middleware('permission:Write User', ['only' => ['store']]);
-        $this->middleware('permission:Modify User', ['only' => ['findById', 'update', 'changeStatus']]);
-        $this->middleware('permission:Delete User', ['only' => ['destroy']]);
+        //$this->middleware('permission:Medication Settings');
     }
+    // Display a listing of the resource & return response for ajax request.
     public function index(Request $request)
     {
-        $users = User::with('roles');
         if($request->ajax()){
-            return DataTables::of($users)->make(true);
+            $employees = Employee::where('organization_id', auth()->user()->organization_id);
+            return DataTables::of($employees)
+            ->addColumn('department', function($row){
+                return $row->department->name;
+            })
+            ->addColumn('schedule', function($row){
+                return $row->schedule->name;
+            })
+            ->addIndexColumn()
+            ->make(true);
         }
-        $roles = Role::all();
-        $organizations = Organization::all();
-        return view('admin.users.index', compact('roles', 'organizations'));
+        return view('employees.index');
     }
+
+    // Store a newly created resource in storage & return json response
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name'          => 'required',
-            'email'         => 'required|unique:users',
-            'password'      => 'required',
-            'roles'         => 'required',
-            'organization_id' => 'required'
+            'employment_id' => 'required',
+            'department_id'   => 'required',
+            'designation'     => 'required',
+            'schedule_id'     => 'required',
+            'mobile'          => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -51,15 +54,18 @@ class UserController extends Controller
             ]);
         }
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'organization_id' => $request->organization_id,
-            'password' => Hash::make($request->password),
+        $employee = Employee::create([
+            'name'                => $request->name,
+            'employment_id'       => $request->employment_id,
+            'organization_id'     => auth()->user()->organization_id,
+            'department_id'       => $request->department_id,
+            'designation'         => $request->designation,
+            'schedule_id'         => $request->schedule_id,
+            'mobile'              => $request->mobile,
+            'created_by'          => auth()->id(),
         ]);
 
-        if($user){
-            $user->assignRole($request->roles);
+        if($employee){
             return response()->json([
                 'success'   => true,
                 'type'      => 'success',
@@ -76,16 +82,15 @@ class UserController extends Controller
         }
         
     }
-    //Get user by id
+
+    //Find the specified resource in storage & return json response
     public function findById($id)
     {
-        $user = User::with('roles')->where('id', $id)->first();
-        $roles = $user->getRoleNames();
-        if($user){
+        $employee = Employee::findOrFail($id);
+        if($employee){
             return response()->json([
-                'success'   => true,
-                'user'      => $user,
-                'roles'     => $roles,
+                'success'       => true,
+                'data'     => $employee,
             ]);
         }else{
             return response()->json([
@@ -96,14 +101,18 @@ class UserController extends Controller
             ]);
         }
     }
+
+    //Update the specified resource in storage & return json response
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $employee = Employee::findOrFail($id);
         $validator = Validator::make($request->all(), [
             'name'          => 'required',
-            'email'         => 'required|unique:users,email,'.$user->id,
-            'roles'         => 'required',
-            'organization_id'         => 'required',
+            'employment_id' => 'required',
+            'department_id'   => 'required',
+            'designation'     => 'required',
+            'schedule_id'     => 'required',
+            'mobile'          => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -115,13 +124,14 @@ class UserController extends Controller
             ]);
         }
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->organization_id = $request->organization_id;
-        $user->save();
-
-        $user->syncRoles($request->roles);
-        
+        $employee->name = $request->name;
+        $employee->employment_id = $request->employment_id;
+        $employee->department_id = $request->department_id;
+        $employee->designation = $request->designation;
+        $employee->schedule_id = $request->schedule_id;
+        $employee->mobile = $request->mobile;
+        $employee->save();
+      
         return response()->json([
             'success'   => true,
             'type'      => 'success',
@@ -130,11 +140,13 @@ class UserController extends Controller
         ]);
         
     }
+
+    //Change the current status of specified resource from storage & return json response.
     public function changeStatus($id)
     {
-        $user = User::findOrFail($id);
-        $user->status = !$user->status;
-        $user->save();
+        $employee = Employee::findOrFail($id);
+        $employee->status = !$employee->status;
+        $employee->save();
         return response()->json([
             'success'   => true,
             'type'      => 'success',
@@ -142,9 +154,11 @@ class UserController extends Controller
             'message' => 'Status changed successfully'
         ]);
     }
+
+    //Remove the specified resource from storage & return json response.
     public function destroy($id)
     {
-        User::destroy($id);
+        Employee::destroy($id);
 
         return response()->json([
             'success'   => true,

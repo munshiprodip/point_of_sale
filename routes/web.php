@@ -41,26 +41,6 @@ Route::group(
     __DIR__.'/web/superAdminRoutes.php'
 );
 
-// Medications setup routes 
-Route::group(
-    [
-        'middleware' => ['auth'],
-        'namespace' => 'App\Http\Controllers',
-        'prefix'=>'settings/medications'
-    ], 
-    __DIR__.'/web/medicationsSetupRoutes.php'
-);
-
-// Medications setup routes 
-Route::group(
-    [
-        'middleware' => ['auth'],
-        'namespace' => 'App\Http\Controllers',
-        'prefix'=>'settings/clinical'
-    ], 
-    __DIR__.'/web/clinicalComponentsSetupRoutes.php'
-);
-
 
 // Profile setup routes 
 Route::group(
@@ -73,12 +53,13 @@ Route::group(
 );
 
 
+
 // Patients routes 
 Route::group(
     [
         'middleware' => ['auth'],
         'namespace' => 'App\Http\Controllers',
-        'prefix'=>'patients'
+        'prefix'=>'organizations'
     ], 
-    __DIR__.'/web/patientsRoutes.php'
+    __DIR__.'/web/organizationsRoutes.php'
 );
