@@ -14,7 +14,7 @@ class ScheduleController extends Controller
 {
     function __construct()
     {
-        //$this->middleware('permission:Medication Settings');
+        $this->middleware('permission:Delete data', ['only' => ['destroy']]);
     }
     // Display a listing of the resource & return response for ajax request.
     public function index(Request $request)
@@ -49,6 +49,13 @@ class ScheduleController extends Controller
             'start_time'        => Carbon::parse($request->start_time)->format('H:i:s'),
             'end_time'          => Carbon::parse($request->end_time)->format('H:i:s'),
             'organization_id'   => auth()->user()->organization_id,
+            'saturday'            => $request->saturday? 1:0,
+            'sunday'              => $request->sunday? 1:0,
+            'monday'              => $request->monday? 1:0,
+            'tuesday'             => $request->tuesday? 1:0,
+            'wednesday'           => $request->wednesday? 1:0,
+            'thursday'            => $request->thursday? 1:0,
+            'friday'              => $request->friday? 1:0,
             'created_by' => auth()->id(),
         ]);
 
@@ -111,6 +118,13 @@ class ScheduleController extends Controller
         $schedule->name = $request->name;
         $schedule->start_time = $request->start_time;
         $schedule->end_time = $request->end_time;
+        $schedule->saturday            = $request->saturday? 1:0;
+        $schedule->sunday              = $request->sunday? 1:0;
+        $schedule->monday              = $request->monday? 1:0;
+        $schedule->tuesday             = $request->tuesday? 1:0;
+        $schedule->wednesday           = $request->wednesday? 1:0;
+        $schedule->thursday            = $request->thursday? 1:0;
+        $schedule->friday              = $request->friday? 1:0;
         $schedule->save();
       
         return response()->json([

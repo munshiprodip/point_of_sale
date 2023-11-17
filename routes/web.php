@@ -59,7 +59,7 @@ Route::group(
     [
         'middleware' => ['auth'],
         'namespace' => 'App\Http\Controllers',
-        'prefix'=>'organizations'
+        'prefix'=>'attendance-management'
     ], 
     __DIR__.'/web/organizationsRoutes.php'
 );

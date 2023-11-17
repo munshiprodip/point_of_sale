@@ -1,5 +1,5 @@
 @extends('layouts.datatable')
-@section('title', 'schedules')
+@section('title', 'Schedules')
 
 @section('content')
     <!-- Responsive Datatable -->
@@ -12,6 +12,7 @@
                         <th>NAME</th>
                         <th>START TIME</th>
                         <th>END TIME</th>
+                        <th>DAY OFF</th>
                         <th>STATUS</th>
                         <th>OPTIONS</th>
                     </tr>
@@ -41,6 +42,53 @@
                         <label class="form-label">End Time</label>
                         <input name="end_time" type="text" class="form-control flatpickr-input pick-time" placeholder="12:00 PM"/>
                     </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Weekly Holiday</label>
+                    
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="saturday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Saturday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="sunday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Sunday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="monday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Monday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="tuesday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Tuesday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="wednesday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Wednesday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="thursday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Thursday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="friday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Friday
+                            </label>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-outline-primary">Save</button>
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Cancel</button>
                 </form>
@@ -67,6 +115,52 @@
                     <div class="mb-3">
                         <label class="form-label">End Time</label>
                         <input name="end_time" type="text" class="form-control" placeholder="12:00 PM"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Weekly Holiday</label>
+                    
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="saturday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Saturday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="sunday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Sunday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="monday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Monday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="tuesday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Tuesday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="wednesday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Wednesday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="thursday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Thursday
+                            </label>
+                        </div>
+                        <div class="form-check offset-2 me-lg-5">
+                            <input name="friday" value="1" class="form-check-input" type="checkbox" >
+                            <label class="form-check-label" >
+                                Friday
+                            </label>
+                        </div>
                     </div>
                     <input name="id" id="edit_data_id" type="hidden" />
                     <button type="submit" class="btn btn-outline-primary">Send</button>
@@ -97,6 +191,19 @@
                     { data: "name" },
                     { data: "start_time" },
                     { data: "end_time" },
+                    { data: (row) => {
+                        let dayOff = '';
+                        dayOff += row.saturday? 'Saturday, ': '';
+                        dayOff += row.sunday? 'Sunday, ': '';
+                        dayOff += row.monday? 'Monday, ': '';
+                        dayOff += row.tuesday? 'Tuesday, ': '';
+                        dayOff += row.wednesday? 'Wednesday, ': '';
+                        dayOff += row.thursday? 'Thursday, ': '';
+                        dayOff += row.friday? 'Friday, ': '';
+
+                            return dayOff;
+                        }
+                    },
                     { data: (row) => {
                             return `<span style="cursor:pointer;" class="badge me-1 bg-label-${row.status===1? 'danger':'info'}" onclick="changeStatus(${row.id})" > ${row.status===1? 'Activated':'Deactivated'}</span>`;
                         }
@@ -160,10 +267,17 @@
                         edit_data_form.find("input[name='name']").val(res.data.name);
                         edit_data_form.find("input[name='start_time']").val(res.data.start_time);
                         edit_data_form.find("input[name='end_time']").val(res.data.end_time);
+                        edit_data_form.find("input[name='saturday']").prop( "checked", res.data.saturday);
+                        edit_data_form.find("input[name='sunday']").prop( "checked", res.data.sunday);
+                        edit_data_form.find("input[name='monday']").prop( "checked", res.data.monday);
+                        edit_data_form.find("input[name='tuesday']").prop( "checked", res.data.tuesday);
+                        edit_data_form.find("input[name='wednesday']").prop( "checked", res.data.wednesday);
+                        edit_data_form.find("input[name='thursday']").prop( "checked", res.data.thursday);
+                        edit_data_form.find("input[name='friday']").prop( "checked", res.data.friday);
                         edit_data_form.find("#edit_data_id").val(res.data.id);
                     } else {
                         Swal.fire({
-                            icon: res.type, // "success", "error", "warning", "info", "question"
+                            icon: res.type, // "success", "error", "warning", "info", "question" .prop( "checked", true );
                             title: res.title,
                             text: res.message,
                             timer: 1500,

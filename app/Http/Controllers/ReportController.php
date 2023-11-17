@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Attendance;
+use App\Models\DailyAttendance;
 use App\Models\Employee;
 use Carbon\Carbon;
 use PDF;
@@ -17,6 +18,67 @@ class ReportController extends Controller
         $departments    = auth()->user()->organization->departments;
         return view('reports.index', compact('employees', 'departments'));
     }
+
+    // New reports start
+    public function dailyAttendanceForm()
+    {
+        $departments    = auth()->user()->organization->departments;
+        return view('reports.daily_attendance_form', compact('departments'));
+    }
+
+    public function generateDailyAttendanceReport(Request $request)
+    {
+        $date = $request->date? Carbon::parse($request->date)->toDateString() : Carbon::now()->toDateString();
+        $department_id = $request->department_id;
+        $attendances = DailyAttendance::whereDate('date', $date)
+            ->whereHas('employee', function($query) use($department_id){
+                $query->where('organization_id' , auth()->user()->organization_id);
+                if($department_id){
+                    $query->where('department_id' , $department_id);
+                }
+            })->get();
+        $i = 0;
+        $view_blade =  auth()->user()->organization->is_track_lunch? 'reports.daily_attendance_report_with_lunch' : 'reports.daily_attendance_report';
+        $pdf = PDF::loadView($view_blade, compact('attendances', 'i', 'date'), [], [
+            'title' => 'Attendance report',
+            'margin_top' => 35,
+            'margin_bottom' => 12,
+            'margin_header' => 8,
+            'margin_footer' => 5,
+            'format' => 'A4-L'
+        ]);
+        return $pdf->stream('Attendance report-'.$date.'.pdf');
+    }
+
+    public function monthlyAttendanceForm()
+    {
+        $departments    = auth()->user()->organization->departments;
+        return view('reports.monthly_attendance_form', compact('departments'));
+    }
+
+    public function generateMonthlyAttendanceReport(Request $request)
+    {
+        $date = $request->date? Carbon::parse($request->date) : Carbon::now();
+        $department_id = $request->department_id;
+        $employees = Employee::where('status', 1)->with(['daily_attendances' => function ($query) use($date) {
+            $query->whereMonth('date', $date);
+        }])->where('organization_id', auth()->user()->organization_id)->get();
+        $i = 0;
+
+        $date = $date->format('F Y');
+        $view_blade =  auth()->user()->organization->is_track_lunch? 'reports.monthly_attendance_report_with_lunch' : 'reports.monthly_attendance_report';
+        $pdf = PDF::loadView($view_blade, compact('employees', 'i', 'date'), [], [
+            'title' => 'Attendance report',
+            'margin_top' => 35,
+            'margin_bottom' => 12,
+            'margin_header' => 8,
+            'margin_footer' => 5,
+            'format' => 'A4-L'
+        ]);
+        return $pdf->stream('Monthly attendance report-'.$date.'.pdf');
+    }
+
+    // New reports end
 
     public function generateReport(Request $request)
     {
@@ -84,11 +146,6 @@ class ReportController extends Controller
     }
 
 
-
-
-
-
-
     private function processEmployeesAttendance($employees)
     {
         $procesed_employees_with_attendance = [];
@@ -152,8 +209,8 @@ class ReportController extends Controller
             $all_attendance_rows[] = (object) [
                 'date' => $date,
                 'attendance_status' => $attendance_status,
-                'entry_time' => Carbon::parse($entry_time)->format('h:i A'),
-                'exit_time' => Carbon::parse($exit_time)->format('h:i A'),
+                'entry_time' =>  $entry_time? Carbon::parse($entry_time)->format('h:i A') : '',
+                'exit_time' => $exit_time? Carbon::parse($exit_time)->format('h:i A'): '',
                 'late_entry_time' => $late_entry_time,
                 'erly_exit_time' => $erly_exit_time,
             ];
@@ -172,4 +229,5 @@ class ReportController extends Controller
         }
         return $diff->h.'h '.$diff->i.'m';
     }
+
 }

@@ -11,6 +11,13 @@ class Organization extends Model
     protected $fillable = [
         'name',
         'status',
+        'flex_time',
+        'logo',
+        'founder',
+        'address',
+        'is_track_lunch',
+        'chat_id',
+        'notification_status',
         'created_by',
     ];
 

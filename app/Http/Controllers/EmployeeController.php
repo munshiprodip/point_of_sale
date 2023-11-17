@@ -8,17 +8,25 @@ use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
 use App\Models\Employee;
+use App\Models\Attendance;
+
+// use Telegram\Bot\Laravel\Facades\Telegram;
 
 class EmployeeController extends Controller
 {
     function __construct()
     {
-        //$this->middleware('permission:Medication Settings');
+        $this->middleware('permission:Delete data', ['only' => ['destroy']]);
     }
     // Display a listing of the resource & return response for ajax request.
     public function index(Request $request)
     {
         if($request->ajax()){
+            // Telegram::sendMessage([
+            //     'chat_id' => '5867788042',
+            //     'text' => "Hi, I'm your chat bot",
+            // ]);
+
             $employees = Employee::where('organization_id', auth()->user()->organization_id);
             return DataTables::of($employees)
             ->addColumn('department', function($row){
@@ -32,6 +40,8 @@ class EmployeeController extends Controller
         }
         return view('employees.index');
     }
+
+    
 
     // Store a newly created resource in storage & return json response
     public function store(Request $request)
@@ -100,6 +110,22 @@ class EmployeeController extends Controller
                 'message' => "Data not found.",
             ]);
         }
+    }
+
+    public function show(Request $request, $id)
+    {
+        $employee = Employee::findOrFail($id);
+        if($request->ajax()){
+            $attendances = Attendance::whereHas('employee', function ($query) use($employee) {
+                $query->where('organization_id', auth()->user()->organization_id)
+                    ->where('employee_id', $employee->id);
+            })->orderBy('attendance_date', 'desc');
+            
+            return DataTables::of($attendances)
+                ->addIndexColumn()
+                ->make(true);
+        }
+        return view('employees.show', compact('employee'));
     }
 
     //Update the specified resource in storage & return json response

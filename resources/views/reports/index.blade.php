@@ -1,5 +1,5 @@
 @extends('layouts.datatable')
-@section('title', 'Create Appointment')
+@section('title', 'Generate Report')
 
 @section('content')
 <form autocomplete=off method="GET" action="{{ route('reports.submit') }}" target="_blank">
@@ -36,7 +36,7 @@
                                             <option value="May">May</option>
                                             <option value="June">June</option>
                                             <option value="July">July</option>
-                                            <option value="Augast">Augast</option>
+                                            <option value="August">August</option>
                                             <option value="September">September</option>
                                             <option value="October">October</option>
                                             <option value="November">November</option>

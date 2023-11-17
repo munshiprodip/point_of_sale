@@ -6,6 +6,8 @@ Route::get('/organizations/find/{id}', 'OrganizationController@findById')->name(
 Route::patch('/organizations/update/{id}', 'OrganizationController@update')->name('organizations.update'); // Modify
 Route::get('/organizations/change_status/{id}', 'OrganizationController@changeStatus')->name('organizations.change_status'); // Modify
 Route::delete('/organizations/delete/{id}', 'OrganizationController@destroy')->name('organizations.destroy'); // Delete
+Route::get('/organizations/settings', 'OrganizationController@settings')->name('organizations.settings'); // Read
+Route::post('/organizations/settings/save', 'OrganizationController@settingsSave')->name('organizations.settings.save'); // Read
 
 // departments routes
 Route::get('/departments', 'DepartmentController@index')->name('departments'); // Read
@@ -30,13 +32,23 @@ Route::get('/employees/find/{id}', 'EmployeeController@findById')->name('employe
 Route::patch('/employees/update/{id}', 'EmployeeController@update')->name('employees.update'); // Modify
 Route::get('/employees/change_status/{id}', 'EmployeeController@changeStatus')->name('employees.change_status'); // Modify
 Route::delete('/employees/delete/{id}', 'EmployeeController@destroy')->name('employees.destroy'); // Delete
+Route::get('/employees/view/{id}', 'EmployeeController@show')->name('employees.show'); // Modify
 
 // attendances routes 
-Route::get('/attendances', 'AttendanceController@index')->name('attendances'); // Read
+Route::get('/attendances/todays/late_ins', 'AttendanceController@lateIn')->name('attendances.late_ins'); // Read
 Route::get('/attendances/logs', 'AttendanceController@attendancelogs')->name('attendances.attendancelogs'); // Read
+Route::get('/attendances/view', 'AttendanceController@viewAttendance')->name('attendances.view'); // Read
 
 
 // reports routes 
 Route::get('/reports/index', 'ReportController@index')->name('reports.index');
 Route::get('/reports/submit', 'ReportController@generateReport')->name('reports.submit');
+Route::get('/reports/submit2', 'ReportController@generateReport2')->name('reports.submit2');
 Route::get('/reports/daily_attendances', 'ReportController@dailyAttendance')->name('reports.daily_attendances');
+
+
+// reports routes new 
+Route::get('/reports/daily_attendance_form', 'ReportController@dailyAttendanceForm')->name('reports.daily_attendance_form');
+Route::get('/reports/daily_attendance_report', 'ReportController@generateDailyAttendanceReport')->name('reports.daily_attendance_report');
+Route::get('/reports/monthly_attendance_form', 'ReportController@monthlyAttendanceForm')->name('reports.monthly_attendance_form');
+Route::get('/reports/monthly_attendance_report', 'ReportController@generateMonthlyAttendanceReport')->name('reports.monthly_attendance_report');

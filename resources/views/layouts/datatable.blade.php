@@ -65,11 +65,10 @@
         <div class="app-brand demo ">
             <a href="{{ route('dashboard') }}" class="app-brand-link">
                 <span class="app-brand-logo demo">
-                    <img width="32" height="22" src="{{ asset('/images/logo/app-logo.png') }}" alt="">
+                    <img width="32" height="22" src="{{ asset('/images/logo/').'/'.auth()->user()->organization->logo }}" alt="">
                 </span>
                 <span class="app-brand-text demo menu-text fw-bold">AMS</span>
             </a>
-
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                 <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
                 <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
@@ -82,7 +81,7 @@
     
         <ul class="menu-inner py-1">
             <!-- Dashboards -->
-            <li class="menu-item">
+            <li class="menu-item {{ Route::currentRouteNamed('dashboard') ?  'active' : '' }}">
                 <a href="{{route('dashboard')}}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-dashboard"></i>
                     <div>Dashboard</div>
@@ -125,24 +124,30 @@
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">SETTINGS & OTHERS</span>
             </li>
-
+            @can('Organization Setting')
             <li class="menu-item {{ Route::currentRouteNamed('organizations') ?  'active' : '' }}">
                 <a href="{{ route('organizations') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <i class="menu-icon tf-icons ti ti-building-bank"></i>
                     <div>Organizations</div>
                 </a>
             </li>
-
+            @endcan
+            <li class="menu-item {{ Route::currentRouteNamed('organizations.settings') ?  'active' : '' }}">
+                <a href="{{ route('organizations.settings') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-building-bank"></i>
+                    <div>Organization Settings</div>
+                </a>
+            </li>
             <li class="menu-item {{ Route::currentRouteNamed('departments') ?  'active' : '' }}">
                 <a href="{{ route('departments') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <i class="menu-icon tf-icons ti ti-list"></i>
                     <div>Departments</div>
                 </a>
             </li>
 
             <li class="menu-item {{ Route::currentRouteNamed('schedules') ?  'active' : '' }}">
                 <a href="{{ route('schedules') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <i class="menu-icon tf-icons ti ti-alarm"></i>
                     <div>Schedules</div>
                 </a>
             </li>
@@ -151,7 +156,7 @@
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">ATTENDANCE MANAGEMENT</span>
             </li>
-
+            
             <li class="menu-item {{ Route::currentRouteNamed('employees') ?  'active' : '' }}">
                 <a href="{{ route('employees') }}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-users"></i>
@@ -159,32 +164,45 @@
                 </a>
             </li>
 
-            <li class="menu-item {{ Route::currentRouteNamed('attendances.attendancelogs') ?  'active' : '' }}">
-                <a href="{{ route('attendances.attendancelogs') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-users"></i>
-                    <div>Attendances Log</div>
+            <li class="menu-item {{ Route::currentRouteNamed('attendances.view') ?  'active' : '' }}">
+                <a href="{{ route('attendances.view') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-checkup-list"></i>
+                    <div>View Attendance</div>
                 </a>
             </li>
 
-            <li class="menu-item {{ Route::currentRouteNamed('attendances') ?  'active' : '' }}">
-                <a href="{{ route('attendances') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-users"></i>
-                    <div>Todays Attendances</div>
+            <li class="menu-item {{ Route::currentRouteNamed('attendances.attendancelogs') ?  'active' : '' }}">
+                <a href="{{ route('attendances.attendancelogs') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-notes"></i>
+                    <div>Attendances Log</div>
                 </a>
             </li>
 
 
             <!-- Profile setup Area -->
             <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">PRSONALIZATION</span>
+                <span class="menu-header-text">REPORTS</span>
             </li>
 
-            <li class="menu-item {{ Route::currentRouteNamed('reports.index') ?  'active' : '' }}">
+            <!-- <li class="menu-item {{ Route::currentRouteNamed('reports.index') ?  'active' : '' }}">
                 <a href="{{ route('reports.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-users"></i>
-                    <div>Generate Report</div>
+                    <div>Old Report</div>
+                </a>
+            </li> -->
+            <li class="menu-item {{ Route::currentRouteNamed('reports.daily_attendance_form') ?  'active' : '' }}">
+                <a href="{{ route('reports.daily_attendance_form') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-checklist"></i>
+                    <div>Daily Attendance</div>
                 </a>
             </li>
+            <li class="menu-item {{ Route::currentRouteNamed('reports.monthly_attendance_form') ?  'active' : '' }}">
+                <a href="{{ route('reports.monthly_attendance_form') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-clipboard-list"></i>
+                    <div>Monthly Attendance</div>
+                </a>
+            </li>
+            
 
             <!-- Profile setup Area -->
             <li class="menu-header small text-uppercase">
@@ -230,90 +248,6 @@
             
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
-
-                    <!-- Quick links  -->
-                    <!-- <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
-                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                            <i class='ti ti-layout-grid-add ti-md'></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end py-0">
-                            <div class="dropdown-menu-header border-bottom">
-                                <div class="dropdown-header d-flex align-items-center py-3">
-                                    <h5 class="text-body mb-0 me-auto">Shortcuts</h5>
-                                    <a href="javascript:void(0)" class="dropdown-shortcuts-add text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Add shortcuts"><i class="ti ti-sm ti-apps"></i></a>
-                                </div>
-                            </div>
-                        <div class="dropdown-shortcuts-list scrollable-container">
-                            <div class="row row-bordered overflow-visible g-0">
-                                <div class="dropdown-shortcuts-item col">
-                                    <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                        <i class="ti ti-calendar fs-4"></i>
-                                    </span>
-                                    <a href="#" class="stretched-link">Calendar</a>
-                                    <small class="text-muted mb-0">Appointments</small>
-                                </div>
-                                <div class="dropdown-shortcuts-item col">
-                                    <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                        <i class="ti ti-file-invoice fs-4"></i>
-                                    </span>
-                                    <a href="#" class="stretched-link">Invoice App</a>
-                                    <small class="text-muted mb-0">Manage Accounts</small>
-                                </div>
-                            </div>
-                            <div class="row row-bordered overflow-visible g-0">
-                                <div class="dropdown-shortcuts-item col">
-                                    <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                        <i class="ti ti-users fs-4"></i>
-                                    </span>
-                                    <a href="#" class="stretched-link">User App</a>
-                                    <small class="text-muted mb-0">Manage Users</small>
-                                </div>
-                                <div class="dropdown-shortcuts-item col">
-                                    <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                        <i class="ti ti-lock fs-4"></i>
-                                    </span>
-                                    <a href="#" class="stretched-link">Role Management</a>
-                                    <small class="text-muted mb-0">Permission</small>
-                                </div>
-                            </div>
-                            <div class="row row-bordered overflow-visible g-0">
-                                <div class="dropdown-shortcuts-item col">
-                                    <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                        <i class="ti ti-chart-bar fs-4"></i>
-                                    </span>
-                                    <a href="#" class="stretched-link">Dashboard</a>
-                                    <small class="text-muted mb-0">User Profile</small>
-                                </div>
-                                <div class="dropdown-shortcuts-item col">
-                                    <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                        <i class="ti ti-settings fs-4"></i>
-                                    </span>
-                                    <a href="#" class="stretched-link">Setting</a>
-                                    <small class="text-muted mb-0">Account Settings</small>
-                                </div>
-                            </div>
-                            <div class="row row-bordered overflow-visible g-0">
-                                <div class="dropdown-shortcuts-item col">
-                                    <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                        <i class="ti ti-help fs-4"></i>
-                                    </span>
-                                    <a href="#" class="stretched-link">Help Center</a>
-                                    <small class="text-muted mb-0">FAQs & Articles</small>
-                                </div>
-                                <div class="dropdown-shortcuts-item col">
-                                    <span class="dropdown-shortcuts-icon rounded-circle mb-2">
-                                        <i class="ti ti-square fs-4"></i>
-                                    </span>
-                                    <a href="#" class="stretched-link">Modals</a>
-                                    <small class="text-muted mb-0">Useful Popups</small>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </li> -->
-                    <!-- Quick links -->
-
-
                     <!-- User -->
                     <li class="nav-item navbar-dropdown dropdown-user dropdown">
                         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -372,7 +306,7 @@
         <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-
+                <h4 class="py-3 mb-4"> <a href="{{ route('dashboard') }}"><span class="text-muted fw-light">Home /</span></a> @yield('title')</h4>
                 @yield('content')
 
             </div>
@@ -383,10 +317,10 @@
                 <div class="container-xxl">
                     <div class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
                     <div>
-                        © 2023, Developed by <a href="https://facebook.com/munshiprodip/" target="_blank" class="fw-semibold">KYAMCH IT</a>
+                        © 2023, Developed by <a href="#" target="_blank" class="fw-semibold">KYAMCH IT</a>
                     </div>
                     <div>        
-                        <a href="#" class="footer-link d-none d-sm-inline-block">Support</a>
+                        <a href="#" class="footer-link d-none d-sm-inline-block">Smart Attendance Management System</a>
                     </div>
                     </div>
                 </div>

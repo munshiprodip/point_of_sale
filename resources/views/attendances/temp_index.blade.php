@@ -8,7 +8,7 @@
             <table class="table" id="data_table">
                 <thead>
                     <tr>
-                        <th width="20px" >SL</th>
+                        <th width="50px" >BIO. ID</th>
                         <th>NAME</th>
                         <th width="15%" >EMPLOYEE ID</th>
                         <th width="12%" >STATUS</th>
@@ -35,7 +35,7 @@
                         @endphp
                 
                         <tr>
-                            <td>{{ ++$i }}</td>
+                            <td>{{ $employee->id }}</td>
                             <td>{{ $employee->name }}</td>
                             <td>{{ $employee->employment_id }}</td>
                             <td><span class="badge me-1 bg-label-{{ $attendance->attendance_status? 'primary': 'danger' }}" >{{ $attendance->attendance_status? "Present": "Absent" }}</span></td>

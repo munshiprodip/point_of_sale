@@ -10,6 +10,7 @@
                     <tr>
                         <th>SL</th>
                         <th>NAME</th>
+                        <th>FLEX TIME</th>
                         <th>STATUS</th>
                         <th>OPTIONS</th>
                     </tr>
@@ -31,6 +32,10 @@
                         <label class="form-label">Name</label>
                         <input name="name" type="text" class="form-control" placeholder="Name"/>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">Flex Time</label>
+                        <input name="flex_time" type="number" class="form-control" placeholder="0"/>
+                    </div>
                     <button type="submit" class="btn btn-outline-primary">Save</button>
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Cancel</button>
                 </form>
@@ -49,6 +54,10 @@
                     <div class="mb-3">
                         <label class="form-label">Name</label>
                         <input name="name" type="text" class="form-control" placeholder="Name"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Flex Time</label>
+                        <input name="flex_time" type="number" class="form-control" placeholder="0"/>
                     </div>
                     <input name="id" id="edit_data_id" type="hidden" />
                     <button type="submit" class="btn btn-outline-primary">Send</button>
@@ -77,6 +86,10 @@
                 columns: [
                     {data: 'DT_RowIndex', searchable: false, orderable: false},
                     { data: "name" },
+                    { data: (row) => {
+                            return `${row.flex_time} Minute`;
+                        }
+                    },
                     { data: (row) => {
                             return `<span style="cursor:pointer;" class="badge me-1 bg-label-${row.status===1? 'danger':'info'}" onclick="changeStatus(${row.id})" > ${row.status===1? 'Activated':'Deactivated'}</span>`;
                         }
@@ -138,6 +151,7 @@
                         edit_data_form.trigger("reset");
                         edit_data_canvas.offcanvas('show');
                         edit_data_form.find("input[name='name']").val(res.data.name);
+                        edit_data_form.find("input[name='flex_time']").val(res.data.flex_time);
                         edit_data_form.find("#edit_data_id").val(res.data.id);
                     } else {
                         Swal.fire({

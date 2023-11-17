@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('/attendances/uploads', 'App\Http\Controllers\AttendanceController@store'); 
+Route::post('/attendances/uploads/biostar2', 'App\Http\Controllers\AttendanceController@storeLogFromBiostar2');

@@ -9,7 +9,7 @@
                 <h5 class="card-header">Profile Details</h5>
                 <form id="formAccountSettings" method="POST" enctype="multipart/form-data">
                     <!-- Account -->
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                         <div class="d-flex align-items-start align-items-sm-center gap-4">
                             <img src="{{ asset('avaters').'/'.auth()->user()->avater}}" alt="user-avatar" class="d-block w-px-100 h-px-100 rounded" id="uploadedAvatar" />
                             <div class="button-wrapper">
@@ -26,7 +26,7 @@
                                 <div class="text-muted">Allowed JPG, GIF or PNG. Max size of 800K</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <hr class="my-0">
                     <div class="card-body">
                         <div class="row">

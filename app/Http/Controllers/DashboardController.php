@@ -5,31 +5,72 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Attendance;
-
+use App\Models\DailyAttendance;
+use DB;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        $total_employee_count       = Employee::where('organization_id', auth()->user()->organization_id)->count();
+        $active_employee_count      = Employee::where('status', 1)->where('organization_id', auth()->user()->organization_id)->count();
+        $disabled_employee_count    = Employee::where('status', 0)->where('organization_id', auth()->user()->organization_id)->count();
+        $day_off_employee_count     = Employee::where('status', 1)->where('organization_id', auth()->user()->organization_id)
+            ->whereHas('schedule', function($query){
+                $dayOfWeek = lcfirst(Carbon::now()->format('l'));
+                $query->where($dayOfWeek, 1);
+            })->count();
 
-        $total_employee_count     = Employee::where('organization_id', auth()->user()->organization_id)->count();
-        $todays_present_count    = Employee::whereHas('attendances', function ($query) {
-                                        $query->whereDate('attendance_date', Carbon::now())->where('attendance_type', 0);
-                                    })->count();
-        $todays_absent_count = $total_employee_count-$todays_present_count;
+        $present_count  = DailyAttendance::whereDate('date', Carbon::now())
+            ->where('is_present', 1)
+            ->whereHas('employee', function($query){
+                $query->where('organization_id' , auth()->user()->organization_id);
+            })->count();
 
-        $department_count    = auth()->user()->organization->departments->count();
-        $attendance_log_count    = Attendance::whereDate('attendance_date', Carbon::now())->count();
-        // $monthly_appointments_count   = Appointment::where('created_by', auth()->id())->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->startOfMonth()->addMonth()])->count();
+        $absent_count  = DailyAttendance::whereDate('date', Carbon::now())
+            ->where('is_present', 0)
+            ->where('is_day_off', 0)
+            ->whereHas('employee', function($query){
+                $query->where('organization_id' , auth()->user()->organization_id);
+            })->count();
 
-        // $total_appointments_fee     = Appointment::where('created_by', auth()->id())->sum('appointment_fee');
-        // $todays_appointments_fee    = Appointment::where('created_by', auth()->id())->whereDate('created_at', Carbon::today())->sum('appointment_fee');
-        // $weekly_appointments_fee    = Appointment::where('created_by', auth()->id())->whereBetween('created_at', [Carbon::now()->subDays(7), Carbon::now()])->sum('appointment_fee');
-        // $monthly_appointments_fee   = Appointment::where('created_by', auth()->id())->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->startOfMonth()->addMonth()])->sum('appointment_fee');
-        
-        //return view('dashboard',  compact('total_appointments_count', 'todays_appointments_count', 'weekly_appointments_count', 'monthly_appointments_count', 'total_appointments_fee', 'todays_appointments_fee', 'weekly_appointments_fee', 'monthly_appointments_fee'));
-        
-        return view('dashboard', compact('total_employee_count', 'todays_present_count', 'todays_absent_count', 'department_count', 'attendance_log_count'));
+        $late_in_count  = DailyAttendance::whereDate('date', Carbon::now())
+            ->where('is_present', 1)
+            ->where('is_day_off', 0)
+            ->whereHas('employee', function($query){
+                $query->where('organization_id' , auth()->user()->organization_id);
+            })
+            ->where(function ($query) {
+                $query->where(
+                    DB::raw('TIMESTAMP(in_time)'), 
+                    '>', 
+                    DB::raw('TIMESTAMP(schedule_in + INTERVAL ' . auth()->user()->organization->flex_time . ' MINUTE)')
+                );
+            })
+            ->count();
+
+        $day_off_count  = DailyAttendance::whereDate('date', Carbon::now())
+            ->where('is_day_off', 1)
+            ->whereHas('employee', function($query){
+                $query->where('organization_id' , auth()->user()->organization_id);
+            })->count();
+
+        $log_count    = Attendance::whereDate('attendance_date', Carbon::now())->whereHas('employee', function ($query) {
+                $query->where('organization_id', auth()->user()->organization_id);
+            })->count();
+
+        return view('dashboard', compact(
+            'total_employee_count', 
+            'active_employee_count', 
+            'disabled_employee_count', 
+            'day_off_employee_count', 
+
+            'present_count', 
+            'absent_count', 
+            'late_in_count', 
+            'day_off_count', 
+            'log_count'
+        ));
     }
 }

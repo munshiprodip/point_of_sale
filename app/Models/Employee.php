@@ -42,6 +42,10 @@ class Employee extends Model
     {
         return $this->hasMany(Attendance::class);
     }
+    public function daily_attendances()
+    {
+        return $this->hasMany(DailyAttendance::class);
+    }
 
     public function createdBy()
     {

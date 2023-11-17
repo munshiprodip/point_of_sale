@@ -92,7 +92,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">DEPARTMENT</label>
-                        <select name="name"  class="form-control" >
+                        <select name="department_id"  class="form-control" >
                             <option value="">Select one</option>
                             @foreach(auth()->user()->organization->departments as $row)
                                 <option value="{{ $row->id }}">{{ $row->name }}</option>
@@ -142,7 +142,10 @@
                 serverSide:true,
                 columns: [
                     {data: 'DT_RowIndex', searchable: false, orderable: false},
-                    { data: "id" },
+                    { data: (row) => {
+                            return `<a class="dropdown-item" href="{{route('employees.show', ':id')}}" > ${row.id}</a>`.replace(':id', row.id);
+                        } 
+                    },
                     { data: "name" },
                     { data: "employment_id" },
                     { data: "department" },
@@ -171,7 +174,7 @@
                 columnDefs: [
                     { 
                         'searchable'    : false, 
-                        'targets'       : [7,8] 
+                        'targets'       : [1,7,8] 
                     },
                 ],
                 dom: '<"row mx-1"<"col-sm-12 col-md-3" l><"col-sm-12 col-md-9"<"dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-md-end justify-content-center flex-wrap me-1"<"me-3"f>B>>>t<"row mx-2"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',

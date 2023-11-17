@@ -108,19 +108,7 @@
         <!-- Login -->
         <div class="d-flex col-12 col-lg-5 align-items-center p-sm-5 p-4">
           <div class="w-px-400 mx-auto">
-            <!-- Logo -->
-            <div class="app-brand mb-4">
-              <a href="index.html" class="app-brand-link gap-2">
-                <span class="app-brand-logo demo">
-                <img width="32" height="22" src="{{ asset('/images/logo/app-logo.png') }}" alt="">
-                </span>
-              </a>
-            </div>
-            <!-- /Logo -->
-
             @yield('content')
-
-            
           </div>
         </div>
         <!-- /Login -->

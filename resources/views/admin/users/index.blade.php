@@ -124,7 +124,7 @@
                 serverSide:true,
                 columns: [
                     { data: "name" },
-                    { data: "name" },
+                    { data: "email" },
                     { data: (row)=> {
                             if(row.roles.length){
                                 let td = '';

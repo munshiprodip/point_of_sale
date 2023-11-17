@@ -53,31 +53,28 @@
                 <th width="12%" >LATE IN</th>
                 <th width="12%" >EARLY LEAVE</th>
             </tr>
-            @foreach($employees as $employee)
-                @php
-                    if(count($employee->dateWiseAttendance)){
-                        $attendance = $employee->dateWiseAttendance[0];
-                    }else{
-                        $attendance = (object) [
-                                'attendance_status' => false,
-                                'entry_time' => false,
-                                'exit_time' => false,
-                                'late_entry_time' => false,
-                                'erly_exit_time' => false,
-                            ];
-                    }
-                @endphp
-               
-                <tr>
-                    <td>{{ ++$i }}</td>
-                    <td>{{ $employee->name }}</td>
-                    <td>{{ $employee->employment_id }}</td>
-                    <td style="color:{{ $attendance->attendance_status? '#000': 'red' }};">{{ $attendance->attendance_status? "Present": "Absent" }}</td>
-                    <td>{{ $attendance->entry_time }}</td>
-                    <td>{{ $attendance->exit_time }}</td>
-                    <td>{{ $attendance->late_entry_time }}</td>
-                    <td>{{ $attendance->erly_exit_time }}</td>
-                </tr>
+            @foreach($daily_attendances as $attendance)
+                @if($attendance->is_day_off)
+                    <tr>
+                        <td>{{ ++$i }}</td>
+                        <td>{{ $attendance->employee->name }}</td>
+                        <td>{{ $attendance->employee->employment_id }}</td>
+                        <td style="color:green">"Day off"</td>
+                        <td colspan="4" >Weekly holyday</td>
+                    </tr>
+                @else
+                    <tr>
+                        <td>{{ ++$i }}</td>
+                        <td>{{ $attendance->employee->name }}</td>
+                        <td>{{ $attendance->employee->employment_id }}</td>
+                        <td style="color:{{ $attendance->is_present? '#000': 'red' }};">{{ $attendance->is_present? "Present": "Absent" }}</td>
+                        <td>{{ $attendance->in_time }}</td>
+                        <td>{{ $attendance->out_time }}</td>
+                        <td>{{ $attendance->schedule_in }}</td>
+                        <td>{{ $attendance->schedule_out }}</td>
+                    </tr>
+                @endif
+                
             @endforeach
         </table>
     </main>
