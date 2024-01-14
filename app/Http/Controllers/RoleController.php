@@ -22,7 +22,7 @@ class RoleController extends Controller
 
     public function index(Request $request)
     {
-        $roles = Role::with('users');
+        $roles = Role::with('users')->where('name', '!=', 'Super Admin')->get();
         if($request->ajax()){
             return DataTables::of($roles)->make(true);
         }

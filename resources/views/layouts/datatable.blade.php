@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title> @yield('title') | Attendance Management System</title>
+    <title> @yield('title') | Point of Sale</title>
    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}" />
@@ -38,7 +38,8 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/flatpickr/flatpickr.css') }}" />
-
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.45.0/tabler-icons.min.css">
     
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css') }}" />
 
@@ -65,9 +66,9 @@
         <div class="app-brand demo ">
             <a href="{{ route('dashboard') }}" class="app-brand-link">
                 <span class="app-brand-logo demo">
-                    <img width="32" height="22" src="{{ asset('/images/logo/').'/'.auth()->user()->organization->logo }}" alt="">
+                    <img width="32" height="22" src="{{ asset('/images/logo/').'/'.'app-logo.png' }}" alt="">
                 </span>
-                <span class="app-brand-text demo menu-text fw-bold">AMS</span>
+                <span class="app-brand-text demo menu-text fw-bold">OPTICS</span>
             </a>
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                 <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
@@ -87,6 +88,14 @@
                     <div>Dashboard</div>
                 </a>
             </li>
+            @can('Shop Settings')
+            <li class="menu-item {{ Route::currentRouteNamed('shops.settings') ?  'active' : '' }}">
+                <a href="{{ route('shops.settings') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-building-bank"></i>
+                    <div>Shop Settings</div>
+                </a>
+            </li>
+            @endcan
             @canany(['Read User','Read Role','Read Permission'])
                 <!-- Admins Area -->
                 <li class="menu-header small text-uppercase">
@@ -120,88 +129,228 @@
 
 
 
-            <!-- Settings Area -->
+
             <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">SETTINGS & OTHERS</span>
+                <span class="menu-header-text">POS MENU</span>
             </li>
-            @can('Organization Setting')
-            <li class="menu-item {{ Route::currentRouteNamed('organizations') ?  'active' : '' }}">
-                <a href="{{ route('organizations') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-building-bank"></i>
-                    <div>Organizations</div>
+            @can('Create Invoices')
+            <li class="menu-item {{ Route::currentRouteNamed('pos') ?  'active' : '' }}">
+                <a href="{{ route('pos') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-device-desktop-analytics"></i>
+                    <div>POS</div>
                 </a>
             </li>
             @endcan
-            <li class="menu-item {{ Route::currentRouteNamed('organizations.settings') ?  'active' : '' }}">
-                <a href="{{ route('organizations.settings') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-building-bank"></i>
-                    <div>Organization Settings</div>
+            @canany(['View Products', 'Create Products'])
+            <li class="menu-item {{ Route::currentRouteNamed('products.*') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-brand-stackoverflow'></i>
+                    <div>Products</div>
                 </a>
+                
+                <ul class="menu-sub">
+                    @can('View Products')
+                    <li class="menu-item {{ Route::currentRouteNamed('products.list') ?  'active' : '' }}">
+                        <a href="{{ route('products.list') }}" class="menu-link">
+                            <div>Product List</div>
+                        </a>
+                    </li>
+                    @endcan
+                    @can('Create Products')
+                    <li class="menu-item {{ Route::currentRouteNamed('products.create') ?  'active' : '' }}">
+                        <a href="{{ route('products.create') }}" class="menu-link">
+                            <div>Add New Product</div>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
             </li>
-            <li class="menu-item {{ Route::currentRouteNamed('departments') ?  'active' : '' }}">
-                <a href="{{ route('departments') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-list"></i>
-                    <div>Departments</div>
+            @endcanany
+            @canany(['View Requisitions', 'Create Requisitions'])
+            <li class="menu-item {{ Route::currentRouteNamed('requisitions.*') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-trolley'></i>
+                    <div>Requisitions</div>
                 </a>
+                <ul class="menu-sub">
+                    @can('View Requisitions')
+                    <li class="menu-item {{ Route::currentRouteNamed('requisitions.list') ?  'active' : '' }}">
+                        <a href="{{ route('requisitions.list') }}" class="menu-link">
+                            <div>Requisitions List</div>
+                        </a>
+                    </li>
+                    @endcan
+                    @can('Create Requisitions')
+                    <li class="menu-item {{ Route::currentRouteNamed('requisitions') ?  'active' : '' }}">
+                        <a href="{{ route('requisitions.create') }}" class="menu-link">
+                            <div>New Requisition</div>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
             </li>
-
-            <li class="menu-item {{ Route::currentRouteNamed('schedules') ?  'active' : '' }}">
-                <a href="{{ route('schedules') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-alarm"></i>
-                    <div>Schedules</div>
+            @endcanany
+            @canany(['View Purchases', 'Create Purchases'])
+            <li class="menu-item {{ Route::currentRouteNamed('purchases.*') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-shopping-cart-plus'></i>
+                    <div>Purchases</div>
                 </a>
-            </li>
+                <ul class="menu-sub">
+                    @can('View Purchases')
+                    <li class="menu-item {{ Route::currentRouteNamed('purchases.list') ?  'active' : '' }}">
+                        <a href="{{ route('purchases.list') }}" class="menu-link">
+                            <div>Purchases List</div>
+                        </a>
+                    </li>
+                    @endcan
+                    @can('Create Purchases')
+                    <li class="menu-item {{ Route::currentRouteNamed('purchases.create') ?  'active' : '' }}">
+                        <a href="{{ route('purchases.create') }}" class="menu-link">
+                            <div>New Purchases</div>
+                        </a>
+                    </li>
+                    @endcan
 
-            <!-- User Area -->
-            <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">ATTENDANCE MANAGEMENT</span>
+                </ul>
             </li>
-            
-            <li class="menu-item {{ Route::currentRouteNamed('employees') ?  'active' : '' }}">
-                <a href="{{ route('employees') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-users"></i>
-                    <div>Employees</div>
+            @endcanany
+            @can('View Invoices')
+            <li class="menu-item {{ Route::currentRouteNamed('invoices.*') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-receipt-2'></i>
+                    <div>Invoices</div>
                 </a>
+                <ul class="menu-sub">
+                    @can('View Invoices')
+                    <li class="menu-item {{ Route::currentRouteNamed('invoices.list') ?  'active' : '' }}">
+                        <a href="{{ route('invoices.list') }}" class="menu-link">
+                            <div>Invoice List</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Route::currentRouteNamed('invoices.due_list') ?  'active' : '' }}">
+                        <a href="{{ route('invoices.due_list') }}" class="menu-link">
+                            <div>Due Invoice List</div>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
             </li>
-
-            <li class="menu-item {{ Route::currentRouteNamed('attendances.view') ?  'active' : '' }}">
-                <a href="{{ route('attendances.view') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-checkup-list"></i>
-                    <div>View Attendance</div>
+            @endcan
+            @can('View Payments')
+            <li class="menu-item {{ Route::currentRouteNamed('payments.*') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-currency-dollar'></i>
+                    <div>Payments</div>
                 </a>
+                <ul class="menu-sub">
+                    @can('View Payments')
+                    <li class="menu-item {{ Route::currentRouteNamed('payments.list') ?  'active' : '' }}">
+                        <a href="{{ route('payments.list') }}" class="menu-link">
+                            <div>Payments</div>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
             </li>
-
-            <li class="menu-item {{ Route::currentRouteNamed('attendances.attendancelogs') ?  'active' : '' }}">
-                <a href="{{ route('attendances.attendancelogs') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-notes"></i>
-                    <div>Attendances Log</div>
+            @endcan
+            @canany(['View Deposits History', 'Create Cash Deposite', 'Cash Receive'])
+            <li class="menu-item {{ Route::currentRouteNamed('cash_deposites.*') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-chart-histogram'></i>
+                    <div>Accounts</div>
                 </a>
+                <ul class="menu-sub">
+                    @canany(['Create Cash Deposite', 'Cash Receive'])
+                    <li class="menu-item {{ Route::currentRouteNamed('cash_deposites.list') ?  'active' : '' }}">
+                        <a href="{{ route('cash_deposites.list') }}" class="menu-link">
+                            <div>Cash Handover</div>
+                        </a>
+                    </li>
+                    @endcanany
+                    @can('View Deposits History')
+                    <li class="menu-item {{ Route::currentRouteNamed('cash_deposites.verified') ?  'active' : '' }}">
+                        <a href="{{ route('cash_deposites.verified') }}" class="menu-link">
+                            <div>Handover History</div>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
             </li>
+            @endcanany
+
+            @canany(['View Damages', 'Create Damages'])
+            <li class="menu-item {{ Route::currentRouteNamed('damages.*') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-shopping-cart-off'></i>
+                    <div>Damage</div>
+                </a>
+                <ul class="menu-sub">
+                    @canany(['Create Damages', 'Verify Damages'])
+                    <li class="menu-item {{ Route::currentRouteNamed('damages.list') ?  'active' : '' }}">
+                        <a href="{{ route('damages.list') }}" class="menu-link">
+                            <div>Damages</div>
+                        </a>
+                    </li>
+                    @endcanany
+                    @can('View Damages')
+                    <li class="menu-item {{ Route::currentRouteNamed('damages.verified') ?  'active' : '' }}">
+                        <a href="{{ route('damages.verified') }}" class="menu-link">
+                            <div>Damaged List</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Route::currentRouteNamed('damages.canceled') ?  'active' : '' }}">
+                        <a href="{{ route('damages.canceled') }}" class="menu-link">
+                            <div>Canceled Request</div>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
+            @endcanany
 
 
-            <!-- Profile setup Area -->
+
+
+
             <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">REPORTS</span>
             </li>
+            <li class="menu-item {{ Route::currentRouteNamed('reports.*') ?  'active open' : '' }} ">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons ti ti-file-type-pdf'></i>
+                    <div>Generate Report</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ Route::currentRouteNamed('reports.stock_form') ?  'active' : '' }}">
+                        <a href="{{ route('reports.stock_form') }}" class="menu-link">
+                            <div>Stock Report</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Route::currentRouteNamed('reports.purchase_form') ?  'active' : '' }}">
+                        <a href="{{ route('reports.purchase_form') }}" class="menu-link">
+                            <div>Purchases Report</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Route::currentRouteNamed('reports.sell_form') ?  'active' : '' }}">
+                        <a href="{{ route('reports.sell_form') }}" class="menu-link">
+                            <div>Sales Report</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Route::currentRouteNamed('reports.damage_form') ?  'active' : '' }}">
+                        <a href="{{ route('reports.damage_form') }}" class="menu-link">
+                            <div>Damages Report</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Route::currentRouteNamed('reports.cash_deposite_form') ?  'active' : '' }}">
+                        <a href="{{ route('reports.cash_deposite_form') }}" class="menu-link">
+                            <div>Cash Handover Report</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
-            <!-- <li class="menu-item {{ Route::currentRouteNamed('reports.index') ?  'active' : '' }}">
-                <a href="{{ route('reports.index') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-users"></i>
-                    <div>Old Report</div>
-                </a>
-            </li> -->
-            <li class="menu-item {{ Route::currentRouteNamed('reports.daily_attendance_form') ?  'active' : '' }}">
-                <a href="{{ route('reports.daily_attendance_form') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-checklist"></i>
-                    <div>Daily Attendance</div>
-                </a>
-            </li>
-            <li class="menu-item {{ Route::currentRouteNamed('reports.monthly_attendance_form') ?  'active' : '' }}">
-                <a href="{{ route('reports.monthly_attendance_form') }}" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-clipboard-list"></i>
-                    <div>Monthly Attendance</div>
-                </a>
-            </li>
+         
             
 
             <!-- Profile setup Area -->
@@ -247,6 +396,15 @@
             </div>
             
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                <div class="navbar-nav align-items-center">
+                    <div class="nav-item navbar-search-wrapper mb-0">
+                        <a class="nav-item nav-link search-toggler d-flex align-items-center px-0" href="#">Your balance 
+                        <i class="ti ti-currency-taka ti-md me-2"></i>
+                        <span class="d-none d-md-inline-block text-muted">{{ auth()->user()->cashinhand }}</span>
+                        </a>
+                    </div>
+                </div>
+
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
                     <!-- User -->
                     <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -320,7 +478,7 @@
                         © 2023, Developed by <a href="#" target="_blank" class="fw-semibold">KYAMCH IT</a>
                     </div>
                     <div>        
-                        <a href="#" class="footer-link d-none d-sm-inline-block">Smart Attendance Management System</a>
+                        <a href="#" class="footer-link d-none d-sm-inline-block">Point of sale</a>
                     </div>
                     </div>
                 </div>

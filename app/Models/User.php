@@ -32,7 +32,7 @@ class User extends Authenticatable
         'bloodgroup',
         'present_address',
         'permanent_address',
-        'organization_id',
+        'shop_id',
     ];
 
     /**
@@ -55,8 +55,51 @@ class User extends Authenticatable
     ];
 
 
-    public function organization()
+    public function shop()
     {
-        return $this->belongsTo(Organization::class, 'organization_id');
+        return $this->belongsTo(Shop::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class, 'received_by');
+    }
+    public function cashDeposites()
+    {
+        return $this->hasMany(CashDeposite::class, 'created_by');
+    }
+    public function cashReceived()
+    {
+        return $this->hasMany(CashDeposite::class, 'received_by');
+    }
+
+    // Get sum of total payment collection of user {{ user()->sell  }}
+    public function getSellAttribute()
+    {
+        return $this->payments()->sum('amount');
+    }
+
+    // Get sum of succesfully deposited amount of user {{ user()->deposites  }}
+    public function getDepositeAttribute()
+    {
+        return $this->cashDeposites()->where('status', 1)->sum('amount');
+    }
+
+    // Get total collection - successfully deposites {{ user()->cash  }}
+    public function getCashAttribute()
+    {
+        return ($this->getSellAttribute() - $this->getDepositeAttribute());
+    }
+
+    // Get sum of succesfully received amount from other user {{ user()->received  }}
+    public function getReceivedAttribute()
+    {
+        return $this->cashReceived()->where('status', 1)->sum('amount');
+    }
+
+    // Get total collection - successfully deposites + received amount {{ user()->cashinhand  }}
+    public function getCashinhandAttribute()
+    {
+        return $this->getCashAttribute() + $this->getReceivedAttribute();
     }
 }

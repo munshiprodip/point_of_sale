@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
 use App\Models\User;
-use App\Models\Organization;
+use App\Models\Shop;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Hash;
@@ -24,13 +24,13 @@ class UserController extends Controller
     }
     public function index(Request $request)
     {
-        $users = User::with('roles');
+        $users = User::with('roles')->where('id', '!=', auth()->id());
         if($request->ajax()){
             return DataTables::of($users)->make(true);
         }
-        $roles = Role::all();
-        $organizations = Organization::all();
-        return view('admin.users.index', compact('roles', 'organizations'));
+        $roles = Role::where('name', '!=', 'Super Admin')->get();
+        $shops = Shop::all();
+        return view('admin.users.index', compact('roles', 'shops'));
     }
     public function store(Request $request)
     {
@@ -39,7 +39,7 @@ class UserController extends Controller
             'email'         => 'required|unique:users',
             'password'      => 'required',
             'roles'         => 'required',
-            'organization_id' => 'required'
+            'shop_id' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -54,7 +54,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'organization_id' => $request->organization_id,
+            'shop_id' => $request->shop_id,
             'password' => Hash::make($request->password),
         ]);
 
@@ -103,7 +103,7 @@ class UserController extends Controller
             'name'          => 'required',
             'email'         => 'required|unique:users,email,'.$user->id,
             'roles'         => 'required',
-            'organization_id'         => 'required',
+            'shop_id'         => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -117,7 +117,7 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->organization_id = $request->organization_id;
+        $user->shop_id = $request->shop_id;
         $user->save();
 
         $user->syncRoles($request->roles);

@@ -14,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Sign in | Attendance management system</title>
+    <title>Sign in | Point of Sale</title>
    
     <!-- Favicon -->
     <link
@@ -91,7 +91,7 @@
             class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center"
           >
             <img
-              src="{{ asset('assets/img/illustrations/login_bg.png') }}"
+              src="{{ asset('assets/img/illustrations/pos.png') }}"
               alt="auth-login-cover"
               class="img-fluid my-5 auth-illustration"
             />

@@ -28,10 +28,18 @@
                         <div class="offcanvas-body my-auto mx-0 flex-grow-0">
                             <form id="add_data_form" method="POST">
                                 <div class="mb-3 select2-primary">
-                                    <label class="form-label">Organization</label>
-                                    <select name="organization_id" class="select3 form-select" >
-                                        @foreach($organizations as $row)
+                                    <label class="form-label">Shop</label>
+                                    <select name="shop_id" class="select3 form-select" >
+                                        @foreach($shops as $row)
                                             <option value="{{ $row->id }}" >{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3 select2-primary">
+                                    <label class="form-label">Role</label>
+                                    <select name="roles[]" class="select3 form-select" multiple>
+                                        @foreach($roles as $row)
+                                            <option value="{{ $row->name }}" {{ $row->name=='User'? 'selected' : '' }} >{{ $row->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -43,14 +51,6 @@
                                     <label class="form-label">Email</label>
                                     <input name="email" type="text" class="form-control" placeholder="john@example.com"/>
                                     
-                                </div>
-                                <div class="mb-3 select2-primary">
-                                    <label class="form-label">Role</label>
-                                    <select name="roles[]" class="select3 form-select" multiple>
-                                        @foreach($roles as $row)
-                                            <option value="{{ $row->name }}" {{ $row->name=='User'? 'selected' : '' }} >{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Password</label>
@@ -73,10 +73,18 @@
                                 @method('PATCH')
 
                                 <div class="mb-3 select2-primary">
-                                    <label class="form-label">Organization</label>
-                                    <select name="organization_id" class="select3 form-select" >
-                                        @foreach($organizations as $row)
+                                    <label class="form-label">Shop</label>
+                                    <select name="shop_id" class="select3 form-select" >
+                                        @foreach($shops as $row)
                                             <option value="{{ $row->id }}" >{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3 select2-primary">
+                                    <label class="form-label">Role</label>
+                                    <select name="roles[]" class="select3 form-select" multiple>
+                                        @foreach($roles as $row)
+                                            <option value="{{ $row->name }}"  >{{ $row->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -88,14 +96,6 @@
                                     <label class="form-label">Email</label>
                                     <input name="email" type="text" class="form-control" placeholder="john@example.com"/>
                                     
-                                </div>
-                                <div class="mb-3 select2-primary">
-                                    <label class="form-label">Role</label>
-                                    <select name="roles[]" class="select3 form-select" multiple>
-                                        @foreach($roles as $row)
-                                            <option value="{{ $row->name }}"  >{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
                                 <input name="id" id="edit_data_id" type="hidden" />
                                 <button type="submit" class="btn btn-outline-primary">Send</button>
@@ -197,7 +197,7 @@
                         edit_data_form.find("input[name='name']").val(res.user.name);
                         edit_data_form.find("input[name='email']").val(res.user.email);
                         edit_data_form.find("select[name='roles[]']").val(res.roles).trigger('change');
-                        edit_data_form.find("select[name='organization_id']").val(res.user.organization_id).trigger('change');
+                        edit_data_form.find("select[name='shop_id']").val(res.user.shop_id).trigger('change');
                         edit_data_form.find("#edit_data_id").val(res.user.id);
                     } else {
                         Swal.fire({
