@@ -18,7 +18,7 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/kyamch-eye-center/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware(['auth', 'verified'])->name('dashboard');
 
 
 // Route::middleware('auth')->group(function () {
@@ -36,18 +36,17 @@ Route::group(
     [
         'middleware' => ['auth'],
         'namespace' => 'App\Http\Controllers',
-        'prefix'=>'admin'
-    ], 
+        'prefix'=>'kyamch-eye-center/admin',
+    ],
     __DIR__.'/web/superAdminRoutes.php'
 );
-
 
 // Profile setup routes 
 Route::group(
     [
         'middleware' => ['auth'],
         'namespace' => 'App\Http\Controllers',
-        'prefix'=>'settings/profiles'
+        'prefix'=>'kyamch-eye-center/settings/profiles'
     ], 
     __DIR__.'/web/profileSetupRoutes.php'
 );
@@ -59,7 +58,7 @@ Route::group(
     [
         'middleware' => ['auth'],
         'namespace' => 'App\Http\Controllers',
-        'prefix'=>'pos'
+        'prefix'=>'kyamch-eye-center'
     ], 
     __DIR__.'/web/posRoutes.php'
 );

@@ -101,7 +101,7 @@
 @section('script')
     <script>
 
-        let cart_data_table   = $("#cart_data_table");
+        let cart_data_table     = $("#cart_data_table");
         let select_product_form = $('#select_product_form');
         let create_invoice_form = $('#create_invoice_form');
 
@@ -117,6 +117,7 @@
                         processData: false,
                         success: function(data) {      
                             select_product_form.trigger("reset");
+                            $('#product_id').trigger( "change" );
                             cart_data_table.ajax.reload();
                             Swal.fire({
                                 icon: data.type, // "success", "error", "warning", "info", "question"

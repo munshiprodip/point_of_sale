@@ -30,7 +30,9 @@
     <p style="margin:0;">{{ date('d-m-Y h:i:a')}}</p>
 
     <hr>
-    <p style="margin:0; font-weight:bold;">#{{ $order->invoice_uid }}</p>
+    <p style="margin:0; font-weight:bold; ">Invoice ID: {{ $order->invoice_uid }}</p>
+    <!-- <p style="margin:0;">Name: {{ $order->customer_name }}</p> -->
+    <!-- <p style="margin:0;">Mobile: {{ $order->customer_phone }}</p> -->
     <hr>
 
     <table width="100%">

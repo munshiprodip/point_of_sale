@@ -7,7 +7,7 @@
    
     <style>
         @page {
-            margin: 150px 100px;
+            margin: 150px 100px 70px 100px;
             font-size:12px;
         }
 
@@ -21,7 +21,7 @@
 
         footer {
             position: fixed; 
-            bottom: -120px; 
+            bottom: -50px; 
             left: 0px; 
             right: 0px;
             height: 50px; 

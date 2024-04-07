@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    public const HOME = '/kyamch-eye-center/dashboard';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

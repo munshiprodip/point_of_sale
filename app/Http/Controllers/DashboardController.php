@@ -22,7 +22,7 @@ class DashboardController extends Controller
         $total_profit = ($total_sells - $total_purchases);
 
 
-        $users = User::where('shop_id', auth()->user()->shop_id)->get();
+        $users = User::where('shop_id', auth()->user()->shop_id)->role('Salesman')->get();
         $due_lists = Invoice::where('status', 0)->where('shop_id', auth()->user()->shop_id)->get();
 
         return view('dashboard', compact('users', 'due_lists', 'todays_sells', 'this_month_sells', 'this_year_sells',  'total_sells', 'total_purchases', 'total_profit'));

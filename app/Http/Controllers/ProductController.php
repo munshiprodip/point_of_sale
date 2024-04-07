@@ -62,7 +62,7 @@ class ProductController extends Controller
             ]);
         }
 
-        $sku = IdGenerator::generate(['table' => 'products', 'field' => 'sku', 'length' => 10, 'prefix' => date('ym')]);
+        $sku = IdGenerator::generate(['table' => 'products', 'field' => 'sku', 'length' => 6, 'prefix' => 'E']);
 
         $product = Product::create([
             'name'              => $request->name,

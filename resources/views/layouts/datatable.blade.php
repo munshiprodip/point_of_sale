@@ -396,6 +396,7 @@
             </div>
             
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                @hasrole('Salesman')
                 <div class="navbar-nav align-items-center">
                     <div class="nav-item navbar-search-wrapper mb-0">
                         <a class="nav-item nav-link search-toggler d-flex align-items-center px-0" href="#">Your balance 
@@ -404,7 +405,7 @@
                         </a>
                     </div>
                 </div>
-
+                @endhasrole
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
                     <!-- User -->
                     <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -475,7 +476,7 @@
                 <div class="container-xxl">
                     <div class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
                     <div>
-                        © 2023, Developed by <a href="#" target="_blank" class="fw-semibold">KYAMCH IT</a>
+                        Developed by  &copy; <a href="#" target="_blank" class="fw-semibold">KYAMCH IT</a>
                     </div>
                     <div>        
                         <a href="#" class="footer-link d-none d-sm-inline-block">Point of sale</a>
@@ -555,7 +556,6 @@
                 $(".select3").each(function () {
                     var e = $(this);
                     e.wrap('<div class="position-relative"></div>').select2({
-                        tags: true,
                         placeholder: "Select value",
                         dropdownParent: e.parent(),
                     });
